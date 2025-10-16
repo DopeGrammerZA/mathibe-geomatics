@@ -9,11 +9,16 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Loading Spinner -->
+    <div class="loading-spinner">
+        <div class="spinner"></div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
         <div class="container">
@@ -48,33 +53,48 @@
         <div class="hero-carousel">
             <!-- Slide 1 -->
             <div class="carousel-slide active" data-slide="1">
+                <div class="slide-bg"></div>
                 <div class="container">
-                    <div class="slide-content">
-                        <h1>Precision Land Surveying Solutions</h1>
-                        <p>Delivering accurate geomatics and land survey services with cutting-edge technology and unwavering reliability for over 15 years.</p>
-                        <a href="#contact" class="btn btn-primary btn-lg">Request a Quote</a>
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center">
+                            <div class="slide-content">
+                                <h1>Precision Land Surveying Solutions</h1>
+                                <p>Delivering accurate geomatics and land survey services with cutting-edge technology and unwavering reliability for over 15 years.</p>
+                                <a href="#contact" class="btn btn-primary btn-lg">Request a Quote</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <!-- Slide 2 -->
             <div class="carousel-slide" data-slide="2">
+                <div class="slide-bg"></div>
                 <div class="container">
-                    <div class="slide-content">
-                        <h1>Advanced Geomatics Technology</h1>
-                        <p>Utilizing state-of-the-art GPS, LiDAR, and drone technology for precise topographic mapping and spatial data analysis.</p>
-                        <a href="#services" class="btn btn-primary btn-lg">Our Services</a>
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center">
+                            <div class="slide-content">
+                                <h1>Advanced Geomatics Technology</h1>
+                                <p>Utilizing state-of-the-art GPS, LiDAR, and drone technology for precise topographic mapping and spatial data analysis.</p>
+                                <a href="#services" class="btn btn-primary btn-lg">Our Services</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <!-- Slide 3 -->
             <div class="carousel-slide" data-slide="3">
+                <div class="slide-bg"></div>
                 <div class="container">
-                    <div class="slide-content">
-                        <h1>Trusted Surveying Experts</h1>
-                        <p>Your reliable partner for boundary determination, construction layout, and land development projects nationwide.</p>
-                        <a href="#portfolio" class="btn btn-primary btn-lg">View Projects</a>
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center">
+                            <div class="slide-content">
+                                <h1>Trusted Surveying Experts</h1>
+                                <p>Your reliable partner for boundary determination, construction layout, and land development projects nationwide.</p>
+                                <a href="#portfolio" class="btn btn-primary btn-lg">View Projects</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -82,15 +102,15 @@
             <!-- Image-based Indicators -->
             <div class="carousel-indicators">
                 <div class="indicator active" data-slide="1">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80" alt="Survey Equipment">
+                    <div class="indicator-image"></div>
                     <span class="indicator-label">Precision</span>
                 </div>
                 <div class="indicator" data-slide="2">
-                    <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80" alt="Drone Technology">
+                    <div class="indicator-image"></div>
                     <span class="indicator-label">Technology</span>
                 </div>
                 <div class="indicator" data-slide="3">
-                    <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&h=100&q=80" alt="Construction Site">
+                    <div class="indicator-image"></div>
                     <span class="indicator-label">Expertise</span>
                 </div>
             </div>
@@ -98,12 +118,12 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-5 bg-light">
+    <section id="services" class="section-py">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <h2 class="section-title">Our Services</h2>
-                    <p class="section-subtitle text-center mb-5">Comprehensive geomatics solutions for all your land surveying needs</p>
+                    <p class="section-subtitle text-center">Comprehensive geomatics solutions for all your land surveying needs</p>
                 </div>
             </div>
             <div class="row">
@@ -152,18 +172,20 @@
     </section>
 
     <!-- Portfolio Section -->
-    <section id="portfolio" class="py-5">
+    <section id="portfolio" class="section-py bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <h2 class="section-title">Project Portfolio</h2>
-                    <p class="section-subtitle text-center mb-5">Showcasing our successful land surveying and geomatics projects</p>
+                    <p class="section-subtitle text-center">Showcasing our successful land surveying and geomatics projects</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="portfolio-item">
-                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Commercial Development Survey" class="portfolio-img">
+                        <div class="portfolio-img-container">
+                            <div class="portfolio-img"></div>
+                        </div>
                         <div class="portfolio-overlay">
                             <div class="text-center text-white">
                                 <h4>Commercial Development Survey</h4>
@@ -175,7 +197,9 @@
                 </div>
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="portfolio-item">
-                        <img src="https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Residential Subdivision" class="portfolio-img">
+                        <div class="portfolio-img-container">
+                            <div class="portfolio-img"></div>
+                        </div>
                         <div class="portfolio-overlay">
                             <div class="text-center text-white">
                                 <h4>Residential Subdivision</h4>
@@ -187,7 +211,9 @@
                 </div>
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="portfolio-item">
-                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80" alt="Infrastructure Project" class="portfolio-img">
+                        <div class="portfolio-img-container">
+                            <div class="portfolio-img"></div>
+                        </div>
                         <div class="portfolio-overlay">
                             <div class="text-center text-white">
                                 <h4>Infrastructure Project</h4>
@@ -202,12 +228,12 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="py-5 bg-light">
+    <section id="testimonials" class="section-py">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <h2 class="section-title">Client Testimonials</h2>
-                    <p class="section-subtitle text-center mb-5">What our clients say about our geomatics services</p>
+                    <p class="section-subtitle text-center">What our clients say about our geomatics services</p>
                 </div>
             </div>
             <div class="row">
@@ -218,7 +244,7 @@
                         </div>
                         <p class="testimonial-text">"Mathibe Geomatics provided exceptional boundary survey services for our commercial property acquisition. Their attention to detail and professional approach gave us complete confidence in the transaction."</p>
                         <div class="client-info">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=100&q=80" alt="Client" class="client-avatar">
+                            <div class="client-avatar"></div>
                             <div>
                                 <h5>Michael Johnson</h5>
                                 <p>CEO, Johnson Properties</p>
@@ -233,7 +259,7 @@
                         </div>
                         <p class="testimonial-text">"The topographic mapping and survey work completed by Mathibe Geomatics was instrumental in our infrastructure project. Their accuracy and timely delivery helped us stay on schedule and within budget."</p>
                         <div class="client-info">
-                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&h=100&q=80" alt="Client" class="client-avatar">
+                            <div class="client-avatar"></div>
                             <div>
                                 <h5>Sarah Williams</h5>
                                 <p>Project Manager, City Development Authority</p>
@@ -246,12 +272,12 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5">
+    <section id="contact" class="section-py bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <h2 class="section-title">Contact Us</h2>
-                    <p class="section-subtitle text-center mb-5">Get in touch for professional land surveying solutions</p>
+                    <p class="section-subtitle text-center">Get in touch for professional land surveying solutions</p>
                 </div>
             </div>
             <div class="row">
@@ -259,28 +285,36 @@
                     <div class="contact-form">
                         <form id="contactForm">
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="name" class="form-label">Your Name *</label>
                                         <input type="text" class="form-control" id="name" placeholder="Your Name" required>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 mb-3">
                                     <div class="form-group">
                                         <label for="email" class="form-label">Your Email *</label>
                                         <input type="email" class="form-control" id="email" placeholder="Your Email" required>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mb-3">
                                 <label for="subject" class="form-label">Subject</label>
                                 <input type="text" class="form-control" id="subject" placeholder="Subject">
                             </div>
-                            <div class="form-group">
+                            <div class="form-group mb-4">
                                 <label for="message" class="form-label">Your Message *</label>
                                 <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
+                            <button type="submit" class="btn btn-primary btn-submit">
+                                <span class="btn-text">Send Message</span>
+                                <div class="btn-spinner d-none">
+                                    <div class="spinner-border spinner-border-sm" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    <span class="ms-2">Sending...</span>
+                                </div>
+                            </button>
                         </form>
                     </div>
                 </div>

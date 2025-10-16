@@ -5,17 +5,23 @@ class HeroCarousel {
         this.indicators = document.querySelectorAll('.indicator');
         this.currentSlide = 0;
         this.autoPlayInterval = null;
-        this.autoPlayDelay = 6000; // 6 seconds
+        this.autoPlayDelay = 7000; // 7 seconds (slower)
+        this.isTransitioning = false;
         
         this.init();
     }
     
     init() {
+        // Preload images
+        this.preloadImages();
+        
         // Add click events to indicators
         this.indicators.forEach((indicator, index) => {
             indicator.addEventListener('click', () => {
-                this.goToSlide(index);
-                this.resetAutoPlay();
+                if (!this.isTransitioning && index !== this.currentSlide) {
+                    this.goToSlide(index);
+                    this.resetAutoPlay();
+                }
             });
         });
         
@@ -31,7 +37,22 @@ class HeroCarousel {
         this.addTouchSupport();
     }
     
+    preloadImages() {
+        const images = [
+            'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80',
+            'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80',
+            'https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80'
+        ];
+        
+        images.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+    }
+    
     goToSlide(slideIndex) {
+        this.isTransitioning = true;
+        
         // Remove active class from current slide and indicator
         this.slides[this.currentSlide].classList.remove('active');
         this.indicators[this.currentSlide].classList.remove('active');
@@ -40,8 +61,11 @@ class HeroCarousel {
         this.currentSlide = slideIndex;
         
         // Add active class to new slide and indicator
-        this.slides[this.currentSlide].classList.add('active');
-        this.indicators[this.currentSlide].classList.add('active');
+        setTimeout(() => {
+            this.slides[this.currentSlide].classList.add('active');
+            this.indicators[this.currentSlide].classList.add('active');
+            this.isTransitioning = false;
+        }, 50);
     }
     
     nextSlide() {
@@ -56,7 +80,9 @@ class HeroCarousel {
     
     startAutoPlay() {
         this.autoPlayInterval = setInterval(() => {
-            this.nextSlide();
+            if (!this.isTransitioning) {
+                this.nextSlide();
+            }
         }, this.autoPlayDelay);
     }
     
@@ -79,17 +105,17 @@ class HeroCarousel {
         
         carousel.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
-        });
+        }, { passive: true });
         
         carousel.addEventListener('touchmove', (e) => {
             endX = e.touches[0].clientX;
-        });
+        }, { passive: true });
         
         carousel.addEventListener('touchend', () => {
             const diff = startX - endX;
             const swipeThreshold = 50;
             
-            if (Math.abs(diff) > swipeThreshold) {
+            if (Math.abs(diff) > swipeThreshold && !this.isTransitioning) {
                 if (diff > 0) {
                     this.nextSlide();
                 } else {
@@ -97,105 +123,127 @@ class HeroCarousel {
                 }
                 this.resetAutoPlay();
             }
-        });
+        }, { passive: true });
     }
 }
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Hide loading spinner
+    const loadingSpinner = document.querySelector('.loading-spinner');
+    
+    // Show content when everything is loaded
+    window.addEventListener('load', function() {
+        setTimeout(() => {
+            loadingSpinner.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }, 500);
+    });
+    
     // Initialize carousel
-    new HeroCarousel();
+    const carousel = new HeroCarousel();
     
     // Navbar scroll effect
+    let lastScrollTop = 0;
+    const navbar = document.querySelector('.navbar');
+    
     window.addEventListener('scroll', function() {
-        const navbar = document.querySelector('.navbar');
-        if (window.scrollY > 50) {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        if (scrollTop > 50) {
             navbar.style.padding = '10px 0';
             navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
         } else {
             navbar.style.padding = '15px 0';
             navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
         }
-    });
+        
+        lastScrollTop = scrollTop;
+    }, { passive: true });
 
     // Enhanced smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    document.querySelectorAll('a.nav-link, .navbar-brand').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+            const href = this.getAttribute('href');
             
-            const targetId = this.getAttribute('href');
-            if(targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if(targetElement) {
-                // Calculate offset based on navbar height
-                const navbarHeight = document.querySelector('.navbar').offsetHeight;
-                const targetPosition = targetElement.offsetTop - navbarHeight;
+            if (href.startsWith('#')) {
+                e.preventDefault();
                 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                const targetId = href;
+                const targetElement = document.querySelector(targetId);
                 
-                // Update URL without jumping
-                history.pushState(null, null, targetId);
-                
-                // Close mobile menu after clicking
-                const navbarToggler = document.querySelector('.navbar-toggler');
-                const navbarCollapse = document.querySelector('.navbar-collapse');
-                if(navbarCollapse.classList.contains('show')) {
-                    navbarToggler.click();
+                if (targetElement) {
+                    // Calculate offset based on navbar height
+                    const navbarHeight = navbar.offsetHeight;
+                    const targetPosition = targetElement.offsetTop - navbarHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update URL without jumping
+                    history.pushState(null, null, targetId);
+                    
+                    // Close mobile menu after clicking
+                    const navbarToggler = document.querySelector('.navbar-toggler');
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarToggler.click();
+                    }
                 }
             }
         });
     });
 
-    // Contact form submission
+    // Contact form submission with loading state
     document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Simple form validation
-        const name = this.querySelector('#name').value;
-        const email = this.querySelector('#email').value;
-        const message = this.querySelector('#message').value;
+        const submitBtn = this.querySelector('.btn-submit');
+        const btnText = submitBtn.querySelector('.btn-text');
+        const btnSpinner = submitBtn.querySelector('.btn-spinner');
         
-        if(name && email && message) {
-            // Show success message
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
-            submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-            submitBtn.disabled = true;
+        // Show loading state
+        btnText.classList.add('d-none');
+        btnSpinner.classList.remove('d-none');
+        submitBtn.disabled = true;
+        
+        // Simulate form submission
+        setTimeout(() => {
+            // Show success state
+            btnSpinner.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
             
-            // In a real application, you would send this data to a server
             setTimeout(() => {
-                submitBtn.textContent = originalText;
+                // Reset form
+                btnText.classList.remove('d-none');
+                btnSpinner.classList.add('d-none');
                 submitBtn.disabled = false;
                 this.reset();
-            }, 3000);
-        } else {
-            alert('Please fill in all required fields.');
-        }
+            }, 2000);
+        }, 1500);
     });
 
     // Newsletter form submission
     document.getElementById('newsletterForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
-        const email = this.querySelector('input[type="email"]').value;
-        if(email) {
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.textContent;
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+        submitBtn.disabled = true;
+        
+        setTimeout(() => {
             submitBtn.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
-            submitBtn.disabled = true;
             
             setTimeout(() => {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
                 this.reset();
-            }, 3000);
-        } else {
-            alert('Please enter your email address.');
-        }
+            }, 2000);
+        }, 1500);
     });
 
     // Add animation to elements when they come into view
@@ -206,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
-            if(entry.isIntersecting) {
+            if (entry.isIntersecting) {
                 entry.target.style.opacity = '1';
                 entry.target.style.transform = 'translateY(0)';
             }
@@ -239,14 +287,27 @@ document.addEventListener('DOMContentLoaded', function() {
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(card);
     });
+
+    // Fix for mobile menu closing
+    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+            
+            if (navbarCollapse.classList.contains('show')) {
+                navbarToggler.click();
+            }
+        });
+    });
 });
 
-// Add loading animation
+// Performance optimization
 window.addEventListener('load', function() {
-    document.body.classList.add('loaded');
-    
-    // Add a slight delay to ensure all elements are rendered
+    // Remove loading spinner
     setTimeout(() => {
-        document.querySelector('.hero-carousel').style.opacity = '1';
-    }, 100);
+        const loadingSpinner = document.querySelector('.loading-spinner');
+        if (loadingSpinner) {
+            loadingSpinner.remove();
+        }
+    }, 1000);
 });
