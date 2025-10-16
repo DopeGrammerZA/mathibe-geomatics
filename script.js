@@ -39,9 +39,9 @@ class HeroCarousel {
     
     preloadImages() {
         const images = [
-            'https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80',
-            'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80',
-            'https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&h=1080&q=80'
+            './images/carousel-1.jpg',
+            './images/carousel-2.jpg',
+            './images/carousel-3.jpg'
         ];
         
         images.forEach(src => {
@@ -144,21 +144,16 @@ document.addEventListener('DOMContentLoaded', function() {
     const carousel = new HeroCarousel();
     
     // Navbar scroll effect
-    let lastScrollTop = 0;
     const navbar = document.querySelector('.navbar');
     
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
         if (scrollTop > 50) {
-            navbar.style.padding = '10px 0';
-            navbar.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            navbar.classList.add('scrolled');
         } else {
-            navbar.style.padding = '15px 0';
-            navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            navbar.classList.remove('scrolled');
         }
-        
-        lastScrollTop = scrollTop;
     }, { passive: true });
 
     // Enhanced smooth scrolling for navigation links
@@ -184,6 +179,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     // Update URL without jumping
                     history.pushState(null, null, targetId);
+                    
+                    // Update active nav link
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
                     
                     // Close mobile menu after clicking
                     const navbarToggler = document.querySelector('.navbar-toggler');

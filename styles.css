@@ -5,6 +5,8 @@
     --light: #f8f9fa;
     --dark: #2c3e50;
     --gray: #6c757d;
+    --nav-bg: rgba(26, 82, 118, 0.95); /* Same as hero primary color */
+    --nav-scroll-bg: rgba(20, 65, 95, 0.98); /* Darker when scrolled */
 }
 
 * {
@@ -65,28 +67,44 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Navigation */
 .navbar {
-    background-color: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
     padding: 15px 0;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar.scrolled {
+    background-color: var(--nav-scroll-bg);
+    padding: 10px 0;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .navbar-brand {
     font-weight: 700;
-    color: var(--primary);
+    color: white;
     font-size: 1.8rem;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled .navbar-brand {
+    color: white;
 }
 
 .nav-link {
     font-weight: 500;
-    color: var(--dark);
-    margin: 0 10px;
-    transition: color 0.3s;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 12px;
+    transition: all 0.3s ease;
     position: relative;
+    padding: 8px 0;
 }
 
 .nav-link:hover {
-    color: var(--primary);
+    color: white;
+    transform: translateY(-1px);
 }
 
 .nav-link::after {
@@ -95,13 +113,33 @@ h1, h2, h3, h4, h5, h6 {
     width: 0;
     height: 2px;
     bottom: 0;
-    left: 0;
+    left: 50%;
     background-color: var(--accent);
-    transition: width 0.3s ease;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
 }
 
 .nav-link:hover::after {
     width: 100%;
+}
+
+.nav-link.active {
+    color: white;
+    font-weight: 600;
+}
+
+.nav-link.active::after {
+    width: 100%;
+    background-color: var(--accent);
+}
+
+.navbar-toggler {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 4px 8px;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 /* Hero Carousel Styles */
@@ -223,7 +261,7 @@ h1, h2, h3, h4, h5, h6 {
 .carousel-indicators {
     position: absolute;
     bottom: 30px;
-    left: 35%;
+    left: 50%;
     transform: translateX(-50%);
     display: flex;
     gap: 15px;
@@ -234,24 +272,24 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     width: 100px;
     height: 100px;
-    border-radius: 50px;
+    border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
     transition: all 0.4s ease;
-    border: 3px solid transparent;
+    border: 3px solid rgba(255, 255, 255, 0.3);
     opacity: 0.7;
 }
 
 .indicator:hover {
     opacity: 0.9;
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.05);
 }
 
 .indicator.active {
     opacity: 1;
     border-color: var(--accent);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(243, 156, 18, 0.3);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 25px rgba(243, 156, 18, 0.4);
 }
 
 .indicator-image {
@@ -285,8 +323,8 @@ h1, h2, h3, h4, h5, h6 {
     right: 0;
     background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
     color: white;
-    padding: 5px;
-    font-size: 0.5rem;
+    padding: 8px 5px;
+    font-size: 0.7rem;
     font-weight: 600;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
@@ -661,7 +699,14 @@ footer {
     .indicator {
         width: 80px;
         height: 80px;
-        border-radius: 40px;
+    }
+    
+    .navbar-collapse {
+        background: var(--nav-scroll-bg);
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
 }
 
@@ -677,9 +722,8 @@ footer {
     }
     
     .indicator {
-        width: 80px;
-        height: 80px;
-        border-radius: 40px;
+        width: 70px;
+        height: 70px;
     }
     
     .hero h1 {
@@ -691,7 +735,7 @@ footer {
     }
     
     .indicator-label {
-        font-size: 0.7rem;
+        font-size: 0.6rem;
     }
     
     .section-title {
@@ -705,14 +749,6 @@ footer {
     
     .contact-form {
         padding: 25px;
-    }
-    
-    .navbar-collapse {
-        background: white;
-        padding: 15px;
-        border-radius: 5px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        margin-top: 10px;
     }
     
     .portfolio-item {
@@ -733,9 +769,8 @@ footer {
     }
     
     .indicator {
-        width: 40px;
-        height: 40px;
-        border-radius: 20px;
+        width: 50px;
+        height: 50px;
     }
     
     .hero h1 {
@@ -747,8 +782,8 @@ footer {
     }
     
     .indicator-label {
-        font-size: 0.6rem;
-        padding: 3px;
+        font-size: 0.5rem;
+        padding: 4px;
     }
     
     .btn-primary {
