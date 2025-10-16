@@ -5,8 +5,8 @@
     --light: #f8f9fa;
     --dark: #2c3e50;
     --gray: #6c757d;
-    --nav-bg: rgba(26, 82, 118, 0.95); /* Same as hero primary color */
-    --nav-scroll-bg: rgba(20, 65, 95, 0.98); /* Darker when scrolled */
+    --nav-bg: rgba(26, 82, 118, 0.95);
+    --nav-scroll-bg: rgba(20, 65, 95, 0.98);
 }
 
 * {
@@ -67,19 +67,45 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Navigation */
 .navbar {
-    background-color: var(--nav-bg);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
-    padding: 15px 0;
+    background: transparent;
+    backdrop-filter: blur(0px);
+    box-shadow: none;
+    padding: 20px 0;
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid transparent;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
 }
 
 .navbar.scrolled {
-    background-color: var(--nav-scroll-bg);
-    padding: 10px 0;
+    background: var(--nav-scroll-bg);
+    backdrop-filter: blur(10px);
+    padding: 12px 0;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.navbar-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1;
+    transition: opacity 0.8s ease;
+    z-index: -1;
+}
+
+.navbar:not(.scrolled) .navbar-bg {
+    opacity: 1;
+}
+
+.navbar.scrolled .navbar-bg {
+    opacity: 0;
 }
 
 .navbar-brand {
@@ -87,19 +113,26 @@ h1, h2, h3, h4, h5, h6 {
     color: white;
     font-size: 1.8rem;
     transition: all 0.3s ease;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .navbar.scrolled .navbar-brand {
     color: white;
+    text-shadow: none;
 }
 
 .nav-link {
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.95);
     margin: 0 12px;
     transition: all 0.3s ease;
     position: relative;
     padding: 8px 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.navbar.scrolled .nav-link {
+    text-shadow: none;
 }
 
 .nav-link:hover {
@@ -134,25 +167,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-toggler {
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     padding: 4px 8px;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 /* Hero Carousel Styles */
 .hero {
     padding: 0;
     position: relative;
-    margin-top: 76px;
+    margin-top: 0;
 }
 
 .hero-carousel {
     position: relative;
     width: 100%;
-    height: calc(100vh - 76px);
+    height: 100vh;
     min-height: 600px;
     overflow: hidden;
 }
@@ -211,6 +245,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: all 0.8s ease-in-out 0.3s;
     position: relative;
     z-index: 2;
+    margin-top: 60px;
 }
 
 .carousel-slide.active .slide-content {
@@ -260,11 +295,11 @@ h1, h2, h3, h4, h5, h6 {
 /* Image-based Indicators */
 .carousel-indicators {
     position: absolute;
-    bottom: 30px;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 15px;
+    gap: 20px;
     z-index: 10;
 }
 
@@ -276,8 +311,8 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
     cursor: pointer;
     transition: all 0.4s ease;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    opacity: 0.7;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+    opacity: 0.8;
 }
 
 .indicator:hover {
@@ -323,8 +358,8 @@ h1, h2, h3, h4, h5, h6 {
     right: 0;
     background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
     color: white;
-    padding: 8px 5px;
-    font-size: 0.7rem;
+    padding: 10px 5px;
+    font-size: 0.75rem;
     font-weight: 600;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
@@ -703,6 +738,7 @@ footer {
     
     .navbar-collapse {
         background: var(--nav-scroll-bg);
+        backdrop-filter: blur(10px);
         padding: 20px;
         border-radius: 10px;
         margin-top: 15px;
@@ -717,8 +753,8 @@ footer {
     }
     
     .carousel-indicators {
-        bottom: 20px;
-        gap: 10px;
+        bottom: 30px;
+        gap: 15px;
     }
     
     .indicator {
@@ -735,7 +771,8 @@ footer {
     }
     
     .indicator-label {
-        font-size: 0.6rem;
+        font-size: 0.65rem;
+        padding: 8px 4px;
     }
     
     .section-title {
@@ -764,13 +801,13 @@ footer {
     }
     
     .carousel-indicators {
-        bottom: 15px;
-        gap: 8px;
+        bottom: 20px;
+        gap: 10px;
     }
     
     .indicator {
-        width: 50px;
-        height: 50px;
+        width: 60px;
+        height: 60px;
     }
     
     .hero h1 {
@@ -782,8 +819,8 @@ footer {
     }
     
     .indicator-label {
-        font-size: 0.5rem;
-        padding: 4px;
+        font-size: 0.6rem;
+        padding: 6px 3px;
     }
     
     .btn-primary {
