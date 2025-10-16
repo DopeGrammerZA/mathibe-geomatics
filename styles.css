@@ -482,15 +482,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .portfolio-item:nth-child(1) .portfolio-img {
-    background-image: url('./images/carousel-4.jpg');
+    background-image: url('./images/carousel-1.jpg');
 }
 
 .portfolio-item:nth-child(2) .portfolio-img {
-    background-image: url('./images/carousel-5.jpg');
+    background-image: url('./images/carousel-1.jpg');
 }
 
 .portfolio-item:nth-child(3) .portfolio-img {
-    background-image: url('./images/carousel-7.jpg');
+    background-image: url('./images/carousel-1.jpg');
 }
 
 .portfolio-overlay {
