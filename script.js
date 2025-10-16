@@ -7,6 +7,7 @@ class HeroCarousel {
         this.autoPlayInterval = null;
         this.autoPlayDelay = 7000; // 7 seconds (slower)
         this.isTransitioning = false;
+        this.navbarBg = document.querySelector('.navbar-bg');
         
         this.init();
     }
@@ -14,6 +15,9 @@ class HeroCarousel {
     init() {
         // Preload images
         this.preloadImages();
+        
+        // Set initial navbar background
+        this.updateNavbarBackground();
         
         // Add click events to indicators
         this.indicators.forEach((indicator, index) => {
@@ -50,6 +54,21 @@ class HeroCarousel {
         });
     }
     
+    updateNavbarBackground() {
+        const activeSlide = this.slides[this.currentSlide];
+        const slideBg = activeSlide.querySelector('.slide-bg');
+        const computedStyle = window.getComputedStyle(slideBg);
+        const backgroundImage = computedStyle.backgroundImage;
+        
+        // Extract the URL from the background-image property
+        const urlMatch = backgroundImage.match(/url\(["']?(.*?)["']?\)/);
+        if (urlMatch && urlMatch[1]) {
+            this.navbarBg.style.backgroundImage = `linear-gradient(rgba(26, 82, 118, 0.92), rgba(26, 82, 118, 0.95)), ${urlMatch[1]}`;
+            this.navbarBg.style.backgroundSize = 'cover';
+            this.navbarBg.style.backgroundPosition = 'center';
+        }
+    }
+    
     goToSlide(slideIndex) {
         this.isTransitioning = true;
         
@@ -64,6 +83,10 @@ class HeroCarousel {
         setTimeout(() => {
             this.slides[this.currentSlide].classList.add('active');
             this.indicators[this.currentSlide].classList.add('active');
+            
+            // Update navbar background to match active slide
+            this.updateNavbarBackground();
+            
             this.isTransitioning = false;
         }, 50);
     }

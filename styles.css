@@ -296,8 +296,8 @@ h1, h2, h3, h4, h5, h6 {
 .carousel-indicators {
     position: absolute;
     bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
+    /* left: 35%;
+    transform: translateX(0%); */
     display: flex;
     gap: 20px;
     z-index: 10;
