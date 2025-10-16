@@ -5,7 +5,7 @@ class HeroCarousel {
         this.indicators = document.querySelectorAll('.indicator');
         this.currentSlide = 0;
         this.autoPlayInterval = null;
-        this.autoPlayDelay = 5000; // 5 seconds
+        this.autoPlayDelay = 6000; // 6 seconds
         
         this.init();
     }
@@ -101,8 +101,9 @@ class HeroCarousel {
     }
 }
 
-// Initialize carousel when DOM is loaded
+// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize carousel
     new HeroCarousel();
     
     // Navbar scroll effect
@@ -117,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Smooth scrolling for navigation links
+    // Enhanced smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -127,10 +128,17 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const targetElement = document.querySelector(targetId);
             if(targetElement) {
+                // Calculate offset based on navbar height
+                const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = targetElement.offsetTop - navbarHeight;
+                
                 window.scrollTo({
-                    top: targetElement.offsetTop - 80,
+                    top: targetPosition,
                     behavior: 'smooth'
                 });
+                
+                // Update URL without jumping
+                history.pushState(null, null, targetId);
                 
                 // Close mobile menu after clicking
                 const navbarToggler = document.querySelector('.navbar-toggler');
@@ -142,38 +150,55 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Form submission
+    // Contact form submission
     document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
         // Simple form validation
-        const name = this.querySelector('input[type="text"]').value;
-        const email = this.querySelector('input[type="email"]').value;
-        const message = this.querySelector('textarea').value;
+        const name = this.querySelector('#name').value;
+        const email = this.querySelector('#email').value;
+        const message = this.querySelector('#message').value;
         
         if(name && email && message) {
+            // Show success message
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+            submitBtn.disabled = true;
+            
             // In a real application, you would send this data to a server
-            alert('Thank you for your message, ' + name + '! We will get back to you soon.');
-            this.reset();
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                this.reset();
+            }, 3000);
         } else {
             alert('Please fill in all required fields.');
         }
     });
 
     // Newsletter form submission
-    document.querySelector('footer form').addEventListener('submit', function(e) {
+    document.getElementById('newsletterForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
         const email = this.querySelector('input[type="email"]').value;
         if(email) {
-            alert('Thank you for subscribing to our newsletter!');
-            this.reset();
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Subscribed!';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                this.reset();
+            }, 3000);
         } else {
             alert('Please enter your email address.');
         }
     });
 
-    // Add animation to service cards when they come into view
+    // Add animation to elements when they come into view
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
@@ -188,10 +213,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    // Initialize service card animations
+    // Initialize animations for service cards
     const serviceCards = document.querySelectorAll('.service-card');
-    
     serviceCards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+    });
+
+    // Initialize animations for portfolio items
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    portfolioItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(item);
+    });
+
+    // Initialize animations for testimonial cards
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    testimonialCards.forEach(card => {
         card.style.opacity = '0';
         card.style.transform = 'translateY(20px)';
         card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -202,4 +244,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // Add loading animation
 window.addEventListener('load', function() {
     document.body.classList.add('loaded');
+    
+    // Add a slight delay to ensure all elements are rendered
+    setTimeout(() => {
+        document.querySelector('.hero-carousel').style.opacity = '1';
+    }, 100);
 });
