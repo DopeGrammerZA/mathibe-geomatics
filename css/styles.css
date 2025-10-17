@@ -222,17 +222,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .carousel-slide[data-slide="1"] .slide-bg {
     background: linear-gradient(rgba(26, 82, 118, 0.85), rgba(26, 82, 118, 0.9)), 
-                url('./images/carousel-1.jpg') center/cover;
+                url('../img/carousel-1.jpg') center/cover;
 }
 
 .carousel-slide[data-slide="2"] .slide-bg {
     background: linear-gradient(rgba(26, 82, 118, 0.85), rgba(26, 82, 118, 0.9)), 
-                url('./images/carousel-2.jpg') center/cover;
+                url('../img/carousel-2.jpg') center/cover;
 }
 
 .carousel-slide[data-slide="3"] .slide-bg {
     background: linear-gradient(rgba(26, 82, 118, 0.85), rgba(26, 82, 118, 0.9)), 
-                url('./images/carousel-3.jpg') center/cover;
+                url('../img/carousel-3.jpg') center/cover;
 }
 
 .slide-content {
@@ -336,15 +336,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .indicator[data-slide="1"] .indicator-image {
-    background-image: url('images/carousel-1.jpg');
+    background-image: url('../img/carousel-1.jpg');
 }
 
 .indicator[data-slide="2"] .indicator-image {
-    background-image: url('images/carousel-2.jpg');
+    background-image: url('../img/carousel-2.jpg');
 }
 
 .indicator[data-slide="3"] .indicator-image {
-    background-image: url('images/carousel-3.jpg');
+    background-image: url('../img/carousel-3.jpg');
 }
 
 .indicator:hover .indicator-image {
@@ -482,15 +482,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .portfolio-item:nth-child(1) .portfolio-img {
-    background-image: url('./images/carousel-1.jpg');
+    background-image: url('../img/carousel-1.jpg');
 }
 
 .portfolio-item:nth-child(2) .portfolio-img {
-    background-image: url('./images/carousel-1.jpg');
+    background-image: url('../img/carousel-1.jpg');
 }
 
 .portfolio-item:nth-child(3) .portfolio-img {
-    background-image: url('./images/carousel-1.jpg');
+    background-image: url('../img/carousel-1.jpg');
 }
 
 .portfolio-overlay {
