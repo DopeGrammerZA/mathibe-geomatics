@@ -1,0 +1,245 @@
+/* about-us.css - Styles specific to About Us page */
+.about-hero {
+    background: linear-gradient(rgba(26, 82, 118, 0.9), rgba(26, 82, 118, 0.95)), 
+                url('https://images.unsplash.com/photo-1581094794329-cd6d5d3c3c95?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover;
+    color: white;
+    padding: 180px 0 100px;
+    text-align: center;
+    margin-top: 0;
+}
+
+.about-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.about-hero p {
+    font-size: 1.3rem;
+    max-width: 600px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Story Section */
+.story-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.story-content {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.story-text {
+    flex: 1;
+}
+
+.story-image {
+    flex: 1;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.story-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Values Section */
+.values-section {
+    padding: 80px 0;
+    background: var(--light);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.value-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+    border-top: 4px solid var(--accent);
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+}
+
+.value-icon {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+/* Team Section */
+.team-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.team-member {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.member-image {
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+}
+
+.member-info {
+    padding: 30px;
+    text-align: center;
+}
+
+.member-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.member-social a {
+    color: var(--gray);
+    transition: color 0.3s ease;
+}
+
+.member-social a:hover {
+    color: var(--primary);
+}
+
+/* SA Focus Section */
+.sa-focus-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+}
+
+.sa-focus-section .section-title {
+    color: white;
+}
+
+.sa-focus-section .section-title:after {
+    background-color: var(--accent);
+}
+
+.focus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.focus-item {
+    text-align: center;
+    padding: 30px;
+}
+
+.focus-icon {
+    font-size: 3rem;
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+/* Stats Section */
+.stats-section {
+    padding: 80px 0;
+    background: var(--light);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.stat-item h3 {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.stat-item p {
+    color: var(--gray);
+    font-weight: 600;
+}
+
+/* CTA Section */
+.about-cta {
+    padding: 80px 0;
+    background: white;
+    text-align: center;
+}
+
+.cta-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-hero {
+        padding: 150px 0 80px;
+    }
+    
+    .about-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .story-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .values-grid,
+    .team-grid,
+    .focus-grid,
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .about-hero p {
+        font-size: 1.1rem;
+    }
+    
+    .value-card,
+    .team-member,
+    .focus-item {
+        padding: 25px 20px;
+    }
+}
