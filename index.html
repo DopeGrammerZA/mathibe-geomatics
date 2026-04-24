@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathibe Geomatics | Precision Land Surveying Solutions</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Loading Spinner -->
+    <div class="loading-spinner">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="navbar-bg"></div>
+        <div class="container">
+            <a class="navbar-brand" href="#home">Mathibe Geo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-carousel">
+            <!-- Slide 1 -->
+            <div class="carousel-slide active" data-slide="1">
+                <div class="slide-bg"></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center">
+                            <div class="slide-content">
+                                <h1>Precision Land Surveying Solutions</h1>
+                                <p>Delivering accurate geomatics and land survey services with cutting-edge technology and unwavering reliability for over 5 years.</p>
+                                <a href="#contact" class="btn btn-primary btn-lg">Request a Quote</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="carousel-slide" data-slide="2">
+                <div class="slide-bg"></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center">
+                            <div class="slide-content">
+                                <h1>Advanced Geomatics Technology</h1>
+                                <p>Utilizing state-of-the-art GPS, LiDAR, and drone technology for precise topographic mapping and spatial data analysis.</p>
+                                <a href="#services" class="btn btn-primary btn-lg">Our Services</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="carousel-slide" data-slide="3">
+                <div class="slide-bg"></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-12 text-center">
+                            <div class="slide-content">
+                                <h1>Trusted Surveying Experts</h1>
+                                <p>Your reliable partner for boundary determination, construction layout, and land development projects nationwide.</p>
+                                <a href="#portfolio" class="btn btn-primary btn-lg">View Projects</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Image-based Indicators -->
+            <div class="carousel-indicators">
+                <div class="indicator active" data-slide="1">
+                    <div class="indicator-image"></div>
+                    <span class="indicator-label">Precision</span>
+                </div>
+                <div class="indicator" data-slide="2">
+                    <div class="indicator-image"></div>
+                    <span class="indicator-label">Technology</span>
+                </div>
+                <div class="indicator" data-slide="3">
+                    <div class="indicator-image"></div>
+                    <span class="indicator-label">Expertise</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-py">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title">Our Services</h2>
+                    <p class="section-subtitle text-center">Comprehensive geomatics solutions for all your land surveying needs</p>
+                </div>
+            </div>
+            <div class="row services-container">
+                <!-- 3D Laser Scanning And Modelling -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-card" data-service="3d-laser">
+                        <div class="service-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h4>3D Laser Scanning & Modelling</h4>
+                        <p>High-precision 3D laser scanning for accurate as-built documentation and detailed 3D modeling of structures and terrain.</p>
+                        <a href="pages/services/3d-laser-scanning.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Underground Service Detection (GPR) -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-card" data-service="gpr">
+                        <div class="service-icon">
+                            <i class="fas fa-satellite-dish"></i>
+                        </div>
+                        <h4>Underground Service Detection (GPR)</h4>
+                        <p>Ground Penetrating Radar technology to locate and map underground utilities and structures with precision.</p>
+                        <a href="pages/services/underground-detection.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Mining Surveys -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-card" data-service="mining">
+                        <div class="service-icon">
+                            <i class="fas fa-hammer"></i>
+                        </div>
+                        <h4>Mining Surveys</h4>
+                        <p>Comprehensive surveying solutions for mining operations including volume calculations, pit mapping, and safety monitoring.</p>
+                        <a href="pages/services/mining-surveys.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Engineering & Construction Surveys -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-card" data-service="engineering">
+                        <div class="service-icon">
+                            <i class="fas fa-ruler-combined"></i>
+                        </div>
+                        <h4>Engineering & Construction Surveys</h4>
+                        <p>Precise layout and as-built surveys for construction projects, infrastructure development, and engineering applications.</p>
+                        <a href="pages/services/engineering-surveys.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Drone And Lidar Surveys -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-card" data-service="drone">
+                        <div class="service-icon">
+                            <i class="fas fa-drone"></i>
+                        </div>
+                        <h4>Drone & Lidar Surveys</h4>
+                        <p>Aerial surveying using advanced drone technology and LiDAR for large-area mapping and high-resolution data collection.</p>
+                        <a href="pages/services/drone-surveys.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Topographical Surveys -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-card" data-service="topographical">
+                        <div class="service-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h4>Topographical Surveys</h4>
+                        <p>Detailed mapping of natural and man-made features, contours, and elevations for planning and design purposes.</p>
+                        <a href="pages/services/topographical-surveys.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Draughting -->
+                <div class="col-md-6 col-lg-4 mb-4 mx-auto">
+                    <div class="service-card" data-service="draughting">
+                        <div class="service-icon">
+                            <i class="fas fa-drafting-compass"></i>
+                        </div>
+                        <h4>Draughting</h4>
+                        <p>Professional CAD draughting services to transform survey data into accurate plans, maps, and technical drawings.</p>
+                        <a href="pages/services/draughting.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section-py bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title">Project Portfolio</h2>
+                    <p class="section-subtitle text-center">Showcasing our successful land surveying and geomatics projects</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="portfolio-item">
+                        <div class="portfolio-img-container">
+                            <div class="portfolio-img"></div>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="text-center text-white">
+                                <h4>Commercial Development Survey</h4>
+                                <p>Boundary and topographic survey for a 50-acre commercial development</p>
+                                <button class="btn btn-outline-light mt-3">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="portfolio-item">
+                        <div class="portfolio-img-container">
+                            <div class="portfolio-img"></div>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="text-center text-white">
+                                <h4>Residential Subdivision</h4>
+                                <p>Complete subdivision design and boundary survey for 200-lot residential community</p>
+                                <button class="btn btn-outline-light mt-3">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="portfolio-item">
+                        <div class="portfolio-img-container">
+                            <div class="portfolio-img"></div>
+                        </div>
+                        <div class="portfolio-overlay">
+                            <div class="text-center text-white">
+                                <h4>Infrastructure Project</h4>
+                                <p>Topographic mapping and construction layout for major highway expansion</p>
+                                <button class="btn btn-outline-light mt-3">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="section-py">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title">Client Testimonials</h2>
+                    <p class="section-subtitle text-center">What our clients say about our geomatics services</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">"Mathibe Geomatics provided exceptional boundary survey services for our commercial property acquisition. Their attention to detail and professional approach gave us complete confidence in the transaction."</p>
+                        <div class="client-info">
+                            <div class="client-avatar"></div>
+                            <div>
+                                <h5>Kagiso "Kagimedia" Masebe</h5>
+                                <p>Software Developer, Masebe Group Projects</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="testimonial-text">"The topographic mapping and survey work completed by Mathibe Geomatics was instrumental in our infrastructure project. Their accuracy and timely delivery helped us stay on schedule and within budget."</p>
+                        <div class="client-info">
+                            <div class="client-avatar"></div>
+                            <div>
+                                <h5>Marks "Kagimedia" Masebe</h5>
+                                <p>Project Manager, Kagimedia Technologies</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-py bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="section-title">Contact Us</h2>
+                    <p class="section-subtitle text-center">Get in touch for professional land surveying solutions</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mb-4">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="name" class="form-label">Your Name *</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">Your Email *</label>
+                                        <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="subject" class="form-label">Subject</label>
+                                <input type="text" class="form-control" id="subject" placeholder="Subject">
+                            </div>
+                            <div class="form-group mb-4">
+                                <label for="message" class="form-label">Your Message *</label>
+                                <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-submit">
+                                <span class="btn-text">Send Message</span>
+                                <div class="btn-spinner d-none">
+                                    <div class="spinner-border spinner-border-sm" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    <span class="ms-2">Sending...</span>
+                                </div>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="contact-info mb-5">
+                        <h4 class="mb-4">Contact Information</h4>
+                        <div class="contact-item d-flex align-items-start mb-3">
+                            <i class="fas fa-map-marker-alt me-3 mt-1"></i>
+                            <div>
+                                <h6>Address</h6>
+                                <p>1069 Ga-Rankuwa View <br> Ga-Rankuwa<br> 0208</p>
+                            </div>
+                        </div>
+                        <div class="contact-item d-flex align-items-start mb-3">
+                            <i class="fas fa-phone me-3 mt-1"></i>
+                            <div>
+                                <h6>Phone</h6>
+                                <p>+27 81 773 4326</p>
+                            </div>
+                        </div>
+                        <div class="contact-item d-flex align-items-start mb-3">
+                            <i class="fas fa-envelope me-3 mt-1"></i>
+                            <div>
+                                <h6>Email</h6>
+                                <p>info@mathibegeomatics.co.za</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="business-hours">
+                        <h4 class="mb-4">Business Hours</h4>
+                        <ul class="list-unstyled">
+                            <li class="d-flex justify-content-between py-2 border-bottom">
+                                <span>Monday - Friday</span>
+                                <span>8:00 AM - 6:00 PM</span>
+                            </li>
+                            <li class="d-flex justify-content-between py-2 border-bottom">
+                                <span>Saturday</span>
+                                <span>9:00 AM - 1:00 PM</span>
+                            </li>
+                            <li class="d-flex justify-content-between py-2">
+                                <span>Sunday</span>
+                                <span>Closed</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="mb-3">Mathibe Geomatics</h3>
+                    <p>Providing precise land surveying and geomatics solutions with cutting-edge technology and unwavering reliability since 2020.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#portfolio">Portfolio</a></li>
+                            <li><a href="#testimonials">Testimonials</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="footer-links">
+                        <h5>Our Services</h5>
+                        <ul>
+                            <li><a href="#services">Land Surveying</a></li>
+                            <li><a href="#services">Topographic Mapping</a></li>
+                            <li><a href="#services">Boundary Determination</a></li>
+                            <li><a href="#services">Project Consultation</a></li>
+                            <li><a href="#services">Construction Layout</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <div class="footer-links">
+                        <h5>Newsletter</h5>
+                        <p>Subscribe to our newsletter for the latest updates and insights in geomatics.</p>
+                        <form id="newsletterForm">
+                            <div class="input-group mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                                <button class="btn btn-primary" type="submit">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Mathibe Geomatics. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/script.js"></script>
+</body>
+</html>
