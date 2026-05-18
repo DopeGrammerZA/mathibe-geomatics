@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | Mathibe Geomatics – Survey Projects Across South Africa</title>
+  <meta name="description" content="Browse Mathibe Geomatics' project portfolio – topographical surveys, mining volumetrics, drone LiDAR, GPR detection, and engineering surveys across Gauteng and South Africa.">
+  <link rel="icon" href="assets/images/mathibe-logo.jpeg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-inner">
+        <div class="top-bar-contact">
+          <a href="tel:+27817734326"><i class="fa fa-phone"></i> +27 81 773 4326</a>
+          <a href="mailto:info@mathibegeomatics.co.za"><i class="fa fa-envelope"></i> info@mathibegeomatics.co.za</a>
+        </div>
+        <div class="top-bar-badges"><span class="top-badge">SAGC Registered</span><span class="top-badge">B-BBEE Level 1</span></div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar-custom">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand"><img src="assets/images/mathibe-logo.jpeg" alt="Mathibe Geomatics"></a>
+      <div class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <div class="nav-item-dropdown">
+          <a href="#" class="nav-link">Services <i class="fa fa-chevron-down" style="font-size:0.6rem;margin-left:2px"></i></a>
+          <div class="dropdown-menu-custom">
+            <a href="services/3d-laser-scanning.html" class="dropdown-link"><i class="fa fa-cube"></i> 3D Laser Scanning</a>
+            <a href="services/gpr-underground-detection.html" class="dropdown-link"><i class="fa fa-satellite-dish"></i> GPR Underground Detection</a>
+            <a href="services/drone-lidar-surveys.html" class="dropdown-link"><i class="fa fa-circle-nodes"></i> Drone & LiDAR Surveys</a>
+            <a href="services/topographical-surveys.html" class="dropdown-link"><i class="fa fa-mountain"></i> Topographical Surveys</a>
+            <a href="services/mining-surveys.html" class="dropdown-link"><i class="fa fa-helmet-safety"></i> Mining Surveys</a>
+            <a href="services/engineering-surveys.html" class="dropdown-link"><i class="fa fa-ruler-combined"></i> Engineering Surveys</a>
+            <a href="services/draughting.html" class="dropdown-link"><i class="fa fa-pen-ruler"></i> Draughting</a>
+          </div>
+        </div>
+        <a href="portfolio.html" class="nav-link active">Portfolio</a>
+        <a href="testimonials.html" class="nav-link">Testimonials</a>
+        <a href="quote.html" class="nav-link">Quote</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <a href="quote.html" class="btn btn-gold nav-cta">Get a Quote</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="portfolio.html" class="mobile-nav-link">Portfolio</a>
+      <a href="quote.html" class="mobile-nav-link">Get a Quote</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb-custom"><a href="index.html">Home</a><span>›</span><span class="current">Portfolio</span></div>
+      <span class="section-tag">Our Work</span>
+      <h1 class="section-title">Projects That <span>Define Our Standard</span></h1>
+      <p class="section-subtitle">150+ completed surveys across mining, property development, infrastructure, and government – each delivered on time, on budget, and to spec.</p>
+    </div>
+  </section>
+
+  <section style="background:var(--bg-section);padding:80px 0">
+    <div class="container">
+
+      <!-- Filter -->
+      <div class="portfolio-filter reveal">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="topographical">Topographical</button>
+        <button class="filter-btn" data-filter="mining">Mining</button>
+        <button class="filter-btn" data-filter="gpr">GPR Detection</button>
+        <button class="filter-btn" data-filter="drone">Drone & LiDAR</button>
+        <button class="filter-btn" data-filter="laser">3D Laser Scanning</button>
+        <button class="filter-btn" data-filter="engineering">Engineering</button>
+      </div>
+
+      <!-- Portfolio Grid -->
+      <div class="portfolio-grid" style="grid-template-columns:repeat(3,1fr)">
+
+        <article class="portfolio-card reveal reveal-delay-1" data-category="topographical">
+          <div class="portfolio-img">
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80" alt="Commercial Development Midrand" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-tag">Topographical</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Commercial Development Site – Midrand</h3>
+            <p class="portfolio-location"><i class="fa fa-map-marker-alt"></i> Midrand, Gauteng</p>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:12px">32-hectare topographic survey for a mixed-use commercial development. Delivered full Civil 3D terrain model and drainage analysis for municipal submission.</p>
+            <span class="portfolio-outcome">32ha · Municipal approval obtained in 6 weeks</span>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal reveal-delay-2" data-category="mining">
+          <div class="portfolio-img">
+            <img src="https://images.unsplash.com/photo-1563694983011-6f4d90358083?w=800&q=80" alt="Open-cast mine Limpopo" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-tag">Mining</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Open-Cast Mine Volumetrics – Mokopane</h3>
+            <p class="portfolio-location"><i class="fa fa-map-marker-alt"></i> Mokopane, Limpopo</p>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:12px">Monthly drone LiDAR stockpile volumetric surveys for an active platinum operation. Reports delivered by 08:00 the morning after fieldwork.</p>
+            <span class="portfolio-outcome">±0.3% volume accuracy · 18-month ongoing contract</span>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal reveal-delay-3" data-category="gpr">
+          <div class="portfolio-img">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="Underground utility mapping Tshwane" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-tag">GPR Detection</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Underground Utility Mapping – Tshwane CBD</h3>
+            <p class="portfolio-location"><i class="fa fa-map-marker-alt"></i> Tshwane, Gauteng</p>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:12px">Pre-excavation GPR detection survey in a congested CBD environment. Identified 23 buried utilities absent from municipal records.</p>
+            <span class="portfolio-outcome">23 utilities mapped · Zero excavation damage</span>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal reveal-delay-1" data-category="drone">
+          <div class="portfolio-img">
+            <img src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=800&q=80" alt="Drone LiDAR farm mapping" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-tag">Drone & LiDAR</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Agricultural Land Mapping – Mpumalanga</h3>
+            <p class="portfolio-location"><i class="fa fa-map-marker-alt"></i> Bethal, Mpumalanga</p>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:12px">480-hectare drone LiDAR survey for an agricultural estate requiring precision terrain modelling for irrigation design.</p>
+            <span class="portfolio-outcome">480ha in 2 flights · GSD 2.5cm</span>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal reveal-delay-2" data-category="laser">
+          <div class="portfolio-img">
+            <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=800&q=80" alt="3D laser scanning heritage building" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-tag">3D Laser Scanning</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Heritage Building As-Built – Pretoria</h3>
+            <p class="portfolio-location"><i class="fa fa-map-marker-alt"></i> Pretoria, Gauteng</p>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:12px">Full interior and exterior 3D laser scan of a Grade II heritage structure for renovation and heritage documentation purposes.</p>
+            <span class="portfolio-outcome">±2mm accuracy · 1.2 billion points captured</span>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal reveal-delay-3" data-category="engineering">
+          <div class="portfolio-img">
+            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80" alt="Road infrastructure engineering survey" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-tag">Engineering</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Road Rehabilitation Setting-Out – North West</h3>
+            <p class="portfolio-location"><i class="fa fa-map-marker-alt"></i> Rustenburg, North West</p>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:12px">Alignment setting-out and as-built monitoring for 14km of provincial road rehabilitation. Weekly progress surveys delivered to contractor.</p>
+            <span class="portfolio-outcome">14km road · ±5mm setting-out accuracy</span>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal reveal-delay-1" data-category="topographical">
+          <div class="portfolio-img">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800&q=80" alt="Residential estate survey Centurion" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-tag">Topographical</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Residential Estate – Centurion</h3>
+            <p class="portfolio-location"><i class="fa fa-map-marker-alt"></i> Centurion, Gauteng</p>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:12px">Topographic survey and sectional title diagram preparation for a 180-unit residential estate development submission to Tshwane Municipality.</p>
+            <span class="portfolio-outcome">180 units · Approval in 8 weeks</span>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal reveal-delay-2" data-category="mining">
+          <div class="portfolio-img">
+            <img src="https://images.unsplash.com/photo-1559825481-12a05cc00344?w=800&q=80" alt="Underground mine survey" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-tag">Mining</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Underground Mine-Plan Update – Free State</h3>
+            <p class="portfolio-location"><i class="fa fa-map-marker-alt"></i> Welkom, Free State</p>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:12px">MHSA-compliant underground mine-plan survey update for a gold operation's Centurion lease area. Included blast monitoring control.</p>
+            <span class="portfolio-outcome">MHSA Compliant · Submitted to DMR on time</span>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal reveal-delay-3" data-category="gpr">
+          <div class="portfolio-img">
+            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80" alt="GPR void detection warehouse" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-tag">GPR Detection</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Sub-Slab Void Detection – Johannesburg</h3>
+            <p class="portfolio-location"><i class="fa fa-map-marker-alt"></i> Johannesburg South, Gauteng</p>
+            <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:12px">GPR void and delamination mapping beneath a 6,000m² industrial warehouse floor showing settlement and structural concern.</p>
+            <span class="portfolio-outcome">6,000m² mapped · 12 voids identified</span>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-48 reveal">
+        <span class="section-tag">Ready to Start?</span>
+        <h2 class="section-title" style="margin-bottom:16px">Your Project Could Be <span>Next</span></h2>
+        <p style="max-width:480px;margin:0 auto 32px;color:var(--text-muted)">Get a fixed-price quote within 24 hours. No obligation.</p>
+        <a href="quote.html" class="btn btn-gold"><i class="fa fa-file-invoice"></i> Request a Quote</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="assets/images/mathibe-logo.jpeg" alt="Mathibe Geomatics"><p>SAGC-registered geomatics firm. Delivering precision data across South Africa since 2012.</p><div class="footer-social"><a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a><a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a><a href="https://wa.me/27817734326" class="social-link" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a><a href="#" class="social-link"><i class="fab fa-instagram"></i></a></div></div>
+        <div class="footer-col"><h4>Services</h4><div class="footer-links"><a href="services/3d-laser-scanning.html">3D Laser Scanning</a><a href="services/gpr-underground-detection.html">GPR Detection</a><a href="services/drone-lidar-surveys.html">Drone & LiDAR</a><a href="services/topographical-surveys.html">Topographical</a><a href="services/mining-surveys.html">Mining Surveys</a><a href="services/engineering-surveys.html">Engineering</a><a href="services/draughting.html">Draughting</a></div></div>
+        <div class="footer-col"><h4>Company</h4><div class="footer-links"><a href="about.html">About Us</a><a href="portfolio.html">Portfolio</a><a href="testimonials.html">Testimonials</a><a href="quote.html">Get a Quote</a><a href="contact.html">Contact</a></div></div>
+        <div class="footer-col"><h4>Service Areas</h4><div class="footer-areas"><span class="area-badge">Gauteng</span><span class="area-badge">Mpumalanga</span><span class="area-badge">Limpopo</span><span class="area-badge">North West</span><span class="area-badge">Free State</span><span class="area-badge">Tshwane</span><span class="area-badge">Johannesburg</span><span class="area-badge">Pretoria</span><span class="area-badge">Midrand</span></div></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2024 Mathibe Geomatics and Consulting. All rights reserved. | POPIA Compliant.</p><div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a></div></div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/27817734326?text=Hello%20Mathibe%20Geomatics%2C%20I%20need%20a%20quote." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <button class="back-to-top" aria-label="Back to top"><i class="fa fa-chevron-up"></i></button>
+  <div class="popia-banner" id="popia-banner"><p>We process data in accordance with POPIA. <a href="#">Learn more</a>.</p><div class="popia-actions"><button class="btn btn-ghost" id="popia-decline" style="padding:8px 16px;font-size:0.78rem">Decline</button><button class="btn btn-gold" id="popia-accept" style="padding:8px 16px;font-size:0.78rem">Accept</button></div></div>
+  <script src="js/main.js"></script>
+</body>
+</html>

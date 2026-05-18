@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Request a Quote | Mathibe Geomatics & Consulting</title>
+  <meta name="description" content="Request a fixed-price geomatics survey quote from Mathibe Geomatics. We respond within one business day. Services include LiDAR, GPR, topographic surveys and more.">
+  <link rel="icon" href="assets/images/mathibe-logo.jpeg" type="image/jpeg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-inner">
+        <div class="top-bar-contact">
+          <a href="tel:+27817734326"><i class="fa fa-phone"></i> +27 81 773 4326</a>
+          <a href="mailto:info@mathibegeomatics.co.za"><i class="fa fa-envelope"></i> info@mathibegeomatics.co.za</a>
+        </div>
+        <div class="top-bar-badges"><span class="top-badge">Fixed-Price Quotes</span><span class="top-badge">24hr Response</span></div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="navbar-custom">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand"><img src="assets/images/mathibe-logo.jpeg" alt="Mathibe Geomatics"></a>
+      <div class="nav-menu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <div class="nav-item-dropdown">
+          <a href="#" class="nav-link">Services <i class="fa fa-chevron-down" style="font-size:0.6rem;margin-left:2px"></i></a>
+          <div class="dropdown-menu-custom">
+            <a href="services/3d-laser-scanning.html" class="dropdown-link"><i class="fa fa-cube"></i> 3D Laser Scanning</a>
+            <a href="services/gpr-underground-detection.html" class="dropdown-link"><i class="fa fa-satellite-dish"></i> GPR Underground Detection</a>
+            <a href="services/drone-lidar-surveys.html" class="dropdown-link"><i class="fa fa-circle-nodes"></i> Drone & LiDAR Surveys</a>
+            <a href="services/topographical-surveys.html" class="dropdown-link"><i class="fa fa-mountain"></i> Topographical Surveys</a>
+            <a href="services/mining-surveys.html" class="dropdown-link"><i class="fa fa-helmet-safety"></i> Mining Surveys</a>
+            <a href="services/engineering-surveys.html" class="dropdown-link"><i class="fa fa-ruler-combined"></i> Engineering Surveys</a>
+            <a href="services/draughting.html" class="dropdown-link"><i class="fa fa-pen-ruler"></i> Draughting</a>
+          </div>
+        </div>
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="testimonials.html" class="nav-link">Testimonials</a>
+        <a href="quote.html" class="nav-link active">Quote</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+      <a href="quote.html" class="btn btn-gold nav-cta">Get a Quote</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="quote.html" class="mobile-nav-link">Get a Quote</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb-custom">
+        <a href="index.html">Home</a><span>›</span><span class="current">Request a Quote</span>
+      </div>
+      <span class="section-tag">Fixed-Price Quoting</span>
+      <h1 class="section-title">Get Your <span>Survey Quote</span><br>in 24 Hours</h1>
+      <p class="section-subtitle">Complete the form below and we'll respond with a clear scope and fixed price within one business day. No surprises, no hidden costs.</p>
+    </div>
+  </section>
+
+  <!-- Quote Form -->
+  <section style="background:var(--bg-section);padding:80px 0">
+    <div class="container">
+      <div style="display:grid;grid-template-columns:2fr 1fr;gap:48px;align-items:start">
+
+        <!-- Form -->
+        <div class="reveal">
+          <div class="contact-form">
+            <h3>Project Details</h3>
+            <p class="form-note">The more detail you provide, the more accurate our quote will be.</p>
+
+            <form action="https://formspree.io/f/your-endpoint" method="POST" data-form id="quote-form">
+
+              <p class="form-section-title">01. Service Required</p>
+
+              <div class="form-group">
+                <label class="form-label" for="q-service">Which service do you need? *</label>
+                <select id="q-service" name="service" class="form-control" required>
+                  <option value="" disabled selected>Select a service…</option>
+                  <option>3D Laser Scanning</option>
+                  <option>GPR Underground Detection</option>
+                  <option>Drone & LiDAR Surveys</option>
+                  <option>Topographical Surveys</option>
+                  <option>Mining Surveys</option>
+                  <option>Engineering Surveys</option>
+                  <option>Draughting / CAD Services</option>
+                  <option>Multiple Services / Not Sure</option>
+                </select>
+              </div>
+
+              <p class="form-section-title">02. Project Scope</p>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="q-size">Property / Site Size</label>
+                  <input type="text" id="q-size" name="size" class="form-control" placeholder="e.g. 5ha, 2000m², unknown">
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="q-location">Site Location *</label>
+                  <input type="text" id="q-location" name="location" class="form-control" placeholder="Town / suburb, Province" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Do you have existing site plans or drawings?</label>
+                <div class="radio-group">
+                  <label class="radio-option"><input type="radio" name="has_plans" id="has-plans-yes" value="Yes"> <i class="fa fa-check"></i> Yes</label>
+                  <label class="radio-option"><input type="radio" name="has_plans" id="has-plans-no" value="No"> <i class="fa fa-times"></i> No</label>
+                </div>
+              </div>
+
+              <div class="form-group d-none" id="file-upload-group">
+                <label class="form-label" for="q-file">Upload Existing Plans (PDF / DWG / Image)</label>
+                <input type="file" id="q-file" name="plans" class="form-control" accept=".pdf,.dwg,.dxf,.jpg,.jpeg,.png">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Urgency</label>
+                <div class="radio-group">
+                  <label class="radio-option"><input type="radio" name="urgency" value="Immediate"> <i class="fa fa-bolt"></i> Immediate</label>
+                  <label class="radio-option"><input type="radio" name="urgency" value="1-2 weeks"> 1–2 Weeks</label>
+                  <label class="radio-option"><input type="radio" name="urgency" value="1-3 months"> 1–3 Months</label>
+                  <label class="radio-option"><input type="radio" name="urgency" value="Planning"> Planning Stage</label>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="q-budget">Approximate Budget Range</label>
+                  <select id="q-budget" name="budget" class="form-control">
+                    <option value="" disabled selected>Select range…</option>
+                    <option>R5,000 – R20,000</option>
+                    <option>R20,000 – R50,000</option>
+                    <option>R50,000 – R150,000</option>
+                    <option>R150,000+</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Site Visit Required?</label>
+                  <div class="radio-group">
+                    <label class="radio-option"><input type="radio" name="site_visit" value="Yes"> Yes</label>
+                    <label class="radio-option"><input type="radio" name="site_visit" value="No"> No / Remote</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="q-description">Project Description</label>
+                <textarea id="q-description" name="description" class="form-control" rows="4" placeholder="Describe your project, its purpose, any specific deliverables you need (e.g. CAD file, PDF report, GIS layers), and any known challenges on site…"></textarea>
+              </div>
+
+              <p class="form-section-title">03. Your Contact Details</p>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="q-name">Full Name *</label>
+                  <input type="text" id="q-name" name="name" class="form-control" placeholder="Your full name" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="q-company">Company / Organisation</label>
+                  <input type="text" id="q-company" name="company" class="form-control" placeholder="Company name (optional)">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="q-email">Email Address *</label>
+                  <input type="email" id="q-email" name="email" class="form-control" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="q-phone">Phone Number</label>
+                  <input type="tel" id="q-phone" name="phone" class="form-control" placeholder="+27 8x xxx xxxx">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Preferred Contact Method</label>
+                <div class="radio-group">
+                  <label class="radio-option"><input type="radio" name="contact_method" value="Email"> <i class="fa fa-envelope"></i> Email</label>
+                  <label class="radio-option"><input type="radio" name="contact_method" value="WhatsApp"> <i class="fab fa-whatsapp"></i> WhatsApp</label>
+                  <label class="radio-option"><input type="radio" name="contact_method" value="Call"> <i class="fa fa-phone"></i> Phone Call</label>
+                </div>
+              </div>
+
+              <button type="submit" class="btn btn-gold" style="width:100%;margin-top:8px">
+                <i class="fa fa-paper-plane"></i> Submit Quote Request
+              </button>
+
+              <div class="form-success">
+                <i class="fa fa-check-circle"></i>
+                <strong>Quote request received!</strong><br>
+                Our team will review your project and respond within one business day with a detailed scope and fixed-price proposal.
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="reveal reveal-delay-2">
+          <div class="sidebar-card">
+            <h4><i class="fa fa-clock text-gold"></i> What Happens Next?</h4>
+            <div style="font-size:0.85rem;color:var(--text-muted)">
+              <div style="display:flex;gap:12px;margin-bottom:16px;align-items:flex-start">
+                <span style="color:var(--gold);font-family:var(--font-mono);font-weight:700;min-width:24px">01</span>
+                <p>We receive your request and assign it to the relevant specialist within 2 hours.</p>
+              </div>
+              <div style="display:flex;gap:12px;margin-bottom:16px;align-items:flex-start">
+                <span style="color:var(--gold);font-family:var(--font-mono);font-weight:700;min-width:24px">02</span>
+                <p>We review your project scope and, if needed, contact you for clarification.</p>
+              </div>
+              <div style="display:flex;gap:12px;margin-bottom:16px;align-items:flex-start">
+                <span style="color:var(--gold);font-family:var(--font-mono);font-weight:700;min-width:24px">03</span>
+                <p>You receive a clear, fixed-price proposal with methodology, deliverables, and timeline – within 24 hours.</p>
+              </div>
+              <div style="display:flex;gap:12px;align-items:flex-start">
+                <span style="color:var(--gold);font-family:var(--font-mono);font-weight:700;min-width:24px">04</span>
+                <p>Once accepted, we mobilise and deliver. No surprises.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-card">
+            <h4><i class="fa fa-phone text-gold"></i> Prefer to Talk?</h4>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:16px">Call or WhatsApp us directly – we're available weekdays 07:30–17:00.</p>
+            <a href="tel:+27817734326" class="btn btn-outline" style="width:100%;justify-content:center;margin-bottom:10px"><i class="fa fa-phone"></i> +27 81 773 4326</a>
+            <a href="https://wa.me/27817734326?text=Hi%20Mathibe%20Geomatics%2C%20I%20need%20a%20quote" class="btn btn-ghost" style="width:100%;justify-content:center" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
+          </div>
+
+          <div class="sidebar-card">
+            <h4><i class="fa fa-shield-alt text-gold"></i> Our Guarantees</h4>
+            <ul style="font-size:0.82rem;color:var(--text-muted)">
+              <li style="padding:6px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px"><i class="fa fa-check text-gold"></i> Fixed price – no surprise invoices</li>
+              <li style="padding:6px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px"><i class="fa fa-check text-gold"></i> 24-hour quote response</li>
+              <li style="padding:6px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px"><i class="fa fa-check text-gold"></i> SAGC-registered surveyors</li>
+              <li style="padding:6px 0;display:flex;align-items:center;gap:8px"><i class="fa fa-check text-gold"></i> R5M PI Insurance cover</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand"><img src="assets/images/mathibe-logo.jpeg" alt="Mathibe Geomatics"><p>SAGC-registered geomatics firm. Precision data across South Africa.</p><div class="footer-social"><a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a><a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a><a href="https://wa.me/27817734326" class="social-link" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a></div></div>
+        <div class="footer-col"><h4>Services</h4><div class="footer-links"><a href="services/3d-laser-scanning.html">3D Laser Scanning</a><a href="services/gpr-underground-detection.html">GPR Detection</a><a href="services/drone-lidar-surveys.html">Drone & LiDAR</a><a href="services/topographical-surveys.html">Topographical</a><a href="services/mining-surveys.html">Mining Surveys</a></div></div>
+        <div class="footer-col"><h4>Company</h4><div class="footer-links"><a href="about.html">About Us</a><a href="portfolio.html">Portfolio</a><a href="testimonials.html">Testimonials</a><a href="contact.html">Contact</a></div></div>
+        <div class="footer-col"><h4>Contact</h4><div class="footer-links"><a href="tel:+27817734326">+27 81 773 4326</a><a href="mailto:info@mathibegeomatics.co.za">info@mathibegeomatics.co.za</a><a href="#">1069 Ga-Rankuwa View, Gauteng</a></div></div>
+      </div>
+      <div class="footer-bottom"><p>&copy; 2024 Mathibe Geomatics and Consulting. All rights reserved.</p><div class="footer-bottom-links"><a href="#">Privacy Policy</a><a href="#">Terms</a></div></div>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/27817734326?text=Hello%20Mathibe%20Geomatics%2C%20I%20need%20a%20quote." class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <button class="back-to-top" aria-label="Back to top"><i class="fa fa-chevron-up"></i></button>
+  <div class="popia-banner" id="popia-banner"><p>We process data in accordance with POPIA. <a href="#">Learn more</a>.</p><div class="popia-actions"><button class="btn btn-ghost" id="popia-decline" style="padding:8px 16px;font-size:0.78rem">Decline</button><button class="btn btn-gold" id="popia-accept" style="padding:8px 16px;font-size:0.78rem">Accept</button></div></div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

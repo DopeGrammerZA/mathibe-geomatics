@@ -1,474 +1,704 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mathibe Geomatics | Precision Land Surveying Solutions</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathibe Geomatics & Consulting | Land Surveying, LiDAR & GPR – Gauteng, SA</title>
+  <meta name="description" content="SAGC-registered geomatics firm offering land surveying, 3D laser scanning, drone LiDAR, GPR underground detection, mining surveys and draughting across Gauteng and South Africa.">
+  <meta name="keywords" content="land surveying Gauteng, geomatics South Africa, LiDAR drone survey, GPR underground detection, topographical survey, mining survey, 3D laser scanning">
+  <meta property="og:title" content="Mathibe Geomatics & Consulting">
+  <meta property="og:description" content="Precision land surveying and geomatics services across South Africa.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/images/mathibe-logo.jpeg" type="image/jpeg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- JSON-LD: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Mathibe Geomatics and Consulting",
+    "url": "https://www.mathibegeomatics.co.za",
+    "logo": "https://www.mathibegeomatics.co.za/assets/images/mathibe-logo.jpeg",
+    "telephone": "+27817734326",
+    "email": "info@mathibegeomatics.co.za",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1069 Ga-Rankuwa View",
+      "addressLocality": "Ga-Rankuwa",
+      "addressRegion": "Gauteng",
+      "addressCountry": "ZA"
+    },
+    "openingHours": "Mo-Fr 07:30-17:00",
+    "description": "SAGC-registered geomatics and land surveying firm serving Gauteng and nationwide.",
+    "areaServed": ["Gauteng", "Mpumalanga", "Limpopo", "North West", "Free State"]
+  }
+  </script>
 </head>
 <body>
-    <!-- Loading Spinner -->
-    <div class="loading-spinner">
-        <div class="spinner"></div>
+
+  <!-- ── TOP BAR ──────────────────────────────────────────────── -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-inner">
+        <div class="top-bar-contact">
+          <a href="tel:+27817734326"><i class="fa fa-phone"></i> +27 81 773 4326</a>
+          <a href="mailto:info@mathibegeomatics.co.za"><i class="fa fa-envelope"></i> info@mathibegeomatics.co.za</a>
+          <a href="#"><i class="fa fa-clock"></i> Mon–Fri 07:30–17:00</a>
+        </div>
+        <div class="top-bar-badges">
+          <span class="top-badge">SAGC Registered</span>
+          <span class="top-badge">B-BBEE Level 1</span>
+          <span class="top-badge">CIDB Grade 5</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── NAVBAR ────────────────────────────────────────────────── -->
+  <nav class="navbar-custom" role="navigation" aria-label="Main navigation">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand" aria-label="Mathibe Geomatics Home">
+        <img src="assets/images/mathibe-logo.jpeg" alt="Mathibe Geomatics and Consulting">
+      </a>
+
+      <div class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+
+        <div class="nav-item-dropdown">
+          <a href="#" class="nav-link" aria-haspopup="true">Services <i class="fa fa-chevron-down" style="font-size:0.6rem;margin-left:2px"></i></a>
+          <div class="dropdown-menu-custom">
+            <a href="services/3d-laser-scanning.html" class="dropdown-link"><i class="fa fa-cube"></i> 3D Laser Scanning</a>
+            <a href="services/gpr-underground-detection.html" class="dropdown-link"><i class="fa fa-satellite-dish"></i> GPR Underground Detection</a>
+            <a href="services/drone-lidar-surveys.html" class="dropdown-link"><i class="fa fa-drone-alt fa-solid"></i><i class="fa fa-circle-nodes"></i> Drone & LiDAR Surveys</a>
+            <a href="services/topographical-surveys.html" class="dropdown-link"><i class="fa fa-mountain"></i> Topographical Surveys</a>
+            <a href="services/mining-surveys.html" class="dropdown-link"><i class="fa fa-helmet-safety"></i> Mining Surveys</a>
+            <a href="services/engineering-surveys.html" class="dropdown-link"><i class="fa fa-ruler-combined"></i> Engineering Surveys</a>
+            <a href="services/draughting.html" class="dropdown-link"><i class="fa fa-pen-ruler"></i> Draughting</a>
+          </div>
+        </div>
+
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="testimonials.html" class="nav-link">Testimonials</a>
+        <a href="quote.html" class="nav-link">Quote</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+
+      <a href="quote.html" class="btn btn-gold nav-cta">Get a Quote</a>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <div class="navbar-bg"></div>
-        <div class="container">
-            <a class="navbar-brand" href="#home">Mathibe Geo</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#testimonials">Testimonials</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="#" class="mobile-nav-link mobile-dropdown-toggle">Services <i class="fa fa-chevron-down toggle-icon" style="font-size:0.7rem;float:right"></i></a>
+      <div class="mobile-submenu">
+        <a href="services/3d-laser-scanning.html">3D Laser Scanning</a>
+        <a href="services/gpr-underground-detection.html">GPR Underground Detection</a>
+        <a href="services/drone-lidar-surveys.html">Drone & LiDAR Surveys</a>
+        <a href="services/topographical-surveys.html">Topographical Surveys</a>
+        <a href="services/mining-surveys.html">Mining Surveys</a>
+        <a href="services/engineering-surveys.html">Engineering Surveys</a>
+        <a href="services/draughting.html">Draughting</a>
+      </div>
+      <a href="portfolio.html" class="mobile-nav-link">Portfolio</a>
+      <a href="testimonials.html" class="mobile-nav-link">Testimonials</a>
+      <a href="quote.html" class="mobile-nav-link">Get a Quote</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+  </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-carousel">
-            <!-- Slide 1 -->
-            <div class="carousel-slide active" data-slide="1">
-                <div class="slide-bg"></div>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-12 text-center">
-                            <div class="slide-content">
-                                <h1>Precision Land Surveying Solutions</h1>
-                                <p>Delivering accurate geomatics and land survey services with cutting-edge technology and unwavering reliability for over 5 years.</p>
-                                <a href="#contact" class="btn btn-primary btn-lg">Request a Quote</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Slide 2 -->
-            <div class="carousel-slide" data-slide="2">
-                <div class="slide-bg"></div>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-12 text-center">
-                            <div class="slide-content">
-                                <h1>Advanced Geomatics Technology</h1>
-                                <p>Utilizing state-of-the-art GPS, LiDAR, and drone technology for precise topographic mapping and spatial data analysis.</p>
-                                <a href="#services" class="btn btn-primary btn-lg">Our Services</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Slide 3 -->
-            <div class="carousel-slide" data-slide="3">
-                <div class="slide-bg"></div>
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-12 text-center">
-                            <div class="slide-content">
-                                <h1>Trusted Surveying Experts</h1>
-                                <p>Your reliable partner for boundary determination, construction layout, and land development projects nationwide.</p>
-                                <a href="#portfolio" class="btn btn-primary btn-lg">View Projects</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Image-based Indicators -->
-            <div class="carousel-indicators">
-                <div class="indicator active" data-slide="1">
-                    <div class="indicator-image"></div>
-                    <span class="indicator-label">Precision</span>
-                </div>
-                <div class="indicator" data-slide="2">
-                    <div class="indicator-image"></div>
-                    <span class="indicator-label">Technology</span>
-                </div>
-                <div class="indicator" data-slide="3">
-                    <div class="indicator-image"></div>
-                    <span class="indicator-label">Expertise</span>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- ── HERO CAROUSEL ──────────────────────────────────────────── -->
+  <section class="hero-carousel" aria-label="Hero slider">
 
-    <!-- Services Section -->
-    <section id="services" class="section-py">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="section-title">Our Services</h2>
-                    <p class="section-subtitle text-center">Comprehensive geomatics solutions for all your land surveying needs</p>
-                </div>
-            </div>
-            <div class="row services-container">
-                <!-- 3D Laser Scanning And Modelling -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="service-card" data-service="3d-laser">
-                        <div class="service-icon">
-                            <i class="fas fa-cube"></i>
-                        </div>
-                        <h4>3D Laser Scanning & Modelling</h4>
-                        <p>High-precision 3D laser scanning for accurate as-built documentation and detailed 3D modeling of structures and terrain.</p>
-                        <a href="pages/services/3d-laser-scanning.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Underground Service Detection (GPR) -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="service-card" data-service="gpr">
-                        <div class="service-icon">
-                            <i class="fas fa-satellite-dish"></i>
-                        </div>
-                        <h4>Underground Service Detection (GPR)</h4>
-                        <p>Ground Penetrating Radar technology to locate and map underground utilities and structures with precision.</p>
-                        <a href="pages/services/underground-detection.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Mining Surveys -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="service-card" data-service="mining">
-                        <div class="service-icon">
-                            <i class="fas fa-hammer"></i>
-                        </div>
-                        <h4>Mining Surveys</h4>
-                        <p>Comprehensive surveying solutions for mining operations including volume calculations, pit mapping, and safety monitoring.</p>
-                        <a href="pages/services/mining-surveys.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Engineering & Construction Surveys -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="service-card" data-service="engineering">
-                        <div class="service-icon">
-                            <i class="fas fa-ruler-combined"></i>
-                        </div>
-                        <h4>Engineering & Construction Surveys</h4>
-                        <p>Precise layout and as-built surveys for construction projects, infrastructure development, and engineering applications.</p>
-                        <a href="pages/services/engineering-surveys.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Drone And Lidar Surveys -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="service-card" data-service="drone">
-                        <div class="service-icon">
-                            <i class="fas fa-drone"></i>
-                        </div>
-                        <h4>Drone & Lidar Surveys</h4>
-                        <p>Aerial surveying using advanced drone technology and LiDAR for large-area mapping and high-resolution data collection.</p>
-                        <a href="pages/services/drone-surveys.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Topographical Surveys -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="service-card" data-service="topographical">
-                        <div class="service-icon">
-                            <i class="fas fa-mountain"></i>
-                        </div>
-                        <h4>Topographical Surveys</h4>
-                        <p>Detailed mapping of natural and man-made features, contours, and elevations for planning and design purposes.</p>
-                        <a href="pages/services/topographical-surveys.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <!-- Draughting -->
-                <div class="col-md-6 col-lg-4 mb-4 mx-auto">
-                    <div class="service-card" data-service="draughting">
-                        <div class="service-icon">
-                            <i class="fas fa-drafting-compass"></i>
-                        </div>
-                        <h4>Draughting</h4>
-                        <p>Professional CAD draughting services to transform survey data into accurate plans, maps, and technical drawings.</p>
-                        <a href="pages/services/draughting.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
+    <!-- Slide 1 -->
+    <div class="carousel-slide active" id="slide-0">
+      <img class="hero-bg" src="https://images.unsplash.com/photo-1581093458791-9f3c3250a8b0?w=1600&q=80" alt="Land surveyor with GPS equipment in the field" loading="eager">
+      <div class="hero-overlay"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow"><i class="fa fa-crosshairs"></i> &nbsp; SAGC Registered · B-BBEE Level 1</p>
+        <h1 class="hero-title">Precision Land Surveying &<br><span>Geomatics</span> – Gauteng & Nationwide</h1>
+        <p class="hero-desc">Accurate data. Defensible results. Surveys that protect your land, your project, and your investment.</p>
+        <div class="hero-actions">
+          <a href="quote.html" class="btn btn-gold"><i class="fa fa-file-invoice"></i> Request a Quote</a>
+          <a href="services/topographical-surveys.html" class="btn btn-outline">Our Services</a>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="section-py bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="section-title">Project Portfolio</h2>
-                    <p class="section-subtitle text-center">Showcasing our successful land surveying and geomatics projects</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="portfolio-item">
-                        <div class="portfolio-img-container">
-                            <div class="portfolio-img"></div>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <div class="text-center text-white">
-                                <h4>Commercial Development Survey</h4>
-                                <p>Boundary and topographic survey for a 50-acre commercial development</p>
-                                <button class="btn btn-outline-light mt-3">View Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="portfolio-item">
-                        <div class="portfolio-img-container">
-                            <div class="portfolio-img"></div>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <div class="text-center text-white">
-                                <h4>Residential Subdivision</h4>
-                                <p>Complete subdivision design and boundary survey for 200-lot residential community</p>
-                                <button class="btn btn-outline-light mt-3">View Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="portfolio-item">
-                        <div class="portfolio-img-container">
-                            <div class="portfolio-img"></div>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <div class="text-center text-white">
-                                <h4>Infrastructure Project</h4>
-                                <p>Topographic mapping and construction layout for major highway expansion</p>
-                                <button class="btn btn-outline-light mt-3">View Details</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Slide 2 -->
+    <div class="carousel-slide" id="slide-1">
+      <img class="hero-bg" src="https://images.unsplash.com/photo-1473968512647-3e447244af8f?w=1600&q=80" alt="Drone mapping a construction site" loading="lazy">
+      <div class="hero-overlay"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow"><i class="fa fa-satellite"></i> &nbsp; Drone · LiDAR · 3D Scanning</p>
+        <h1 class="hero-title">Advanced <span>Drone & LiDAR</span><br>Technology at Your Service</h1>
+        <p class="hero-desc">Sub-centimetre accuracy from the sky. DJI Matrice 300 + Leica LiDAR for rapid, large-area mapping.</p>
+        <div class="hero-actions">
+          <a href="services/drone-lidar-surveys.html" class="btn btn-gold"><i class="fa fa-arrow-right"></i> Explore Drone Surveys</a>
+          <a href="portfolio.html" class="btn btn-outline">View Projects</a>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="section-py">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="section-title">Client Testimonials</h2>
-                    <p class="section-subtitle text-center">What our clients say about our geomatics services</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="testimonial-card">
-                        <div class="testimonial-quote">
-                            <i class="fas fa-quote-left"></i>
-                        </div>
-                        <p class="testimonial-text">"Mathibe Geomatics provided exceptional boundary survey services for our commercial property acquisition. Their attention to detail and professional approach gave us complete confidence in the transaction."</p>
-                        <div class="client-info">
-                            <div class="client-avatar"></div>
-                            <div>
-                                <h5>Kagiso "Kagimedia" Masebe</h5>
-                                <p>Software Developer, Masebe Group Projects</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="testimonial-card">
-                        <div class="testimonial-quote">
-                            <i class="fas fa-quote-left"></i>
-                        </div>
-                        <p class="testimonial-text">"The topographic mapping and survey work completed by Mathibe Geomatics was instrumental in our infrastructure project. Their accuracy and timely delivery helped us stay on schedule and within budget."</p>
-                        <div class="client-info">
-                            <div class="client-avatar"></div>
-                            <div>
-                                <h5>Marks "Kagimedia" Masebe</h5>
-                                <p>Project Manager, Kagimedia Technologies</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Slide 3 -->
+    <div class="carousel-slide" id="slide-2">
+      <img class="hero-bg" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80" alt="Engineer at a mining surveying site" loading="lazy">
+      <div class="hero-overlay"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow"><i class="fa fa-shield-halved"></i> &nbsp; Trusted by Mining, Construction & Property Leaders</p>
+        <h1 class="hero-title">Your Project Deserves<br><span>Zero Surprises</span></h1>
+        <p class="hero-desc">Fixed-price quotes in 24 hours. R5M PI Insurance. CIDB Grade 5 registered. Nationwide reach.</p>
+        <div class="hero-actions">
+          <a href="portfolio.html" class="btn btn-gold"><i class="fa fa-images"></i> View Our Projects</a>
+          <a href="contact.html" class="btn btn-outline">Contact Us</a>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section-py bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="section-title">Contact Us</h2>
-                    <p class="section-subtitle text-center">Get in touch for professional land surveying solutions</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 mb-4">
-                    <div class="contact-form">
-                        <form id="contactForm">
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <div class="form-group">
-                                        <label for="name" class="form-label">Your Name *</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <div class="form-group">
-                                        <label for="email" class="form-label">Your Email *</label>
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label for="subject" class="form-label">Subject</label>
-                                <input type="text" class="form-control" id="subject" placeholder="Subject">
-                            </div>
-                            <div class="form-group mb-4">
-                                <label for="message" class="form-label">Your Message *</label>
-                                <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-submit">
-                                <span class="btn-text">Send Message</span>
-                                <div class="btn-spinner d-none">
-                                    <div class="spinner-border spinner-border-sm" role="status">
-                                        <span class="visually-hidden">Loading...</span>
-                                    </div>
-                                    <span class="ms-2">Sending...</span>
-                                </div>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="contact-info mb-5">
-                        <h4 class="mb-4">Contact Information</h4>
-                        <div class="contact-item d-flex align-items-start mb-3">
-                            <i class="fas fa-map-marker-alt me-3 mt-1"></i>
-                            <div>
-                                <h6>Address</h6>
-                                <p>1069 Ga-Rankuwa View <br> Ga-Rankuwa<br> 0208</p>
-                            </div>
-                        </div>
-                        <div class="contact-item d-flex align-items-start mb-3">
-                            <i class="fas fa-phone me-3 mt-1"></i>
-                            <div>
-                                <h6>Phone</h6>
-                                <p>+27 81 773 4326</p>
-                            </div>
-                        </div>
-                        <div class="contact-item d-flex align-items-start mb-3">
-                            <i class="fas fa-envelope me-3 mt-1"></i>
-                            <div>
-                                <h6>Email</h6>
-                                <p>info@mathibegeomatics.co.za</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="business-hours">
-                        <h4 class="mb-4">Business Hours</h4>
-                        <ul class="list-unstyled">
-                            <li class="d-flex justify-content-between py-2 border-bottom">
-                                <span>Monday - Friday</span>
-                                <span>8:00 AM - 6:00 PM</span>
-                            </li>
-                            <li class="d-flex justify-content-between py-2 border-bottom">
-                                <span>Saturday</span>
-                                <span>9:00 AM - 1:00 PM</span>
-                            </li>
-                            <li class="d-flex justify-content-between py-2">
-                                <span>Sunday</span>
-                                <span>Closed</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+    <!-- Carousel Controls -->
+    <div class="carousel-controls">
+      <button class="carousel-arrow" id="carousel-prev" aria-label="Previous slide"><i class="fa fa-chevron-left"></i></button>
+      <div class="carousel-indicators-custom">
+        <button class="carousel-dot active" data-slide="0" aria-label="Slide 1"></button>
+        <button class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
+        <button class="carousel-dot" data-slide="2" aria-label="Slide 3"></button>
+      </div>
+      <button class="carousel-arrow" id="carousel-next" aria-label="Next slide"><i class="fa fa-chevron-right"></i></button>
+    </div>
+  </section>
+
+  <!-- ── TRUST BAR ──────────────────────────────────────────────── -->
+  <div class="trust-bar" role="complementary" aria-label="Accreditations">
+    <div class="trust-bar-inner">
+      <div class="trust-item">
+        <div class="trust-icon"><i class="fa fa-certificate"></i></div>
+        <div class="trust-text"><strong>SAGC Registered</strong><span>Professional Survey Council</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><i class="fa fa-handshake"></i></div>
+        <div class="trust-text"><strong>B-BBEE Level 1</strong><span>100% Black-Owned</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><i class="fa fa-hard-hat"></i></div>
+        <div class="trust-text"><strong>CIDB Grade 5</strong><span>Construction Industry Board</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><i class="fa fa-shield-alt"></i></div>
+        <div class="trust-text"><strong>R5M PI Insurance</strong><span>Professional Indemnity</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><i class="fa fa-database"></i></div>
+        <div class="trust-text"><strong>CSD Registered</strong><span>Central Supplier Database</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SERVICES ───────────────────────────────────────────────── -->
+  <section class="services-section" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-tag">What We Do</span>
+        <h2 class="section-title" id="services-heading">Seven Specialised <span>Geomatics Services</span></h2>
+        <p class="section-subtitle">From underground utility detection to millimetre-accurate as-built surveys – we deliver data you can stake your project on.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal reveal-delay-1">
+          <div class="service-icon"><i class="fa fa-cube"></i></div>
+          <h3>3D Laser Scanning</h3>
+          <p>High-density point clouds of buildings, structures, and industrial assets. Ideal for as-built documentation, heritage recording, and clash detection in BIM workflows.</p>
+          <span class="service-spec">Accuracy: ±2mm · Range: 300m</span>
+          <br>
+          <a href="services/3d-laser-scanning.html" class="service-link">Learn More <i class="fa fa-arrow-right"></i></a>
+        </article>
+
+        <article class="service-card reveal reveal-delay-2">
+          <div class="service-icon"><i class="fa fa-satellite-dish"></i></div>
+          <h3>GPR Underground Detection</h3>
+          <p>Non-destructive ground-penetrating radar surveys to locate buried utilities, voids, and sub-surface anomalies before excavation – preventing costly damage and delays.</p>
+          <span class="service-spec">Depth: up to 5m · Resolution: 50MHz–1GHz</span>
+          <br>
+          <a href="services/gpr-underground-detection.html" class="service-link">Learn More <i class="fa fa-arrow-right"></i></a>
+        </article>
+
+        <article class="service-card reveal reveal-delay-3">
+          <div class="service-icon"><i class="fa fa-helicopter"></i></div>
+          <h3>Drone & LiDAR Surveys</h3>
+          <p>Rapid large-area mapping using DJI Matrice 300 with integrated LiDAR. Cover hundreds of hectares in a single flight with sub-centimetre ground accuracy.</p>
+          <span class="service-spec">GSD: ≤2cm · Coverage: 200ha/flight</span>
+          <br>
+          <a href="services/drone-lidar-surveys.html" class="service-link">Learn More <i class="fa fa-arrow-right"></i></a>
+        </article>
+
+        <article class="service-card reveal reveal-delay-4">
+          <div class="service-icon"><i class="fa fa-mountain"></i></div>
+          <h3>Topographical Surveys</h3>
+          <p>Detailed terrain models capturing contours, drainage features, buildings, and services. The foundation for every successful development application and engineering design.</p>
+          <span class="service-spec">Accuracy: ±20mm H | ±30mm V</span>
+          <br>
+          <a href="services/topographical-surveys.html" class="service-link">Learn More <i class="fa fa-arrow-right"></i></a>
+        </article>
+
+        <article class="service-card reveal reveal-delay-5">
+          <div class="service-icon"><i class="fa fa-helmet-safety"></i></div>
+          <h3>Mining Surveys</h3>
+          <p>Volumetric calculations, blast monitoring, deformation surveys, and mine-plan updates. We work safely in active underground and open-cast environments.</p>
+          <span class="service-spec">Volume Accuracy: ±0.5% · MHSA Compliant</span>
+          <br>
+          <a href="services/mining-surveys.html" class="service-link">Learn More <i class="fa fa-arrow-right"></i></a>
+        </article>
+
+        <article class="service-card reveal reveal-delay-1">
+          <div class="service-icon"><i class="fa fa-ruler-combined"></i></div>
+          <h3>Engineering Surveys</h3>
+          <p>Control networks, setting-out, as-built surveys, and deformation monitoring for infrastructure projects. Tight tolerances, fast turnaround.</p>
+          <span class="service-spec">Setting-out Accuracy: ±5mm</span>
+          <br>
+          <a href="services/engineering-surveys.html" class="service-link">Learn More <i class="fa fa-arrow-right"></i></a>
+        </article>
+
+        <article class="service-card reveal reveal-delay-2">
+          <div class="service-icon"><i class="fa fa-pen-ruler"></i></div>
+          <h3>Draughting & CAD Services</h3>
+          <p>Professional AutoCAD and Civil 3D draughting of survey plans, sectional title diagrams, general plans, and municipal submission drawings.</p>
+          <span class="service-spec">Deliverables: DWG · PDF · SHP · LandXML</span>
+          <br>
+          <a href="services/draughting.html" class="service-link">Learn More <i class="fa fa-arrow-right"></i></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY CHOOSE US ──────────────────────────────────────────── -->
+  <section class="why-section" aria-labelledby="why-heading">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-tag">Why Mathibe Geomatics</span>
+        <h2 class="section-title" id="why-heading">We Protect What Matters <span>Most to You</span></h2>
+        <p class="section-subtitle">Every survey we complete is a legal defence, a cost-saving measure, and a decision-enabling tool.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-number">01</div>
+          <div class="why-content">
+            <h3>Prevent Costly Boundary Disputes</h3>
+            <p>A single incorrect boundary line can cost millions in legal fees and demolition. Our SAGC-registered surveyors produce court-admissible records that stand up to scrutiny – protecting your land title for decades.</p>
+          </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <h3 class="mb-3">Mathibe Geomatics</h3>
-                    <p>Providing precise land surveying and geomatics solutions with cutting-edge technology and unwavering reliability since 2020.</p>
-                    <div class="social-icons mt-4">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-6 mb-4">
-                    <div class="footer-links">
-                        <h5>Quick Links</h5>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#services">Services</a></li>
-                            <li><a href="#portfolio">Portfolio</a></li>
-                            <li><a href="#testimonials">Testimonials</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <div class="footer-links">
-                        <h5>Our Services</h5>
-                        <ul>
-                            <li><a href="#services">Land Surveying</a></li>
-                            <li><a href="#services">Topographic Mapping</a></li>
-                            <li><a href="#services">Boundary Determination</a></li>
-                            <li><a href="#services">Project Consultation</a></li>
-                            <li><a href="#services">Construction Layout</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 mb-4">
-                    <div class="footer-links">
-                        <h5>Newsletter</h5>
-                        <p>Subscribe to our newsletter for the latest updates and insights in geomatics.</p>
-                        <form id="newsletterForm">
-                            <div class="input-group mb-3">
-                                <input type="email" class="form-control" placeholder="Your Email" required>
-                                <button class="btn btn-primary" type="submit">Subscribe</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 Mathibe Geomatics. All Rights Reserved.</p>
-            </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-number">02</div>
+          <div class="why-content">
+            <h3>Keep Your Project on Schedule</h3>
+            <p>Delayed survey data = delayed approvals = delayed cashflow. We turn around topographic surveys in 3–5 business days and deliver digital data the same day as field completion.</p>
+          </div>
         </div>
-    </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Custom JS -->
-    <script src="js/script.js"></script>
+        <div class="why-card reveal reveal-delay-3">
+          <div class="why-number">03</div>
+          <div class="why-content">
+            <h3>Unlock Your Land's True Value</h3>
+            <p>Accurate volumetric data and precise terrain models help you extract maximum value from every hectare – whether you're developing, mining, or selling. Our clients average 8% better project yields with our data.</p>
+          </div>
+        </div>
+
+        <div class="why-card reveal reveal-delay-4">
+          <div class="why-number">04</div>
+          <div class="why-content">
+            <h3>Fixed-Price Quote in 24 Hours</h3>
+            <p>No vague estimates. No hidden costs. You'll receive a clear scope and fixed price within one business day of enquiry – giving you budget certainty from day one.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STATS ──────────────────────────────────────────────────── -->
+  <section class="stats-section" aria-label="Company statistics">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h2><span class="counter-num" data-target="150" data-suffix="+">0+</span></h2>
+          <p>Projects Completed</p>
+        </div>
+        <div class="stat-item">
+          <h2><span class="counter-num" data-target="12" data-suffix="">0</span> yrs</h2>
+          <p>Industry Experience</p>
+        </div>
+        <div class="stat-item">
+          <h2><span class="counter-num" data-target="98" data-suffix="%">0%</span></h2>
+          <p>On-time Delivery Rate</p>
+        </div>
+        <div class="stat-item">
+          <h2>R<span class="counter-num" data-target="5" data-suffix="M">0M</span></h2>
+          <p>PI Insurance Cover</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RECENT PROJECTS ────────────────────────────────────────── -->
+  <section class="portfolio-section" aria-labelledby="portfolio-heading">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-tag">Recent Work</span>
+        <h2 class="section-title" id="portfolio-heading">Projects That <span>Speak for Themselves</span></h2>
+        <p class="section-subtitle">A selection of recent surveys across Gauteng and beyond.</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="portfolio-card reveal reveal-delay-1">
+          <div class="portfolio-img">
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80" alt="Commercial development survey – Midrand" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-tag">Topographical</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Commercial Development – Midrand</h3>
+            <p class="portfolio-location"><i class="fa fa-map-marker-alt"></i> Midrand, Gauteng</p>
+            <span class="portfolio-outcome">32ha surveyed · Municipal approval obtained</span>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal reveal-delay-2">
+          <div class="portfolio-img">
+            <img src="https://images.unsplash.com/photo-1563694983011-6f4d90358083?w=800&q=80" alt="Open-cast mine volumetrics – Limpopo" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-tag">Mining</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Open-Cast Mine Volumetrics – Limpopo</h3>
+            <p class="portfolio-location"><i class="fa fa-map-marker-alt"></i> Mokopane, Limpopo</p>
+            <span class="portfolio-outcome">Monthly stockpile calcs · ±0.3% accuracy</span>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal reveal-delay-3">
+          <div class="portfolio-img">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="GPR utility detection – Tshwane CBD" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-tag">GPR Detection</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Underground Utility Mapping – Tshwane</h3>
+            <p class="portfolio-location"><i class="fa fa-map-marker-alt"></i> Tshwane CBD, Gauteng</p>
+            <span class="portfolio-outcome">23 utilities mapped · Zero excavation damage</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center mt-48 reveal">
+        <a href="portfolio.html" class="btn btn-outline"><i class="fa fa-images"></i> View All Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ───────────────────────────────────────────── -->
+  <section class="testimonials-section" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-tag">Client Voices</span>
+        <h2 class="section-title" id="testimonials-heading">What Our Clients <span>Say</span></h2>
+        <p class="section-subtitle">Results that go beyond the survey report.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <span class="quote-mark">"</span>
+          <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+          <blockquote>Mathibe Geomatics completed our topographical survey three days ahead of schedule and the data was directly importable into our Civil 3D model. No re-work, no surprises. Their fixed-price quote was honoured to the cent.</blockquote>
+          <div class="testimonial-footer">
+            <img class="testimonial-avatar" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80" alt="Sipho Dlamini" loading="lazy">
+            <div class="testimonial-meta">
+              <strong>Sipho Dlamini</strong>
+              <span>Project Manager, Infrastructure Development Firm – Tshwane</span>
+              <p class="testimonial-result"><i class="fa fa-check-circle"></i> Project delivered 3 days early</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-2">
+          <span class="quote-mark">"</span>
+          <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+          <blockquote>We hired Mathibe for GPR detection before a major excavation in Pretoria. They identified 17 buried services the municipality had no record of. That survey alone saved us from what could have been R2.3 million in damage claims.</blockquote>
+          <div class="testimonial-footer">
+            <img class="testimonial-avatar" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80" alt="Nomvula Khumalo" loading="lazy">
+            <div class="testimonial-meta">
+              <strong>Nomvula Khumalo</strong>
+              <span>Site Engineer, Civil Contractors – Pretoria East</span>
+              <p class="testimonial-result"><i class="fa fa-check-circle"></i> Saved est. R2.3M in damage claims</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-3">
+          <span class="quote-mark">"</span>
+          <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+          <blockquote>As a mining company, we need stockpile volumes that our auditors trust. Mathibe's drone LiDAR surveys give us ±0.3% accuracy – far better than our previous manual methods – and the reports arrive the next morning after fieldwork.</blockquote>
+          <div class="testimonial-footer">
+            <img class="testimonial-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="David Motsepe" loading="lazy">
+            <div class="testimonial-meta">
+              <strong>David Motsepe</strong>
+              <span>Mines Manager, Open-Cast Mining Operation – Limpopo</span>
+              <p class="testimonial-result"><i class="fa fa-check-circle"></i> ±0.3% volumetric accuracy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-48 reveal">
+        <a href="testimonials.html" class="btn btn-outline"><i class="fa fa-comment-dots"></i> Read More Testimonials</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRUST BADGES REPEAT ────────────────────────────────────── -->
+  <div class="trust-full" role="complementary" aria-label="Certifications and accreditations">
+    <div class="container">
+      <div class="trust-full-inner">
+        <div class="badge-pill"><i class="fa fa-certificate"></i> SAGC Registered</div>
+        <div class="badge-pill"><i class="fa fa-handshake"></i> B-BBEE Level 1</div>
+        <div class="badge-pill"><i class="fa fa-hard-hat"></i> CIDB Grade 5</div>
+        <div class="badge-pill"><i class="fa fa-shield-alt"></i> R5M PI Insurance</div>
+        <div class="badge-pill"><i class="fa fa-database"></i> CSD Registered</div>
+        <div class="badge-pill"><i class="fa fa-lock"></i> POPIA Compliant</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CONTACT & QUOTE CTA ────────────────────────────────────── -->
+  <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div class="contact-info reveal">
+          <span class="section-tag">Get in Touch</span>
+          <h2 class="section-title" id="contact-heading">Ready to Start?<br><span>Let's Talk.</span></h2>
+          <p>Send us your project details and we'll respond with a scope and fixed-price quote within one business day. No obligation, no pressure.</p>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fa fa-phone"></i></div>
+            <div class="contact-detail-text">
+              <strong>Call Us</strong>
+              <a href="tel:+27817734326">+27 81 773 4326</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fa fa-envelope"></i></div>
+            <div class="contact-detail-text">
+              <strong>Email Us</strong>
+              <a href="mailto:info@mathibegeomatics.co.za">info@mathibegeomatics.co.za</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fa fa-map-marker-alt"></i></div>
+            <div class="contact-detail-text">
+              <strong>Office Address</strong>
+              <p>1069 Ga-Rankuwa View, Ga-Rankuwa, Gauteng</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fa fa-clock"></i></div>
+            <div class="contact-detail-text">
+              <strong>Business Hours</strong>
+              <p>Monday – Friday: 07:30 – 17:00</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fab fa-whatsapp"></i></div>
+            <div class="contact-detail-text">
+              <strong>WhatsApp</strong>
+              <a href="https://wa.me/27817734326?text=Hello%20Mathibe%20Geomatics%2C%20I%20need%20a%20quote%20for%20a%20survey." target="_blank" rel="noopener">Message us on WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Quote Form -->
+        <div class="reveal reveal-delay-2">
+          <div class="contact-form">
+            <h3>Quick Enquiry</h3>
+            <p class="form-note">For a detailed quote, visit our <a href="quote.html">full quote page</a>.</p>
+
+            <form action="https://formspree.io/f/your-endpoint" method="POST" data-form>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="contact-name">Full Name *</label>
+                  <input type="text" id="contact-name" name="name" class="form-control" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contact-email">Email Address *</label>
+                  <input type="email" id="contact-email" name="email" class="form-control" placeholder="you@example.com" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-service">Service Required *</label>
+                <select id="contact-service" name="service" class="form-control" required>
+                  <option value="" disabled selected>Select a service…</option>
+                  <option>3D Laser Scanning</option>
+                  <option>GPR Underground Detection</option>
+                  <option>Drone & LiDAR Surveys</option>
+                  <option>Topographical Surveys</option>
+                  <option>Mining Surveys</option>
+                  <option>Engineering Surveys</option>
+                  <option>Draughting</option>
+                  <option>Other / Not Sure</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-message">Project Description</label>
+                <textarea id="contact-message" name="message" class="form-control" placeholder="Brief description of your project, location, and any deadlines…" rows="4"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-gold" style="width:100%"><i class="fa fa-paper-plane"></i> Send Enquiry</button>
+
+              <div class="form-success">
+                <i class="fa fa-check-circle"></i>
+                <strong>Message sent!</strong><br>We'll respond within one business day.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MAP ───────────────────────────────────────────────────── -->
+  <div class="map-section">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.5!2d27.993!3d-25.614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e955e0000000001%3A0x1!2sGa-Rankuwa%2C+Gauteng!5e0!3m2!1sen!2sza!4v1700000000000"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Mathibe Geomatics Office Location"
+      aria-label="Map showing office at Ga-Rankuwa, Gauteng">
+    </iframe>
+    <div class="map-overlay-badge">
+      <i class="fa fa-map-marker-alt text-gold"></i>&nbsp; 1069 Ga-Rankuwa View · Serving Nationwide
+    </div>
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <img src="assets/images/mathibe-logo.jpeg" alt="Mathibe Geomatics and Consulting">
+          <p>SAGC-registered geomatics and land surveying firm. Delivering precision data across Gauteng, Mpumalanga, Limpopo, and beyond since 2012.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/27817734326" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-col">
+          <h4>Services</h4>
+          <div class="footer-links">
+            <a href="services/3d-laser-scanning.html">3D Laser Scanning</a>
+            <a href="services/gpr-underground-detection.html">GPR Underground Detection</a>
+            <a href="services/drone-lidar-surveys.html">Drone & LiDAR</a>
+            <a href="services/topographical-surveys.html">Topographical Surveys</a>
+            <a href="services/mining-surveys.html">Mining Surveys</a>
+            <a href="services/engineering-surveys.html">Engineering Surveys</a>
+            <a href="services/draughting.html">Draughting</a>
+          </div>
+        </div>
+
+        <!-- Company -->
+        <div class="footer-col">
+          <h4>Company</h4>
+          <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="quote.html">Get a Quote</a>
+            <a href="contact.html">Contact</a>
+            <a href="blog/why-lidar-matters.html">Blog</a>
+          </div>
+        </div>
+
+        <!-- Service Areas -->
+        <div class="footer-col">
+          <h4>Service Areas</h4>
+          <div class="footer-areas">
+            <span class="area-badge">Gauteng</span>
+            <span class="area-badge">Mpumalanga</span>
+            <span class="area-badge">Limpopo</span>
+            <span class="area-badge">North West</span>
+            <span class="area-badge">Free State</span>
+            <span class="area-badge">Tshwane</span>
+            <span class="area-badge">Johannesburg</span>
+            <span class="area-badge">Midrand</span>
+            <span class="area-badge">Centurion</span>
+            <span class="area-badge">Pretoria</span>
+            <span class="area-badge">Polokwane</span>
+            <span class="area-badge">Rustenburg</span>
+            <span class="area-badge">Witbank</span>
+          </div>
+          <div class="footer-trust" style="margin-top:20px">
+            <span class="top-badge">SAGC</span>
+            <span class="top-badge">B-BBEE L1</span>
+            <span class="top-badge">CIDB G5</span>
+            <span class="top-badge">CSD</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Mathibe Geomatics and Consulting. All rights reserved. | POPIA: We process personal data lawfully and transparently.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">POPIA Notice</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── FLOATING BUTTONS ───────────────────────────────────────── -->
+  <a href="https://wa.me/27817734326?text=Hello%20Mathibe%20Geomatics%2C%20I%20need%20a%20quote%20for%20a%20survey%20in%20Gauteng." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <button class="back-to-top" aria-label="Back to top"><i class="fa fa-chevron-up"></i></button>
+
+  <!-- ── POPIA BANNER ───────────────────────────────────────────── -->
+  <div class="popia-banner" id="popia-banner" role="dialog" aria-label="Cookie and POPIA consent">
+    <p>We use cookies to improve your experience. By continuing to use this site, you agree to our <a href="#">Privacy Policy</a> and our obligations under POPIA (Protection of Personal Information Act, No. 4 of 2013).</p>
+    <div class="popia-actions">
+      <button class="btn btn-ghost" id="popia-decline" style="padding:8px 16px;font-size:0.78rem">Decline</button>
+      <button class="btn btn-gold" id="popia-accept" style="padding:8px 16px;font-size:0.78rem">Accept</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

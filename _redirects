@@ -1,0 +1,15 @@
+/index          /index.html     301
+/about          /about.html     301
+/contact        /contact.html   301
+/quote          /quote.html     301
+/portfolio      /portfolio.html 301
+/testimonials   /testimonials.html  301
+/services/3d-laser-scanning         /services/3d-laser-scanning.html        301
+/services/gpr-underground-detection /services/gpr-underground-detection.html 301
+/services/drone-lidar-surveys       /services/drone-lidar-surveys.html      301
+/services/topographical-surveys     /services/topographical-surveys.html    301
+/services/mining-surveys            /services/mining-surveys.html           301
+/services/engineering-surveys       /services/engineering-surveys.html      301
+/services/draughting                /services/draughting.html               301
+/blog/why-lidar-matters             /blog/why-lidar-matters.html            301
+/*              /404.html       404
