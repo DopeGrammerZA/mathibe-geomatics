@@ -185,21 +185,70 @@ section { padding: 80px 0; }
 }
 
 /* ── NAVBAR ─────────────────────────────────────────────────────── */
+/* ── NAVBAR (UPDATED) ─────────────────────────────────────────────────────── */
 .navbar-custom {
-  background: rgba(10,10,10,0.97);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border);
-  padding: 0;
+  background: transparent;
+  backdrop-filter: none;
+  border-bottom: 1px solid transparent;
+  transition: background 0.25s ease, backdrop-filter 0.25s ease, border-bottom-color 0.2s, box-shadow 0.2s;
   position: sticky;
   top: 0;
   z-index: 1000;
-  transition: var(--transition);
 }
 
+/* Scrolled state - dark background appears after 50px */
 .navbar-custom.scrolled {
+  background: rgba(10, 10, 10, 0.97);
+  backdrop-filter: blur(12px);
+  border-bottom-color: var(--border-gold);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Nav links - transparent header (white text) */
+.navbar-custom:not(.scrolled) .nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.navbar-custom:not(.scrolled) .nav-link:hover,
+.navbar-custom:not(.scrolled) .nav-link.active {
+  color: var(--gold) !important;
+  background: rgba(196, 154, 108, 0.15);
+}
+
+/* Nav links - scrolled state (dark theme text) */
+/* .navbar-custom.scrolled .nav-link {
+  color: var(--text-secondary) !important;
+} */
+
+.navbar-custom.scrolled .nav-link:hover,
+.navbar-custom.scrolled .nav-link.active {
+  color: var(--gold) !important;
+  background: var(--gold-dim);
+}
+
+/* Hamburger menu icon colors */
+.navbar-custom:not(.scrolled) .hamburger span {
+  background: #ffffff;
+}
+
+.navbar-custom.scrolled .hamburger span {
+  background: var(--text-primary);
+}
+
+/* Logo - ensure visibility on transparent header */
+.navbar-custom:not(.scrolled) .navbar-brand img {
+  filter: brightness(1);
+}
+
+/* Dropdown menu - always dark for readability */
+
+
+/* Mobile menu - unaffected, remains dark */
+
+/* .navbar-custom.scrolled {
   box-shadow: 0 4px 30px rgba(0,0,0,0.6);
   border-bottom-color: var(--border-gold);
-}
+} */
 
 .navbar-inner {
   display: flex;

@@ -267,6 +267,28 @@
   });
 })();
 
+// Navbar scroll effect - appears after 50px
+(function() {
+  const navbar = document.querySelector('.navbar-custom');
+  if (!navbar) return;
+
+  const SCROLL_THRESHOLD = 50;
+
+  function updateNavbarScroll() {
+    if (window.scrollY > SCROLL_THRESHOLD) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  }
+
+  // Initial check
+  updateNavbarScroll();
+
+  // Listen for scroll events
+  window.addEventListener('scroll', updateNavbarScroll);
+})();
+
 /* ── MOBILE DROPDOWN TOGGLES ────────────────────────────────────── */
 (function initMobileDropdowns() {
   document.querySelectorAll('.mobile-dropdown-toggle').forEach(toggle => {
