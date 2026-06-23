@@ -511,7 +511,7 @@ section { padding: 80px 0; }
 .carousel-controls {
   position: absolute;
   bottom: 40px;
-  right: 60px;
+  right: 100px;
   display: flex;
   align-items: center;
   gap: 16px;
@@ -1320,8 +1320,8 @@ footer {
 
 .back-to-top {
   position: fixed;
-  bottom: 96px;
-  right: 28px;
+  bottom: 28px;
+  left: 28px;
   width: 44px;
   height: 44px;
   background: var(--bg-card);

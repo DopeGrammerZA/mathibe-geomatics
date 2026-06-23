@@ -1,2025 +1,919 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>e-KASI Internet Cafe | Lethlabile's Digital Hub</title>
-    <!-- Bootstrap 5 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
-    <!-- Font Awesome 5 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- Owl Carousel -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
-    <!-- Animate.css for WOW.js -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Lora:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <style>
-        /* ============================================================
-           ROOT VARIABLES — Brand colours from internet-cafe.jpg
-        ============================================================ */
-        :root {
-            --primary:    #F5E6C8;   /* cream — dominant brand colour */
-            --primary-dk: #e8d0a0;   /* slightly deeper cream */
-            --blue:       #1B5FCC;   /* supporting — buttons & CTAs only */
-            --blue-dk:    #1447a8;   /* darker blue for hover */
-            --accent:     #7A5200;   /* dark bronze — minimal, high-contrast */
-            --accent-lt:  #A06B10;   /* lighter bronze for icons */
-            --cream:      #F5E6C8;
-            --dark:       #1A1A1A;
-            --grey:       #5a5a5a;
-            --light:      #FBF4E8;   /* cream-tinted off-white sections */
-            --white:      #FFFFFF;
-            --whatsapp:   #25D366;
-        }
-
-        /* ============================================================
-           BASE
-        ============================================================ */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Lora', Georgia, serif;
-            font-size: 16px;
-            color: var(--dark);
-            background: var(--white);
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        p { line-height: 1.8; color: var(--grey); }
-
-        a { text-decoration: none; transition: all .3s; }
-
-        section { position: relative; }
-
-        .section-pad { padding: 80px 0; }
-
-        /* ============================================================
-           SECTION LABELS
-        ============================================================ */
-        .section-label {
-            display: inline-block;
-            font-family: 'Poppins', sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--accent);
-            background: var(--primary);
-            border-left: 3px solid var(--accent);
-            padding: 4px 14px;
-            margin-bottom: 12px;
-        }
-
-        .section-title {
-            font-size: clamp(1.6rem, 3vw, 2.4rem);
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 16px;
-        }
-
-        .section-title span { color: var(--blue); }
-
-        .section-sub {
-            font-size: 1rem;
-            color: var(--grey);
-            max-width: 560px;
-        }
-
-        /* ============================================================
-           BACK TO TOP
-        ============================================================ */
-        #backTop {
-            position: fixed;
-            bottom: 110px;
-            right: 24px;
-            width: 44px; height: 44px;
-            background: var(--blue);
-            color: #fff;
-            border-radius: 50%;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            z-index: 9998;
-            box-shadow: 0 4px 14px rgba(27,95,204,.4);
-            transition: all .3s;
-        }
-        #backTop:hover { background: var(--blue-dk); transform: translateY(-3px); }
-        #backTop.show { display: flex; }
-
-        /* ============================================================
-           SPINNER
-        ============================================================ */
-        #spinner {
-            position: fixed; inset: 0;
-            background: var(--light);
-            display: flex; align-items: center; justify-content: center;
-            z-index: 99999;
-            transition: opacity .5s, visibility .5s;
-        }
-        #spinner .spin-logo {
-            width: 70px; height: 70px;
-            border: 5px solid var(--cream);
-            border-top-color: var(--blue);
-            border-radius: 50%;
-            animation: spin .8s linear infinite;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-        #spinner.hide { opacity: 0; visibility: hidden; }
-
-        /* ============================================================
-           NAVBAR
-        ============================================================ */
-        #mainNav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            padding: 18px 0;
-            background: var(--primary);
-            transition: all .4s ease;
-            border-bottom: 1px solid rgba(26,26,26,.08);
-        }
-
-        #mainNav.scrolled {
-            background: var(--dark);
-            padding: 10px 0;
-            box-shadow: 0 2px 20px rgba(0,0,0,.3);
-            border-bottom: none;
-        }
-
-        .navbar-brand-wrap {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .brand-icon {
-            width: 44px; height: 44px;
-            background: var(--blue);
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            color: #fff;
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-
-        .brand-text { line-height: 1.1; }
-
-        .brand-text .top {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 800;
-            font-size: 1rem;
-            color: var(--dark);
-            letter-spacing: 1px;
-            transition: color .4s;
-        }
-        .brand-text .btm {
-            font-family: 'Poppins', sans-serif;
-            font-size: .62rem;
-            color: rgba(26,26,26,.5);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: color .4s;
-        }
-
-        /* scrolled state — white text */
-        #mainNav.scrolled .brand-text .top { color: #fff; }
-        #mainNav.scrolled .brand-text .btm { color: rgba(255,255,255,.5); }
-
-        .navbar-nav .nav-link {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            font-size: .88rem;
-            color: rgba(26,26,26,.75) !important;
-            padding: 6px 16px !important;
-            border-radius: 6px;
-            transition: all .3s;
-        }
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link.active {
-            color: var(--dark) !important;
-            background: rgba(26,26,26,.07);
-        }
-
-        /* scrolled — white nav links */
-        #mainNav.scrolled .navbar-nav .nav-link { color: rgba(255,255,255,.75) !important; }
-        #mainNav.scrolled .navbar-nav .nav-link:hover,
-        #mainNav.scrolled .navbar-nav .nav-link.active {
-            color: #fff !important;
-            background: rgba(255,255,255,.1);
-        }
-
-        .nav-cta {
-            background: var(--blue) !important;
-            color: #fff !important;
-            padding: 8px 22px !important;
-            border-radius: 50px !important;
-            font-weight: 600 !important;
-        }
-        .nav-cta:hover { background: var(--blue-dk) !important; transform: translateY(-1px); }
-
-        .navbar-toggler {
-            border: 2px solid rgba(26,26,26,.25);
-            padding: 4px 8px;
-        }
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(26,26,26,.75)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        }
-        #mainNav.scrolled .navbar-toggler { border-color: rgba(255,255,255,.3); }
-        #mainNav.scrolled .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255,255,255,.85)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        }
-
-        @media (max-width: 991px) {
-            #mainNav .navbar-collapse.show {
-                background: var(--primary);
-                padding: 16px;
-                border-radius: 0 0 12px 12px;
-                margin-top: 10px;
-                border: 1px solid rgba(26,26,26,.1);
-            }
-            #mainNav.scrolled .navbar-collapse.show {
-                background: var(--dark);
-                border: none;
-            }
-        }
-
-        /* ============================================================
-           HERO — solid cream dominant
-        ============================================================ */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            background: var(--primary);
-            padding-top: 90px;
-        }
-
-        /* Subtle geometric texture on cream */
-        .hero::before {
-            content: '';
-            position: absolute; inset: 0;
-            background:
-                radial-gradient(ellipse 60% 80% at 100% 50%, rgba(27,95,204,.06) 0%, transparent 65%),
-                radial-gradient(ellipse 40% 60% at 0% 100%, rgba(122,82,0,.06) 0%, transparent 60%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .hero-content { position: relative; z-index: 1; }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(122,82,0,.08);
-            border: 1px solid rgba(122,82,0,.25);
-            border-radius: 50px;
-            padding: 6px 18px;
-            font-family: 'Poppins', sans-serif;
-            font-size: .78rem;
-            font-weight: 700;
-            color: var(--accent);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 24px;
-        }
-        .hero-badge i { color: var(--accent); font-size: .85rem; }
-
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.4rem);
-            font-weight: 900;
-            color: var(--dark);
-            line-height: 1.15;
-            margin-bottom: 20px;
-        }
-        .hero h1 span { color: var(--blue); }
-
-        .hero-sub {
-            font-size: 1.05rem;
-            color: #4a3c28;
-            margin-bottom: 32px;
-            max-width: 500px;
-            line-height: 1.8;
-        }
-
-        .hero-services-strip {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 36px;
-        }
-        .hero-services-strip span {
-            background: rgba(26,26,26,.06);
-            border: 1px solid rgba(26,26,26,.14);
-            border-radius: 50px;
-            padding: 5px 14px;
-            font-family: 'Poppins', sans-serif;
-            font-size: .75rem;
-            font-weight: 500;
-            color: #3d2f14;
-        }
-
-        .hero-btns { display: flex; flex-wrap: wrap; gap: 14px; }
-
-        .btn-primary-custom {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--blue);
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: .95rem;
-            padding: 14px 32px;
-            border-radius: 50px;
-            border: 2px solid var(--blue);
-            transition: all .3s;
-        }
-        .btn-primary-custom:hover {
-            background: var(--blue-dk);
-            border-color: var(--blue-dk);
-            color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(27,95,204,.35);
-        }
-
-        .btn-outline-custom {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: transparent;
-            color: var(--dark);
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            font-size: .95rem;
-            padding: 14px 32px;
-            border-radius: 50px;
-            border: 2px solid rgba(26,26,26,.28);
-            transition: all .3s;
-        }
-        .btn-outline-custom:hover {
-            background: rgba(26,26,26,.06);
-            border-color: var(--dark);
-            color: var(--dark);
-            transform: translateY(-2px);
-        }
-
-        /* hero visual card — on cream bg, use white card with dark text */
-        .hero-card {
-            background: #fff;
-            border: 1px solid rgba(26,26,26,.1);
-            border-radius: 20px;
-            padding: 28px;
-            color: var(--dark);
-            box-shadow: 0 8px 40px rgba(0,0,0,.08);
-        }
-
-        .hero-card .hc-title {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 1.05rem;
-            color: var(--dark);
-            margin-bottom: 20px;
-            padding-bottom: 14px;
-            border-bottom: 1px solid rgba(26,26,26,.08);
-        }
-
-        .hero-card .hc-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(26,26,26,.05);
-            font-size: .9rem;
-            color: var(--grey);
-        }
-        .hero-card .hc-row:last-child { border-bottom: none; }
-        .hero-card .hc-row i { color: var(--accent); width: 20px; }
-
-        .hero-card .price {
-            margin-left: auto;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            color: var(--dark);
-            font-size: .88rem;
-        }
-
-        /* ============================================================
-           STATS BAR
-        ============================================================ */
-        .stats-bar {
-            background: var(--dark);
-            padding: 48px 0;
-            border-top: 4px solid var(--primary);
-        }
-
-        .stat-item { text-align: center; }
-
-        .stat-item .num {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 900;
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            color: var(--primary);
-            line-height: 1;
-            display: block;
-        }
-
-        .stat-item .lbl {
-            font-family: 'Poppins', sans-serif;
-            font-size: .8rem;
-            font-weight: 500;
-            color: rgba(255,255,255,.45);
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-top: 6px;
-            display: block;
-        }
-
-        .stat-divider {
-            width: 1px;
-            height: 60px;
-            background: rgba(255,255,255,.1);
-            margin: auto;
-        }
-
-        /* ============================================================
-           WHY CHOOSE US
-        ============================================================ */
-        .why-section { background: var(--light); }
-
-        .feature-card {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 32px 28px;
-            border: 1px solid rgba(26,26,26,.08);
-            height: 100%;
-            transition: all .4s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: var(--primary);
-            transform: scaleX(0);
-            transition: transform .4s;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 50px rgba(0,0,0,.08);
-        }
-        .feature-card:hover::before { transform: scaleX(1); }
-
-        .feature-icon {
-            width: 60px; height: 60px;
-            background: var(--primary);
-            border-radius: 14px;
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 20px;
-            transition: all .3s;
-        }
-        .feature-card:hover .feature-icon { background: var(--dark); }
-        .feature-icon i {
-            font-size: 1.5rem;
-            color: var(--accent);
-            transition: all .3s;
-        }
-        .feature-card:hover .feature-icon i { color: var(--primary); }
-
-        .feature-card h5 { font-size: 1.05rem; margin-bottom: 10px; }
-        .feature-card p { font-size: .9rem; margin: 0; }
-
-        /* ============================================================
-           SERVICES
-        ============================================================ */
-        .services-section { background: var(--white); }
-
-        .category-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: .75rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .category-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: rgba(26,26,26,.1);
-        }
-
-        .service-card {
-            background: var(--white);
-            border: 1px solid rgba(26,26,26,.08);
-            border-radius: 14px;
-            padding: 24px 22px;
-            height: 100%;
-            transition: all .35s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0; right: 0;
-            height: 0;
-            background: linear-gradient(to top, rgba(245,230,200,.5), transparent);
-            transition: height .4s;
-        }
-
-        .service-card:hover {
-            border-color: var(--primary-dk);
-            box-shadow: 0 12px 35px rgba(26,26,26,.09);
-            transform: translateY(-4px);
-            background: var(--light);
-        }
-        .service-card:hover::after { height: 100%; }
-
-        .service-card .svc-icon {
-            width: 48px; height: 48px;
-            background: var(--primary);
-            border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 16px;
-            font-size: 1.2rem;
-            color: var(--accent);
-            transition: all .3s;
-        }
-        .service-card:hover .svc-icon { background: var(--dark); color: var(--primary); }
-
-        .service-card h5 { font-size: .98rem; font-weight: 700; margin-bottom: 8px; }
-        .service-card p { font-size: .85rem; margin-bottom: 16px; color: var(--grey); }
-
-        .service-card .svc-link {
-            font-family: 'Poppins', sans-serif;
-            font-size: .78rem;
-            font-weight: 700;
-            color: var(--blue);
-            letter-spacing: .5px;
-            text-transform: uppercase;
-        }
-        .service-card .svc-link i { transition: transform .3s; }
-        .service-card:hover .svc-link i { transform: translateX(4px); }
-
-        /* blue variant — same treatment */
-        .service-card.blue .svc-icon { background: var(--primary); color: var(--accent); }
-        .service-card.blue:hover .svc-icon { background: var(--dark); color: var(--primary); }
-        .service-card.blue:hover { border-color: var(--primary-dk); }
-        .service-card.blue .svc-link { color: var(--blue); }
-
-        /* dark variant */
-        .service-card.dark .svc-icon { background: var(--dark); color: var(--primary); }
-        .service-card.dark:hover .svc-icon { background: var(--accent); color: var(--primary); }
-        .service-card.dark:hover { border-color: var(--primary-dk); }
-        .service-card.dark .svc-link { color: var(--accent); }
-
-        /* ============================================================
-           OUR STORY
-        ============================================================ */
-        .story-section {
-            background: var(--dark);
-            overflow: hidden;
-        }
-
-        .story-section .story-text h2 { color: #fff; }
-        .story-section .story-text p { color: rgba(255,255,255,.7); }
-
-        .story-accent {
-            position: absolute;
-            width: 350px; height: 350px;
-            background: radial-gradient(circle, rgba(245,230,200,.12) 0%, transparent 70%);
-            border-radius: 50%;
-            top: -80px; right: -80px;
-            pointer-events: none;
-        }
-
-        .story-visual {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-        }
-        .story-visual img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 20px;
-        }
-        .story-visual::after {
-            content: '';
-            position: absolute; inset: 0;
-            background: linear-gradient(to bottom, transparent 40%, rgba(27,95,204,.55));
-            border-radius: 20px;
-        }
-        .story-visual .sv-badge {
-            position: absolute;
-            bottom: 24px; left: 24px;
-            z-index: 1;
-            background: rgba(255,255,255,.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,.2);
-            border-radius: 12px;
-            padding: 16px 20px;
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-        }
-        .story-visual .sv-badge .num {
-            font-size: 2rem;
-            font-weight: 900;
-            line-height: 1;
-            color: var(--primary);
-        }        .story-visual .sv-badge .txt {
-            font-size: .78rem;
-            color: rgba(255,255,255,.75);
-        }
-
-        .story-list { list-style: none; padding: 0; margin: 24px 0; }
-        .story-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 14px;
-            color: rgba(255,255,255,.75);
-            font-size: .95rem;
-        }
-        .story-list li i { color: var(--primary); margin-top: 3px; flex-shrink: 0; }
-        /* ============================================================
-           TESTIMONIALS
-        ============================================================ */
-        .testimonials-section { background: var(--primary); }
-
-        .testi-card {
-            background: var(--white);
-            border-radius: 18px;
-            padding: 32px 28px;
-            margin: 10px 12px 24px;
-            box-shadow: 0 4px 24px rgba(0,0,0,.07);
-            position: relative;
-        }
-
-        .testi-card .quote-icon {
-            position: absolute;
-            top: 24px; right: 28px;
-            font-size: 3rem;
-            color: var(--accent);
-            opacity: .12;
-            font-family: Georgia, serif;
-            line-height: 1;
-        }
-
-        .testi-card .stars {
-            color: #f59e0b;
-            font-size: .85rem;
-            margin-bottom: 14px;
-        }
-
-        .testi-card p {
-            font-style: italic;
-            font-size: .95rem;
-            line-height: 1.75;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-
-        .testi-card .testi-author { display: flex; align-items: center; gap: 12px; }
-        .testi-card .testi-avatar {
-            width: 46px; height: 46px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent);
-        }
-        .testi-card .testi-name {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: .9rem;
-            color: var(--dark);
-        }
-        .testi-card .testi-role { font-size: .78rem; color: var(--grey); }
-
-        .owl-dots .owl-dot span {
-            background: rgba(122,82,0,.2) !important;
-            transition: .3s;
-        }
-        .owl-dots .owl-dot.active span,
-        .owl-dots .owl-dot:hover span {
-            background: var(--accent) !important;
-        }
-
-        /* ============================================================
-           PRICING
-        ============================================================ */
-        .pricing-section { background: var(--white); }
-
-        .price-card {
-            background: var(--white);
-            border: 2px solid #eaeaea;
-            border-radius: 18px;
-            padding: 28px 24px;
-            height: 100%;
-            transition: all .35s;
-        }
-        .price-card:hover,
-        .price-card.featured {
-            border-color: var(--blue);
-            box-shadow: 0 12px 40px rgba(27,95,204,.14);
-            transform: translateY(-4px);
-        }
-        .price-card.featured { background: var(--dark); }
-        .price-card.featured h5,
-        .price-card.featured p { color: rgba(255,255,255,.8) !important; }
-        .price-card.featured .price-val { color: var(--primary) !important; }
-
-        .price-card h5 {
-            font-size: .95rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-        }
-        .price-card p {
-            font-size: .82rem;
-            color: var(--grey);
-            margin: 0;
-        }
-        .price-val {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 900;
-            font-size: 1.6rem;
-            color: var(--dark);
-            line-height: 1;
-        }
-        .price-val sup { font-size: .9rem; vertical-align: top; margin-top: 6px; }
-        .price-val span { font-size: .75rem; font-weight: 500; color: var(--grey); }
-
-        /* ============================================================
-           CTA BAND
-        ============================================================ */
-        .cta-section {
-            background: linear-gradient(135deg, var(--dark) 0%, var(--blue-dk) 60%, rgba(201,168,124,.5) 100%);
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        .cta-section::before {
-            content: '';
-            position: absolute; inset: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-        .cta-section h2 {
-            color: #fff;
-            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-            margin-bottom: 16px;
-        }
-        .cta-section p { color: rgba(255,255,255,.75); max-width: 560px; margin: 0 auto 32px; }
-
-        /* ============================================================
-           CONTACT
-        ============================================================ */
-        .contact-section { background: var(--light); }
-
-        .contact-info-box {
-            background: var(--dark);
-            border-radius: 18px;
-            padding: 40px 32px;
-            height: 100%;
-        }
-
-        .contact-info-box h4 { color: #fff; margin-bottom: 28px; }
-
-        .cib-row {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-        .cib-icon {
-            width: 44px; height: 44px;
-            background: rgba(245,230,200,.12);
-            border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            color: var(--primary);
-            font-size: 1rem;
-            flex-shrink: 0;
-        }
-        .cib-details .lbl {
-            font-family: 'Poppins', sans-serif;
-            font-size: .72rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,.4);
-            margin-bottom: 2px;
-        }
-        .cib-details .val {
-            color: rgba(255,255,255,.85);
-            font-size: .92rem;
-        }
-        .cib-details .val a { color: rgba(255,255,255,.85); }
-        .cib-details .val a:hover { color: var(--primary); }
-
-        .hours-grid {
-            background: rgba(255,255,255,.05);
-            border-radius: 10px;
-            padding: 16px;
-            margin-top: 16px;
-        }
-        .hours-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 6px 0;
-            border-bottom: 1px solid rgba(255,255,255,.05);
-            font-size: .85rem;
-            color: rgba(255,255,255,.7);
-        }
-        .hours-row:last-child { border-bottom: none; }
-        .hours-row .day { font-weight: 600; color: rgba(255,255,255,.85); }
-
-        /* contact form */
-        .contact-form-box {
-            background: var(--white);
-            border-radius: 18px;
-            padding: 40px 36px;
-            box-shadow: 0 4px 30px rgba(0,0,0,.07);
-        }
-        .contact-form-box h4 { margin-bottom: 24px; }
-
-        .form-control, .form-select {
-            border: 1.5px solid #e5e7eb;
-            border-radius: 10px;
-            padding: 12px 16px;
-            font-family: 'Lora', serif;
-            font-size: .9rem;
-            color: var(--dark);
-            transition: border-color .3s, box-shadow .3s;
-        }
-        .form-control:focus, .form-select:focus {
-            border-color: var(--blue);
-            box-shadow: 0 0 0 3px rgba(27,95,204,.12);
-            outline: none;
-        }
-
-        textarea.form-control { resize: vertical; min-height: 120px; }
-
-        .form-label {
-            font-family: 'Poppins', sans-serif;
-            font-size: .8rem;
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 6px;
-        }
-
-        /* ============================================================
-           FOOTER
-        ============================================================ */
-        .footer {
-            background: var(--dark);
-            padding: 64px 0 0;
-        }
-
-        .footer-logo .top {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 900;
-            font-size: 1.3rem;
-            color: #fff;
-        }
-        .footer-logo .btm {
-            font-family: 'Poppins', sans-serif;
-            font-size: .65rem;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,.4);
-        }
-
-        .footer p { color: rgba(255,255,255,.55); font-size: .88rem; }
-
-        .footer-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: .75rem;
-            font-weight: 700;
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-            color: rgba(255,255,255,.4);
-            margin-bottom: 20px;
-        }
-
-        .footer-links { list-style: none; padding: 0; margin: 0; }
-        .footer-links li { margin-bottom: 10px; }
-        .footer-links a {
-            color: rgba(255,255,255,.6);
-            font-size: .9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .footer-links a i { color: var(--accent); font-size: .75rem; }
-        .footer-links a:hover { color: #fff; padding-left: 4px; }
-
-        .footer-socials { display: flex; gap: 10px; margin-top: 20px; }
-        .footer-socials a {
-            width: 38px; height: 38px;
-            border: 1px solid rgba(255,255,255,.15);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: rgba(255,255,255,.6);
-            font-size: .9rem;
-            transition: all .3s;
-        }
-        .footer-socials a:hover {
-            background: var(--blue);
-            border-color: var(--blue);
-            color: #fff;
-            transform: translateY(-2px);
-        }
-        .footer-socials a.wa:hover { background: var(--whatsapp); border-color: var(--whatsapp); }
-
-        .newsletter-form {
-            display: flex;
-            gap: 8px;
-            margin-top: 8px;
-        }
-        .newsletter-form input {
-            flex: 1;
-            background: rgba(255,255,255,.07);
-            border: 1px solid rgba(255,255,255,.15);
-            border-radius: 8px;
-            padding: 10px 14px;
-            color: #fff;
-            font-family: 'Lora', serif;
-            font-size: .85rem;
-        }
-        .newsletter-form input::placeholder { color: rgba(255,255,255,.4); }
-        .newsletter-form input:focus { outline: none; border-color: var(--blue); }
-        .newsletter-form button {
-            background: var(--blue);
-            border: none;
-            border-radius: 8px;
-            padding: 10px 18px;
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            font-size: .82rem;
-            cursor: pointer;
-            transition: background .3s;
-        }
-        .newsletter-form button:hover { background: var(--blue-dk); }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,.08);
-            padding: 22px 0;
-            margin-top: 48px;
-        }
-        .footer-bottom p {
-            margin: 0;
-            font-size: .82rem;
-            color: rgba(255,255,255,.4);
-        }
-        .footer-bottom a { color: rgba(255,255,255,.5); }
-        .footer-bottom a:hover { color: var(--primary); }
-
-        /* ============================================================
-           FLOATING WHATSAPP
-        ============================================================ */
-        .wa-float {
-            position: fixed;
-            bottom: 30px; right: 24px;
-            width: 56px; height: 56px;
-            background: var(--whatsapp);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: #fff;
-            font-size: 1.6rem;
-            z-index: 9999;
-            box-shadow: 0 6px 20px rgba(37,211,102,.5);
-            transition: all .3s;
-        }
-        .wa-float:hover {
-            color: #fff;
-            transform: scale(1.1);
-            box-shadow: 0 8px 28px rgba(37,211,102,.65);
-        }
-        .wa-float .wa-tooltip {
-            position: absolute;
-            right: 70px;
-            background: var(--dark);
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-            font-size: .78rem;
-            font-weight: 600;
-            padding: 6px 14px;
-            border-radius: 8px;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity .3s;
-        }
-        .wa-float .wa-tooltip::after {
-            content: '';
-            position: absolute;
-            top: 50%; right: -6px;
-            transform: translateY(-50%);
-            border: 6px solid transparent;
-            border-right: none;
-            border-left-color: var(--dark);
-        }
-        .wa-float:hover .wa-tooltip { opacity: 1; }
-
-        /* ============================================================
-           SUCCESS ALERT
-        ============================================================ */
-        #formSuccess {
-            display: none;
-            background: linear-gradient(135deg, #d1fae5, #a7f3d0);
-            border: 1px solid #6ee7b7;
-            border-radius: 12px;
-            padding: 16px 20px;
-            margin-top: 16px;
-        }
-        #formSuccess p {
-            margin: 0;
-            color: #065f46;
-            font-weight: 600;
-            font-size: .9rem;
-        }
-
-        /* ============================================================
-           UTILITIES
-        ============================================================ */
-        .btn-red {
-            background: var(--blue);
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            padding: 14px 36px;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            transition: all .3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: .95rem;
-        }
-        .btn-red:hover {
-            background: var(--blue-dk);
-            color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(27,95,204,.35);
-        }
-
-        /* Owl dots spacing */
-        .owl-dots { margin-top: 10px; }
-
-        /* Animate.css WOW helpers */
-        .wow { visibility: hidden; }
-
-        /* Scrollbar thin */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
-    </style>
-</head>
-<body>
-
-<!-- ================================================================
-     SPINNER
-================================================================ -->
-<div id="spinner">
-    <div class="spin-logo"></div>
-</div>
-
-<!-- ================================================================
-     FLOATING WHATSAPP
-================================================================ -->
-<a href="https://wa.me/27797652897?text=Hi%20e-KASI%2C%20I%20need%20assistance%20with..." class="wa-float" target="_blank" rel="noopener">
-    <i class="fab fa-whatsapp"></i>
-    <span class="wa-tooltip">Chat with us</span>
-</a>
-
-<!-- Back to top -->
-<a href="#top" id="backTop"><i class="fas fa-chevron-up"></i></a>
-
-<!-- ================================================================
-     NAVBAR
-================================================================ -->
-<nav id="mainNav" class="navbar navbar-expand-lg">
-    <div class="container">
-        <a class="navbar-brand navbar-brand-wrap" href="#top">
-            <div class="brand-icon"><i class="fas fa-wifi"></i></div>
-            <div class="brand-text">
-                <div class="top">e-KASI</div>
-                <div class="btm">Internet Cafe</div>
-            </div>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navMenu">
-            <ul class="navbar-nav ms-auto align-items-lg-center">
-                <li class="nav-item"><a class="nav-link active" href="#top">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                <li class="nav-item ms-lg-3">
-                    <a class="nav-link nav-cta" href="#contact">
-                        <i class="fas fa-paper-plane me-1"></i> Get a Quote
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- ================================================================
-     HERO
-================================================================ -->
-<section id="top" class="hero">
-    <div class="hero-bg"></div>
-    <div class="container hero-content py-5">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-7 wow animate__animated animate__fadeInLeft" data-wow-delay=".1s">
-                <div class="hero-badge">
-                    <i class="fas fa-map-marker-alt"></i>
-                    Serving Lethlabile since 2021 · Proudly Local
-                </div>
-                <h1>
-                    Your Digital Hub<br>
-                    in <span>Lethlabile</span> –<br>
-                    Fast, Reliable &amp; Community&#8209;Owned.
-                </h1>
-                <p class="hero-sub">
-                    We understand your hustle. Whether you need to register a company, print an assignment, 
-                    or sort out your SARS returns – we've got you, right here in the Kasi.
-                </p>
-                <div class="hero-services-strip">
-                    <span>Printing</span>
-                    <span>CIPC</span>
-                    <span>SARS</span>
-                    <span>CV Design</span>
-                    <span>Poster Design</span>
-                    <span>UIF</span>
-                    <span>Assignments</span>
-                </div>
-                <div class="hero-btns">
-                    <a href="#contact" class="btn-primary-custom">
-                        <i class="fas fa-paper-plane"></i> Get a Free Quote
-                    </a>
-                    <a href="#services" class="btn-outline-custom">
-                        <i class="fas fa-th-large"></i> Explore Services
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-5 wow animate__animated animate__fadeInRight" data-wow-delay=".25s">
-                <div class="hero-card">
-                    <div class="hc-title"><i class="fas fa-bolt text-warning me-2"></i> Quick Price Guide</div>
-                    <div class="hc-row">
-                        <i class="fas fa-print"></i>
-                        <span>B&amp;W Printing</span>
-                        <span class="price">R2 /page</span>
-                    </div>
-                    <div class="hc-row">
-                        <i class="fas fa-palette"></i>
-                        <span>Colour Printing</span>
-                        <span class="price">R5 /page</span>
-                    </div>
-                    <div class="hc-row">
-                        <i class="fas fa-file-alt"></i>
-                        <span>CV Typing &amp; Print</span>
-                        <span class="price">R50</span>
-                    </div>
-                    <div class="hc-row">
-                        <i class="fas fa-building"></i>
-                        <span>CIPC Registration</span>
-                        <span class="price">From R450</span>
-                    </div>
-                    <div class="hc-row">
-                        <i class="fas fa-image"></i>
-                        <span>A3 Poster Design</span>
-                        <span class="price">R150</span>
-                    </div>
-                    <div class="hc-row">
-                        <i class="fas fa-graduation-cap"></i>
-                        <span>Uni/TVET Application</span>
-                        <span class="price">From R80</span>
-                    </div>
-                    <div class="mt-3 pt-2" style="border-top:1px solid rgba(255,255,255,.1)">
-                        <a href="#contact" class="btn-primary-custom w-100 justify-content-center" style="padding:11px;">
-                            Get Custom Quote <i class="fas fa-arrow-right ms-1"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ================================================================
-     STATS BAR
-================================================================ -->
-<section class="stats-bar">
-    <div class="container">
-        <div class="row align-items-center text-center g-4">
-            <div class="col-6 col-md-3">
-                <div class="stat-item">
-                    <span class="num counter" data-count="5200">0</span>
-                    <span class="lbl">Happy Customers</span>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="stat-item">
-                    <span class="num counter" data-count="1200">0</span>
-                    <span class="lbl">Documents Processed</span>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="stat-item">
-                    <span class="num counter" data-count="340">0</span>
-                    <span class="lbl">Companies Registered</span>
-                </div>
-            </div>
-            <div class="col-6 col-md-3">
-                <div class="stat-item">
-                    <span class="num counter" data-count="4">0</span>
-                    <span class="lbl">Years in Lethlabile</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ================================================================
-     WHY CHOOSE US
-================================================================ -->
-<section class="why-section section-pad">
-    <div class="container">
-        <div class="row justify-content-center text-center mb-5">
-            <div class="col-lg-6">
-                <div class="section-label">Why e-KASI?</div>
-                <h2 class="section-title">We're not just an internet cafe.<br><span>We're your community partner.</span></h2>
-                <p class="section-sub mx-auto">From students to small business owners – we built e-KASI so you don't have to travel far or stress about complicated forms.</p>
-            </div>
-        </div>
-        <div class="row g-4">
-            <div class="col-md-6 col-lg-3 wow animate__animated animate__fadeInUp" data-wow-delay=".05s">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
-                    <h5>Super-Fast Wi-Fi &amp; Computers</h5>
-                    <p>No more buffering or freezing. Our high-speed connections mean you get done quickly and get on with your day.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 wow animate__animated animate__fadeInUp" data-wow-delay=".15s">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-certificate"></i></div>
-                    <h5>Government Accredited Services</h5>
-                    <p>CIPC, SARS, CSD, CIDB – we know the systems inside out. Your registrations are done properly, first time.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 wow animate__animated animate__fadeInUp" data-wow-delay=".25s">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-lock"></i></div>
-                    <h5>Confidential &amp; Secure</h5>
-                    <p>Your personal documents and business information are handled with complete discretion. Your privacy matters to us.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 wow animate__animated animate__fadeInUp" data-wow-delay=".35s">
-                <div class="feature-card">
-                    <div class="feature-icon"><i class="fas fa-hands-helping"></i></div>
-                    <h5>We Speak Your Language</h5>
-                    <p>Setswana and English support available. No need to explain yourself in a language you're not comfortable with.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ================================================================
-     SERVICES
-================================================================ -->
-<section id="services" class="services-section section-pad" style="background:#fafafa">
-    <div class="container">
-        <div class="row justify-content-center text-center mb-5">
-            <div class="col-lg-6">
-                <div class="section-label">What We Do</div>
-                <h2 class="section-title">Everything you need,<br><span>under one roof.</span></h2>
-                <p class="section-sub mx-auto">From printing a single page to registering your company – we handle it all with a smile. No queues, no confusion.</p>
-            </div>
-        </div>
-
-        <!-- Category A: Document & Business -->
-        <div class="category-title mb-3 wow animate__animated animate__fadeIn">
-            <i class="fas fa-folder-open me-2" style="color:var(--accent)"></i> Document &amp; Business Services
-        </div>
-        <div class="row g-3 mb-5">
-            <div class="col-md-4 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-delay=".05s">
-                <div class="service-card">
-                    <div class="svc-icon"><i class="fas fa-print"></i></div>
-                    <h5>Printing (B&amp;W &amp; Colour)</h5>
-                    <p>From single pages to bulk documents. Crisp, clear prints every time – B&amp;W from R2/page.</p>
-                    <a href="#contact" class="svc-link">Get a quote <i class="fas fa-arrow-right ms-1"></i></a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
-                <div class="service-card">
-                    <div class="svc-icon"><i class="fas fa-copy"></i></div>
-                    <h5>Scanning &amp; Photocopying</h5>
-                    <p>High-quality scans sent via email or WhatsApp. Physical copies while you wait.</p>
-                    <a href="#contact" class="svc-link">Get a quote <i class="fas fa-arrow-right ms-1"></i></a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-delay=".15s">
-                <div class="service-card">
-                    <div class="svc-icon"><i class="fas fa-book"></i></div>
-                    <h5>Laminating &amp; Binding</h5>
-                    <p>Protect your important documents or give your project a professional finish with our binding service.</p>
-                    <a href="#contact" class="svc-link">Get a quote <i class="fas fa-arrow-right ms-1"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Category B: Government -->
-        <div class="category-title mb-3 wow animate__animated animate__fadeIn">
-            <i class="fas fa-landmark me-2" style="color:var(--blue)"></i> Government &amp; Business Registrations
-        </div>
-        <div class="row g-3 mb-5">
-            <div class="col-md-4 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-delay=".05s">
-                <div class="service-card blue">
-                    <div class="svc-icon"><i class="fas fa-building"></i></div>
-                    <h5>CIPC Company Registration</h5>
-                    <p>Get your business officially registered. We handle the paperwork so you can focus on your hustle.</p>
-                    <a href="#contact" class="svc-link">Get a quote <i class="fas fa-arrow-right ms-1"></i></a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
-                <div class="service-card blue">
-                    <div class="svc-icon"><i class="fas fa-calculator"></i></div>
-                    <h5>SARS Tax Services</h5>
-                    <p>Tax returns, tax clearance certificates, and more. No stress, no confusion – we know SARS.</p>
-                    <a href="#contact" class="svc-link">Get a quote <i class="fas fa-arrow-right ms-1"></i></a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-delay=".15s">
-                <div class="service-card blue">
-                    <div class="svc-icon"><i class="fas fa-id-card"></i></div>
-                    <h5>CSD &amp; CIDB Registration</h5>
-                    <p>Get your business on the Central Supplier Database or CIDB so you can tender for government contracts.</p>
-                    <a href="#contact" class="svc-link">Get a quote <i class="fas fa-arrow-right ms-1"></i></a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
-                <div class="service-card blue">
-                    <div class="svc-icon"><i class="fas fa-user-tie"></i></div>
-                    <h5>UIF Registration &amp; PSIRA</h5>
-                    <p>UIF registration for employees, plus PSIRA renewal for security industry professionals.</p>
-                    <a href="#contact" class="svc-link">Get a quote <i class="fas fa-arrow-right ms-1"></i></a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-delay=".25s">
-                <div class="service-card blue">
-                    <div class="svc-icon"><i class="fas fa-hard-hat"></i></div>
-                    <h5>COIDA Registration</h5>
-                    <p>Compensation for Occupational Injuries &amp; Diseases – we register your business and keep you compliant.</p>
-                    <a href="#contact" class="svc-link">Get a quote <i class="fas fa-arrow-right ms-1"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Category C: Students & Job Seekers -->
-        <div class="category-title mb-3 wow animate__animated animate__fadeIn">
-            <i class="fas fa-graduation-cap me-2" style="color:#059669"></i> Students &amp; Job Seekers
-        </div>
-        <div class="row g-3 mb-5">
-            <div class="col-md-4 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-delay=".05s">
-                <div class="service-card dark">
-                    <div class="svc-icon"><i class="fas fa-laptop"></i></div>
-                    <h5>Assignment Typing &amp; Research</h5>
-                    <p>We help you type, format, and research your school or college assignments professionally.</p>
-                    <a href="#contact" class="svc-link">Get a quote <i class="fas fa-arrow-right ms-1"></i></a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
-                <div class="service-card dark">
-                    <div class="svc-icon"><i class="fas fa-university"></i></div>
-                    <h5>University / TVET Applications</h5>
-                    <p>Don't miss the deadline. We help you complete and submit your applications online, correctly.</p>
-                    <a href="#contact" class="svc-link">Get a quote <i class="fas fa-arrow-right ms-1"></i></a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-delay=".15s">
-                <div class="service-card dark">
-                    <div class="svc-icon"><i class="fas fa-file-user"></i></div>
-                    <h5>Professional CV Creation</h5>
-                    <p>A great CV opens doors. We design clean, modern CVs that get you noticed by employers.</p>
-                    <a href="#contact" class="svc-link">Get a quote <i class="fas fa-arrow-right ms-1"></i></a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
-                <div class="service-card dark">
-                    <div class="svc-icon"><i class="fas fa-envelope-open-text"></i></div>
-                    <h5>Job Application Submissions</h5>
-                    <p>We help you find openings, fill in online forms, and submit applications for jobs in your field.</p>
-                    <a href="#contact" class="svc-link">Get a quote <i class="fas fa-arrow-right ms-1"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Category D: Design -->
-        <div class="category-title mb-3 wow animate__animated animate__fadeIn">
-            <i class="fas fa-paint-brush me-2" style="color:#7c3aed"></i> Design &amp; Creative
-        </div>
-        <div class="row g-3">
-            <div class="col-md-4 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-delay=".05s">
-                <div class="service-card" style="--primary:#7c3aed">
-                    <div class="svc-icon" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)"><i class="fas fa-bullhorn"></i></div>
-                    <h5>Poster &amp; Flyer Design</h5>
-                    <p>Eye-catching posters and flyers that spread your message. Events, promos, announcements – we design it.</p>
-                    <a href="#contact" class="svc-link" style="color:#7c3aed">Get a quote <i class="fas fa-arrow-right ms-1"></i></a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
-                <div class="service-card" style="--primary:#7c3aed">
-                    <div class="svc-icon" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)"><i class="fas fa-id-badge"></i></div>
-                    <h5>Business Cards</h5>
-                    <p>Make a lasting impression. We design and print professional business cards that represent your brand.</p>
-                    <a href="#contact" class="svc-link" style="color:#7c3aed">Get a quote <i class="fas fa-arrow-right ms-1"></i></a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 wow animate__animated animate__fadeInUp" data-wow-delay=".15s">
-                <div class="service-card" style="--primary:#7c3aed">
-                    <div class="svc-icon" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)"><i class="fas fa-pencil-ruler"></i></div>
-                    <h5>Logo Design</h5>
-                    <p>Every business deserves a strong identity. We create unique logos that tell your story at a glance.</p>
-                    <a href="#contact" class="svc-link" style="color:#7c3aed">Get a quote <i class="fas fa-arrow-right ms-1"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ================================================================
-     OUR STORY
-================================================================ -->
-<section id="about" class="story-section section-pad">
-    <div class="story-accent"></div>
-    <div class="container">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-5 wow animate__animated animate__fadeInLeft">
-                <div class="story-visual">
-                    <img src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&q=80" alt="Working at e-KASI">
-                    <div class="sv-badge">
-                        <div class="num">4+</div>
-                        <div class="txt">Years serving Lethlabile</div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-7 story-text wow animate__animated animate__fadeInRight">
-                <div class="section-label" style="background:rgba(245,230,200,.15); border-left-color:var(--primary)">Our Story</div>
-                <h2 class="section-title" style="color:#fff">Why we started <span>e-KASI</span></h2>
-                <p style="color:rgba(255,255,255,.7)">
-                    Growing up in Lethlabile, we saw how many people struggled to access basic digital services. 
-                    Students missing application deadlines because the nearest internet cafe was too far. Business 
-                    owners losing contracts because they didn't know how to register on CSD. Job seekers paying 
-                    transport to get to town just to print one page.
-                </p>
-                <p style="color:rgba(255,255,255,.7); margin-top:12px;">
-                    So we opened e-KASI – not just to provide a service, but to be a bridge. 
-                    <strong style="color:#fff">Thabang</strong> and the team bring together technology, 
-                    knowledge, and genuine care for every person who walks through our doors.
-                </p>
-                <ul class="story-list">
-                    <li><i class="fas fa-check-circle"></i> No appointment needed – walk in anytime during trading hours.</li>
-                    <li><i class="fas fa-check-circle"></i> We explain every step of complex registrations in plain language.</li>
-                    <li><i class="fas fa-check-circle"></i> Affordable pricing designed for Kasi budgets, always.</li>
-                    <li><i class="fas fa-check-circle"></i> Friendly staff who genuinely want to see you succeed.</li>
-                </ul>
-                <a href="#contact" class="btn-primary-custom mt-2">
-                    <i class="fas fa-map-marker-alt"></i> Visit Us in Lethlabile
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ================================================================
-     TESTIMONIALS
-================================================================ -->
-<section class="testimonials-section section-pad">
-    <div class="container">
-        <div class="row justify-content-center text-center mb-5">
-            <div class="col-lg-6">
-                <div class="section-label">Real People, Real Results</div>
-                <h2 class="section-title">Hear it from our <span>community</span></h2>
-                <p class="section-sub mx-auto">We don't just say we're good – our customers do it for us. Here's what a few of them have to say.</p>
-            </div>
-        </div>
-        <div class="testimonials-carousel owl-carousel owl-theme">
-            <div class="testi-card">
-                <div class="quote-icon">"</div>
-                <div class="stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p>"They helped me register my PTY company in one day. I didn't even know where to start, but Thabang explained everything step by step. Now I'm officially trading – ke a leboha!"</p>
-                <div class="testi-author">
-                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Thabo" class="testi-avatar">
-                    <div>
-                        <div class="testi-name">Thabo M.</div>
-                        <div class="testi-role">Small Business Owner, Lethlabile</div>
-                    </div>
-                </div>
-            </div>
-            <div class="testi-card">
-                <div class="quote-icon">"</div>
-                <div class="stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p>"My CV got me three interview calls in the same week! The design was clean and professional, unlike anything I've had before. I'm now employed full time. e-KASI changed my life."</p>
-                <div class="testi-author">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Nomfundo" class="testi-avatar">
-                    <div>
-                        <div class="testi-name">Nomfundo D.</div>
-                        <div class="testi-role">Job Seeker turned Employee, Lethlabile</div>
-                    </div>
-                </div>
-            </div>
-            <div class="testi-card">
-                <div class="quote-icon">"</div>
-                <div class="stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                </div>
-                <p>"I was stressing about my university application for three weeks. Came to e-KASI and we sorted everything in an hour. Submitted on time and I got accepted. These people are truly a blessing."</p>
-                <div class="testi-author">
-                    <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Keabetswe" class="testi-avatar">
-                    <div>
-                        <div class="testi-name">Keabetswe L.</div>
-                        <div class="testi-role">First-year University Student</div>
-                    </div>
-                </div>
-            </div>
-            <div class="testi-card">
-                <div class="quote-icon">"</div>
-                <div class="stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-                <p>"My SARS returns were overdue and I was scared. The team at e-KASI handled everything calmly and got my tax clearance done. No penalties, no drama. I come back every year now."</p>
-                <div class="testi-author">
-                    <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Lerato" class="testi-avatar">
-                    <div>
-                        <div class="testi-name">Lerato S.</div>
-                        <div class="testi-role">Freelance Caterer, Lethlabile</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ================================================================
-     PRICING
-================================================================ -->
-<section id="pricing" class="pricing-section section-pad" style="background:#fafafa">
-    <div class="container">
-        <div class="row justify-content-center text-center mb-5">
-            <div class="col-lg-6">
-                <div class="section-label">Transparent Pricing</div>
-                <h2 class="section-title">Fair prices for <span>every pocket</span></h2>
-                <p class="section-sub mx-auto">No hidden fees, no surprises. What you see is what you pay – always.</p>
-            </div>
-        </div>
-        <div class="row g-3 justify-content-center">
-            <div class="col-6 col-md-4 col-lg-2 wow animate__animated animate__fadeInUp" data-wow-delay=".05s">
-                <div class="price-card text-center">
-                    <div class="price-val mb-2"><sup>R</sup>2<span>/pg</span></div>
-                    <h5>B&amp;W Print</h5>
-                    <p>Per page, any doc</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 wow animate__animated animate__fadeInUp" data-wow-delay=".1s">
-                <div class="price-card text-center">
-                    <div class="price-val mb-2"><sup>R</sup>5<span>/pg</span></div>
-                    <h5>Colour Print</h5>
-                    <p>Vibrant full colour</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 wow animate__animated animate__fadeInUp" data-wow-delay=".15s">
-                <div class="price-card text-center featured">
-                    <div class="price-val mb-2"><sup>R</sup>50</div>
-                    <h5>CV Package</h5>
-                    <p>Typed, designed &amp; printed</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 wow animate__animated animate__fadeInUp" data-wow-delay=".2s">
-                <div class="price-card text-center">
-                    <div class="price-val mb-2"><sup>R</sup>450<span>+</span></div>
-                    <h5>CIPC Reg</h5>
-                    <p>Company registration</p>
-                </div>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2 wow animate__animated animate__fadeInUp" data-wow-delay=".25s">
-                <div class="price-card text-center">
-                    <div class="price-val mb-2"><sup>R</sup>150</div>
-                    <h5>A3 Poster</h5>
-                    <p>Design &amp; print</p>
-                </div>
-            </div>
-        </div>
-        <div class="text-center mt-5">
-            <p class="mb-3" style="color:var(--grey)">Need something not listed here? We'll give you a fair custom quote.</p>
-            <a href="#contact" class="btn-red">
-                <i class="fas fa-calculator"></i> Request Custom Quote
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- ================================================================
-     CTA BAND
-================================================================ -->
-<section class="cta-section text-center">
-    <div class="container position-relative">
-        <div class="row justify-content-center">
-            <div class="col-lg-7 wow animate__animated animate__fadeInUp">
-                <div class="section-label mx-auto d-inline-block mb-3" style="background:rgba(255,255,255,.1); border-left-color:#fff; color:rgba(255,255,255,.8)">Ready to sort it out?</div>
-                <h2>Stop putting it off. We handle<br>the hard stuff so you don't have to.</h2>
-                <p>No more long queues at government offices. No more confusing online forms. No more missed deadlines. We're right here in Lethlabile – come in today or WhatsApp us now.</p>
-                <div class="d-flex flex-wrap gap-3 justify-content-center">
-                    <a href="#contact" class="btn-primary-custom">
-                        <i class="fas fa-paper-plane"></i> Contact Us Today
-                    </a>
-                    <a href="https://wa.me/27797652897?text=Hi%20e-KASI%2C%20I%20need%20help%20with..." class="btn-outline-custom" target="_blank">
-                        <i class="fab fa-whatsapp"></i> WhatsApp Us
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ================================================================
-     CONTACT
-================================================================ -->
-<section id="contact" class="contact-section section-pad">
-    <div class="container">
-        <div class="row justify-content-center text-center mb-5">
-            <div class="col-lg-6">
-                <div class="section-label">Get In Touch</div>
-                <h2 class="section-title">We're here and ready to <span>help you</span></h2>
-            </div>
-        </div>
-        <div class="row g-4 align-items-stretch">
-            <div class="col-lg-5 wow animate__animated animate__fadeInLeft">
-                <div class="contact-info-box">
-                    <h4>Find Us In Lethlabile</h4>
-                    <div class="cib-row">
-                        <div class="cib-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <div class="cib-details">
-                            <div class="lbl">Address</div>
-                            <div class="val">47 Block E, Centreville Medical Centre, Letlhabile, 0264</div>
-                        </div>
-                    </div>
-                    <div class="cib-row">
-                        <div class="cib-icon"><i class="fas fa-phone-alt"></i></div>
-                        <div class="cib-details">
-                            <div class="lbl">Phone</div>
-                            <div class="val">
-                                <a href="tel:+27797652897">079 765 2897</a><br>
-                                <a href="tel:+27609260444">060 926 0444</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cib-row">
-                        <div class="cib-icon"><i class="fas fa-envelope"></i></div>
-                        <div class="cib-details">
-                            <div class="lbl">Email</div>
-                            <div class="val"><a href="mailto:ekasinternetc@gmail.com">ekasinternetc@gmail.com</a></div>
-                        </div>
-                    </div>
-                    <div class="cib-row">
-                        <div class="cib-icon"><i class="fas fa-clock"></i></div>
-                        <div class="cib-details">
-                            <div class="lbl">Trading Hours</div>
-                            <div class="val">
-                                <div class="hours-grid">
-                                    <div class="hours-row"><span class="day">Mon – Fri</span><span>08h30 – 18h00</span></div>
-                                    <div class="hours-row"><span class="day">Saturday</span><span>09h00 – 16h00</span></div>
-                                    <div class="hours-row"><span class="day">Sun &amp; Public Hols</span><span>10h00 – 15h00</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-7 wow animate__animated animate__fadeInRight">
-                <div class="contact-form-box">
-                    <h4>Send Us a Message</h4>
-                    <form id="contactForm" novalidate>
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label">Full Name *</label>
-                                <input type="text" class="form-control" id="cName" placeholder="Your name">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Email Address *</label>
-                                <input type="email" class="form-control" id="cEmail" placeholder="your@email.com">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Phone Number *</label>
-                                <input type="tel" class="form-control" id="cPhone" placeholder="07X XXX XXXX">
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label">Service Required *</label>
-                                <select class="form-select" id="cService">
-                                    <option value="">— Select a service —</option>
-                                    <optgroup label="Document Services">
-                                        <option>Printing (B&W / Colour)</option>
-                                        <option>Scanning & Photocopying</option>
-                                        <option>Laminating & Binding</option>
-                                    </optgroup>
-                                    <optgroup label="Government & Registrations">
-                                        <option>CIPC Company Registration</option>
-                                        <option>SARS Tax Services</option>
-                                        <option>CSD / CIDB Registration</option>
-                                        <option>UIF Registration / PSIRA Renewal</option>
-                                        <option>COIDA Registration</option>
-                                    </optgroup>
-                                    <optgroup label="Students & Job Seekers">
-                                        <option>Assignment Typing & Research</option>
-                                        <option>University / TVET Application</option>
-                                        <option>CV Creation</option>
-                                        <option>Job Application Submission</option>
-                                    </optgroup>
-                                    <optgroup label="Design & Creative">
-                                        <option>Poster / Flyer Design</option>
-                                        <option>Business Cards</option>
-                                        <option>Logo Design</option>
-                                    </optgroup>
-                                    <option>Other / Not sure</option>
-                                </select>
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label">Message</label>
-                                <textarea class="form-control" id="cMessage" placeholder="Tell us a bit more about what you need..."></textarea>
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn-red w-100 justify-content-center">
-                                    <i class="fas fa-paper-plane"></i> Send Message
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    <div id="formSuccess">
-                        <p><i class="fas fa-check-circle me-2"></i> Thank you! We'll get back to you soon, usually within a few hours.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ================================================================
-     FOOTER
-================================================================ -->
-<footer class="footer">
-    <div class="container">
-        <div class="row g-5">
-            <!-- Brand -->
-            <div class="col-lg-4">
-                <div class="footer-logo mb-3">
-                    <div class="top">e-KASI Internet Cafe</div>
-                    <div class="btm">Advancing Technology, Connectivity &amp; Networking</div>
-                </div>
-                <p>We are more than an internet cafe – we are a community resource for every person in Lethlabile who wants to grow, register, study, or apply.</p>
-                <div class="footer-socials">
-                    <a href="https://www.facebook.com/p/e-KASI-INTERNET-CAFE-61558375232616/" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://wa.me/27797652897" target="_blank" class="wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:ekasinternetc@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-            <!-- Quick Links -->
-            <div class="col-6 col-lg-2">
-                <div class="footer-title">Quick Links</div>
-                <ul class="footer-links">
-                    <li><a href="#top"><i class="fas fa-chevron-right"></i> Home</a></li>
-                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
-                    <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                    <li><a href="#pricing"><i class="fas fa-chevron-right"></i> Pricing</a></li>
-                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
-                </ul>
-            </div>
-            <!-- Services -->
-            <div class="col-6 col-lg-2">
-                <div class="footer-title">Services</div>
-                <ul class="footer-links">
-                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Printing</a></li>
-                    <li><a href="#services"><i class="fas fa-chevron-right"></i> CIPC Reg</a></li>
-                    <li><a href="#services"><i class="fas fa-chevron-right"></i> SARS Returns</a></li>
-                    <li><a href="#services"><i class="fas fa-chevron-right"></i> CV Design</a></li>
-                    <li><a href="#services"><i class="fas fa-chevron-right"></i> Poster Design</a></li>
-                    <li><a href="#services"><i class="fas fa-chevron-right"></i> UIF / PSIRA</a></li>
-                </ul>
-            </div>
-            <!-- Newsletter -->
-            <div class="col-lg-4">
-                <div class="footer-title">Stay Updated</div>
-                <p class="mb-3">Subscribe for tips on registration, tax deadlines, and special offers from e-KASI.</p>
-                <div class="newsletter-form">
-                    <input type="email" placeholder="Your email address">
-                    <button type="button">Subscribe</button>
-                </div>
-                <div class="mt-4">
-                    <p style="font-size:.82rem; color:rgba(255,255,255,.4)">
-                        <i class="fas fa-map-marker-alt me-2" style="color:var(--primary)"></i>
-                        47 Block E, Centreville Medical Centre, Letlhabile, 0264
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
-            <p>© 2025 e-KASI Internet Cafe. Proudly serving Lethlabile. <span style="color:var(--primary)">♥</span></p>
-            <p>
-                <a href="#">Privacy Policy</a>
-                <span style="margin:0 8px; color:rgba(255,255,255,.2)">|</span>
-                <a href="#">Terms of Use</a>
-            </p>
-        </div>
-    </div>
-</footer>
-
-<!-- ================================================================
-     SCRIPTS
-================================================================ -->
-<!-- jQuery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<!-- Bootstrap 5 JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-<!-- Owl Carousel -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-<!-- WOW.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
-
-<script>
-$(function() {
-
-    // ── Spinner ──────────────────────────────────────────────
-    setTimeout(function() {
-        $('#spinner').addClass('hide');
-    }, 700);
-
-    // ── WOW.js ───────────────────────────────────────────────
-    new WOW({ offset: 60, mobile: false }).init();
-
-    // ── Sticky Navbar ────────────────────────────────────────
-    $(window).on('scroll', function() {
-        if ($(this).scrollTop() > 80) {
-            $('#mainNav').addClass('scrolled');
-            $('#backTop').addClass('show');
-        } else {
-            $('#mainNav').removeClass('scrolled');
-            $('#backTop').removeClass('show');
-        }
-    });
-
-    // ── Smooth scroll for anchor links ───────────────────────
-    $('a[href^="#"]').on('click', function(e) {
-        var target = $(this.hash);
-        if (target.length) {
-            e.preventDefault();
-            var offset = target.offset().top - 76;
-            $('html, body').animate({ scrollTop: offset }, 600, 'swing');
-            // close mobile menu
-            $('.navbar-collapse').collapse('hide');
-        }
-    });
-
-    // ── Counter Animation ─────────────────────────────────────
-    function animateCounter(el) {
-        var target = parseInt($(el).data('count'));
-        var duration = 1800;
-        var step = target / (duration / 16);
-        var current = 0;
-        var timer = setInterval(function() {
-            current += step;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
-            $(el).text(Math.floor(current).toLocaleString());
-        }, 16);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathibe Geomatics & Consulting | Land Surveying, LiDAR & GPR – Gauteng, SA</title>
+  <meta name="description" content="SAGC-registered geomatics firm offering land surveying, 3D laser scanning, drone LiDAR, GPR underground detection, mining surveys and draughting across Gauteng and South Africa.">
+  <meta name="keywords" content="land surveying Gauteng, geomatics South Africa, LiDAR drone survey, GPR underground detection, topographical survey, mining survey, 3D laser scanning">
+  <meta property="og:title" content="Mathibe Geomatics & Consulting">
+  <meta property="og:description" content="Precision land surveying and geomatics services across South Africa.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/images/mathibe-logo.jpeg" type="image/jpeg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* ── INDEX-ONLY: Transparent navbar that merges with hero ── */
+
+    /* Remove the top-bar entirely on the homepage so navbar sits flush at top of hero */
+    .index-page .top-bar {
+      display: none;
     }
 
-    var countersStarted = false;
-    $(window).on('scroll', function() {
-        if (!countersStarted) {
-            var statsTop = $('.stats-bar').offset().top;
-            if ($(window).scrollTop() + $(window).height() > statsTop + 50) {
-                countersStarted = true;
-                $('.counter').each(function() { animateCounter(this); });
-            }
+    /* Navbar: transparent by default, positioned over hero */
+    .index-page .navbar-index {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    /* Scrolled state – matches the dark card aesthetic */
+    .index-page .navbar-index.scrolled {
+      background: rgba(10,10,10,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom-color: var(--border);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.6);
+    }
+
+    .index-page .navbar-index.scrolled-gold {
+      border-bottom-color: var(--border-gold);
+    }
+
+    /* Hero must start from the very top – no offset */
+    .index-page .hero-carousel {
+      height: 100vh;
+      min-height: 600px;
+      margin-top: 0;
+    }
+
+    /* Nav links stay white/readable over hero image */
+    .index-page .navbar-index .nav-link {
+      color: rgba(255,255,255,0.85) !important;
+    }
+    .index-page .navbar-index .nav-link:hover,
+    .index-page .navbar-index .nav-link.active {
+      color: var(--gold) !important;
+      background: rgba(196,154,108,0.12);
+    }
+
+    /* Hamburger lines white over hero */
+    .index-page .navbar-index .hamburger span {
+      background: #ffffff;
+    }
+
+    /* Mobile menu: always dark so text is readable */
+    .index-page .mobile-menu {
+      background: rgba(10,10,10,0.98);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    /* Hero content pushed down to account for fixed navbar height (~72px) */
+    .index-page .hero-content {
+      padding-top: 72px;
+    }
+
+    /* Carousel controls: nudge up from bottom on all screens */
+    .index-page .carousel-controls {
+      bottom: 32px;
+    }
+
+    /* ── Responsiveness additions for index ── */
+
+    /* Trust bar: wrap gracefully on small screens */
+    @media (max-width: 768px) {
+      .index-page .trust-bar-inner {
+        flex-wrap: wrap;
+      }
+      .index-page .trust-item {
+        flex: 1 1 50%;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .index-page .trust-item:last-child {
+        border-bottom: none;
+      }
+      .index-page .hero-content {
+        padding: 72px 5% 0;
+      }
+      .index-page .carousel-controls {
+        bottom: 16px;
+        right: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .index-page .trust-item {
+        flex: 1 1 100%;
+      }
+      .index-page .hero-carousel {
+        min-height: 100svh;
+      }
+      /* Stack hero actions vertically on very small screens */
+      .index-page .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .index-page .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    /* Tablet: trust bar 3-col */
+    @media (min-width: 481px) and (max-width: 991px) {
+      .index-page .trust-item {
+        flex: 1 1 33.333%;
+      }
+    }
+
+    /* Portfolio grid responsive */
+    @media (max-width: 767px) {
+      .index-page .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+      .index-page .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 991px) {
+      .index-page .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .index-page .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Stats responsive */
+    @media (max-width: 599px) {
+      .index-page .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+    }
+
+    /* Why grid: single col on mobile */
+    @media (max-width: 767px) {
+      .index-page .why-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Contact grid: single col on tablet/mobile */
+    @media (max-width: 991px) {
+      .index-page .contact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Services grid: single col on mobile */
+    @media (max-width: 599px) {
+      .index-page .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Footer grid */
+    @media (max-width: 767px) {
+      .index-page .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (min-width: 768px) and (max-width: 1199px) {
+      .index-page .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* Trust full badges wrap on mobile */
+    @media (max-width: 599px) {
+      .index-page .trust-full-inner {
+        gap: 10px;
+      }
+      .index-page .badge-pill {
+        font-size: 0.7rem;
+        padding: 8px 14px;
+      }
+    }
+    /* Testimonial avatars: ensure local images crop properly in circle */
+    .index-page .testimonial-avatar {
+      object-fit: cover;
+      object-position: center top;
+    }
+  </style>
+
+  <!-- JSON-LD: LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Mathibe Geomatics and Consulting",
+    "url": "https://www.mathibegeomatics.co.za",
+    "logo": "https://www.mathibegeomatics.co.za/assets/images/mathibe-logo.jpeg",
+    "telephone": "+27817734236",
+    "email": "kagiso@mathibegeomatics.co.za",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "4 Thepe Street, Ga-Rankuwa View",
+      "addressLocality": "Pretoria",
+      "addressRegion": "Gauteng",
+      "addressCountry": "ZA"
+    },
+    "openingHours": "Mo-Fr 07:30-17:00",
+    "description": "SAGC-registered geomatics and land surveying firm serving Gauteng and nationwide.",
+    "areaServed": ["Gauteng", "Mpumalanga", "Limpopo", "North West", "Free State"]
+  }
+  </script>
+</head>
+<body class="index-page">
+
+  <!-- ── TOP BAR ──────────────────────────────────────────────── -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-inner">
+        <div class="top-bar-contact">
+          <a href="tel:+27817734236"><i class="fa fa-phone"></i> +27 81 773 4326</a>
+          <a href="mailto:kagiso@mathibegeomatics.co.za"><i class="fa fa-envelope"></i> kagiso@mathibegeomatics.co.za</a>
+          <a href="#"><i class="fa fa-clock"></i> Mon–Fri 07:30–17:00</a>
+        </div>
+        <div class="top-bar-badges">
+          <span class="top-badge">SAGC Registered</span>
+          <span class="top-badge">B-BBEE Level 1</span>
+          <span class="top-badge">Advanced Technology</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── NAVBAR ────────────────────────────────────────────────── -->
+  <nav class="navbar-index" id="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="navbar-inner">
+      <a href="index.html" class="navbar-brand" aria-label="Mathibe Geomatics Home">
+        <img src="assets/images/mathibe-logo.jpeg" alt="Mathibe Geomatics and Consulting">
+      </a>
+
+      <div class="nav-menu" id="nav-menu">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+
+        <div class="nav-item-dropdown">
+          <a href="#" class="nav-link" aria-haspopup="true">Services <i class="fa fa-chevron-down" style="font-size:0.6rem;margin-left:2px"></i></a>
+          <div class="dropdown-menu-custom">
+            <a href="services/3d-laser-scanning.html" class="dropdown-link"><i class="fa fa-cube"></i> 3D Laser Scanning</a>
+            <a href="services/gpr-underground-detection.html" class="dropdown-link"><i class="fa fa-satellite-dish"></i> GPR Underground Detection</a>
+            <a href="services/drone-lidar-surveys.html" class="dropdown-link"><i class="fa fa-drone-alt fa-solid"></i><i class="fa fa-circle-nodes"></i> Drone & LiDAR Surveys</a>
+            <a href="services/topographical-surveys.html" class="dropdown-link"><i class="fa fa-mountain"></i> Topographical Surveys</a>
+            <a href="services/mining-surveys.html" class="dropdown-link"><i class="fa fa-helmet-safety"></i> Mining Surveys</a>
+            <a href="services/engineering-surveys.html" class="dropdown-link"><i class="fa fa-ruler-combined"></i> Engineering Surveys</a>
+            <a href="services/draughting.html" class="dropdown-link"><i class="fa fa-pen-ruler"></i> Draughting</a>
+          </div>
+        </div>
+
+        <a href="portfolio.html" class="nav-link">Portfolio</a>
+        <a href="testimonials.html" class="nav-link">Testimonials</a>
+        <a href="quote.html" class="nav-link">Quote</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </div>
+
+      <a href="quote.html" class="btn btn-gold nav-cta">Get a Quote</a>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About</a>
+      <a href="#" class="mobile-nav-link mobile-dropdown-toggle">Services <i class="fa fa-chevron-down toggle-icon" style="font-size:0.7rem;float:right"></i></a>
+      <div class="mobile-submenu">
+        <a href="services/3d-laser-scanning.html">3D Laser Scanning</a>
+        <a href="services/gpr-underground-detection.html">GPR Underground Detection</a>
+        <a href="services/drone-lidar-surveys.html">Drone & LiDAR Surveys</a>
+        <a href="services/topographical-surveys.html">Topographical Surveys</a>
+        <a href="services/mining-surveys.html">Mining Surveys</a>
+        <a href="services/engineering-surveys.html">Engineering Surveys</a>
+        <a href="services/draughting.html">Draughting</a>
+      </div>
+      <a href="portfolio.html" class="mobile-nav-link">Portfolio</a>
+      <a href="testimonials.html" class="mobile-nav-link">Testimonials</a>
+      <a href="quote.html" class="mobile-nav-link">Get a Quote</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+  </nav><!-- ──────────────────────────────────────────── -->
+  <section class="hero-carousel" aria-label="Hero slider">
+
+    <!-- Slide 1 -->
+    <div class="carousel-slide active" id="slide-0">
+      <img class="hero-bg" src="assets/images/Commercial-Development-Site.jpeg" alt="Land surveyor with GPS equipment in the field" loading="eager">
+      <div class="hero-overlay"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow"><i class="fa fa-crosshairs"></i> &nbsp; SAGC Registered · B-BBEE Level 1</p>
+        <h1 class="hero-title">Precision Land Surveying &<br><span>Geomatics</span></h1>
+        <p class="hero-desc">Accurate data. Defensible results. Surveys that protect your land, your project, and your investment.</p>
+        <div class="hero-actions">
+          <a href="quote.html" class="btn btn-gold"><i class="fa fa-file-invoice"></i> Request a Quote</a>
+          <a href="services/topographical-surveys.html" class="btn btn-outline">Our Services</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-slide" id="slide-1">
+      <img class="hero-bg" src="assets/images/carousel-2.jpg" alt="Drone mapping a construction site" loading="lazy">
+      <div class="hero-overlay"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow"><i class="fa fa-satellite"></i> &nbsp; Drone · LiDAR · 3D Scanning</p>
+        <h1 class="hero-title">Advanced <span>Drone & LiDAR. </span>Technology at Your Service</h1>
+        <p class="hero-desc">Sub-centimetre accuracy from the sky. DJI Matrice 300 + Leica LiDAR for rapid, large-area mapping.</p>
+        <div class="hero-actions">
+          <a href="services/drone-lidar-surveys.html" class="btn btn-gold"><i class="fa fa-arrow-right"></i> Explore Drone Surveys</a>
+          <a href="portfolio.html" class="btn btn-outline">View Projects</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-slide" id="slide-2">
+      <img class="hero-bg" src="assets/images/carousel-7.jpg" alt="Engineer at a mining surveying site" loading="lazy">
+      <div class="hero-overlay"></div>
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow"><i class="fa fa-shield-halved"></i> &nbsp; Trusted by Mining, Construction & Property Leaders</p>
+        <h1 class="hero-title">Your Project Deserves<br><span>Zero Surprises</span></h1>
+        <p class="hero-desc">Fixed-price quotes in 24 hours. OHS Compliant. Advanced Technology. Nationwide reach.</p>
+        <div class="hero-actions">
+          <a href="portfolio.html" class="btn btn-gold"><i class="fa fa-images"></i> View Our Projects</a>
+          <a href="contact.html" class="btn btn-outline">Contact Us</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carousel Controls -->
+    <div class="carousel-controls">
+      <button class="carousel-arrow" id="carousel-prev" aria-label="Previous slide"><i class="fa fa-chevron-left"></i></button>
+      <div class="carousel-indicators-custom">
+        <button class="carousel-dot active" data-slide="0" aria-label="Slide 1"></button>
+        <button class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
+        <button class="carousel-dot" data-slide="2" aria-label="Slide 3"></button>
+      </div>
+      <button class="carousel-arrow" id="carousel-next" aria-label="Next slide"><i class="fa fa-chevron-right"></i></button>
+    </div>
+  </section>
+
+  <!-- ── TRUST BAR ──────────────────────────────────────────────── -->
+  <div class="trust-bar" role="complementary" aria-label="Accreditations">
+    <div class="trust-bar-inner">
+      <div class="trust-item">
+        <div class="trust-icon"><i class="fa fa-certificate"></i></div>
+        <div class="trust-text"><strong>SAGC Registered</strong><span>Professional Survey Council</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><i class="fa fa-handshake"></i></div>
+        <div class="trust-text"><strong>B-BBEE Level 1</strong><span>100% Black-Owned</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><i class="fa fa-hard-hat"></i></div>
+        <div class="trust-text"><strong>Advanced Technology</strong><span>GNSS, UAV & B3D Scanning</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><i class="fa fa-shield-alt"></i></div>
+        <div class="trust-text"><strong>OHS</strong><span>Compliant</span></div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><i class="fa fa-database"></i></div>
+        <div class="trust-text"><strong>CSD Registered</strong><span>Central Supplier Database</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SERVICES ───────────────────────────────────────────────── -->
+  <section class="services-section" aria-labelledby="services-heading">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-tag">What We Do</span>
+        <h2 class="section-title" id="services-heading">Seven Specialised <span>Geomatics Services</span></h2>
+        <p class="section-subtitle">From underground utility detection to millimetre-accurate as-built surveys – we deliver data you can stake your project on.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal reveal-delay-1">
+          <div class="service-icon"><i class="fa fa-cube"></i></div>
+          <h3>3D Laser Scanning</h3>
+          <p>High-density point clouds of buildings, structures, and industrial assets. Ideal for as-built documentation, heritage recording, and clash detection in BIM workflows.</p>
+          <span class="service-spec">Accuracy: ±2mm · Range: 300m</span>
+          <br>
+          <a href="services/3d-laser-scanning.html" class="service-link">Learn More <i class="fa fa-arrow-right"></i></a>
+        </article>
+
+        <article class="service-card reveal reveal-delay-2">
+          <div class="service-icon"><i class="fa fa-satellite-dish"></i></div>
+          <h3>GPR Underground Detection</h3>
+          <p>Non-destructive ground-penetrating radar surveys to locate buried utilities, voids, and sub-surface anomalies before excavation – preventing costly damage and delays.</p>
+          <span class="service-spec">Depth: up to 5m · Resolution: 50MHz–1GHz</span>
+          <br>
+          <a href="services/gpr-underground-detection.html" class="service-link">Learn More <i class="fa fa-arrow-right"></i></a>
+        </article>
+
+        <article class="service-card reveal reveal-delay-3">
+          <div class="service-icon"><i class="fa fa-helicopter"></i></div>
+          <h3>Drone & LiDAR Surveys</h3>
+          <p>Rapid large-area mapping using DJI Matrice 300 with integrated LiDAR. Cover hundreds of hectares in a single flight with sub-centimetre ground accuracy.</p>
+          <span class="service-spec">GSD: ≤2cm · Coverage: 200ha/flight</span>
+          <br>
+          <a href="services/drone-lidar-surveys.html" class="service-link">Learn More <i class="fa fa-arrow-right"></i></a>
+        </article>
+
+        <article class="service-card reveal reveal-delay-4">
+          <div class="service-icon"><i class="fa fa-mountain"></i></div>
+          <h3>Topographical Surveys</h3>
+          <p>Detailed terrain models capturing contours, drainage features, buildings, and services. The foundation for every successful development application and engineering design.</p>
+          <span class="service-spec">Accuracy: ±20mm H | ±30mm V</span>
+          <br>
+          <a href="services/topographical-surveys.html" class="service-link">Learn More <i class="fa fa-arrow-right"></i></a>
+        </article>
+
+        <article class="service-card reveal reveal-delay-5">
+          <div class="service-icon"><i class="fa fa-helmet-safety"></i></div>
+          <h3>Mining Surveys</h3>
+          <p>Volumetric calculations, blast monitoring, deformation surveys, and mine-plan updates. We work safely in active underground and open-cast environments.</p>
+          <span class="service-spec">Volume Accuracy: ±0.5% · MHSA Compliant</span>
+          <br>
+          <a href="services/mining-surveys.html" class="service-link">Learn More <i class="fa fa-arrow-right"></i></a>
+        </article>
+
+        <article class="service-card reveal reveal-delay-1">
+          <div class="service-icon"><i class="fa fa-ruler-combined"></i></div>
+          <h3>Engineering Surveys</h3>
+          <p>Control networks, setting-out, as-built surveys, and deformation monitoring for infrastructure projects. Tight tolerances, fast turnaround.</p>
+          <span class="service-spec">Setting-out Accuracy: ±5mm</span>
+          <br>
+          <a href="services/engineering-surveys.html" class="service-link">Learn More <i class="fa fa-arrow-right"></i></a>
+        </article>
+
+        <article class="service-card reveal reveal-delay-2">
+          <div class="service-icon"><i class="fa fa-pen-ruler"></i></div>
+          <h3>Draughting & CAD Services</h3>
+          <p>Professional AutoCAD and Civil 3D draughting of survey plans, sectional title diagrams, general plans, and municipal submission drawings.</p>
+          <span class="service-spec">Deliverables: DWG · PDF · SHP · LandXML</span>
+          <br>
+          <a href="services/draughting.html" class="service-link">Learn More <i class="fa fa-arrow-right"></i></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY CHOOSE US ──────────────────────────────────────────── -->
+  <section class="why-section" aria-labelledby="why-heading">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-tag">Why Mathibe Geomatics</span>
+        <h2 class="section-title" id="why-heading">We Protect What Matters <span>Most to You</span></h2>
+        <p class="section-subtitle">Every survey we complete is a legal defence, a cost-saving measure, and a decision-enabling tool.</p>
+      </div>
+
+      <div class="why-grid">
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-number">01</div>
+          <div class="why-content">
+            <h3>Prevent Costly Boundary Disputes</h3>
+            <p>A single incorrect boundary line can cost millions in legal fees and demolition. Our SAGC-registered surveyors produce court-admissible records that stand up to scrutiny – protecting your land title for decades.</p>
+          </div>
+        </div>
+
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-number">02</div>
+          <div class="why-content">
+            <h3>Keep Your Project on Schedule</h3>
+            <p>Delayed survey data = delayed approvals = delayed cashflow. We turn around topographic surveys in 3–5 business days and deliver digital data the same day as field completion.</p>
+          </div>
+        </div>
+
+        <div class="why-card reveal reveal-delay-3">
+          <div class="why-number">03</div>
+          <div class="why-content">
+            <h3>Unlock Your Land's True Value</h3>
+            <p>Accurate volumetric data and precise terrain models help you extract maximum value from every hectare – whether you're developing, mining, or selling. Our clients average 8% better project yields with our data.</p>
+          </div>
+        </div>
+
+        <div class="why-card reveal reveal-delay-4">
+          <div class="why-number">04</div>
+          <div class="why-content">
+            <h3>Fixed-Price Quote in 24 Hours</h3>
+            <p>No vague estimates. No hidden costs. You'll receive a clear scope and fixed price within one business day of enquiry – giving you budget certainty from day one.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STATS ──────────────────────────────────────────────────── -->
+  <section class="stats-section" aria-label="Company statistics">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h2><span class="counter-num" data-target="50" data-suffix="+">0+</span></h2>
+          <p>Projects Completed</p>
+        </div>
+        <div class="stat-item">
+          <h2><span class="counter-num" data-target="5" data-suffix="">0</span> yrs</h2>
+          <p>Industry Experience</p>
+        </div>
+        <div class="stat-item">
+          <h2><span class="counter-num" data-target="98" data-suffix="%">0%</span></h2>
+          <p>On-time Delivery Rate</p>
+        </div>
+        <div class="stat-item">
+          <h2>R<span class="counter-num" data-target="5" data-suffix="M">0M</span></h2>
+          <p>PI Insurance Cover</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RECENT PROJECTS ────────────────────────────────────────── -->
+  <section class="portfolio-section" aria-labelledby="portfolio-heading">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-tag">Recent Work</span>
+        <h2 class="section-title" id="portfolio-heading">Projects That <span>Speak for Themselves</span></h2>
+        <p class="section-subtitle">A selection of recent surveys across Gauteng and beyond.</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="portfolio-card reveal reveal-delay-1">
+          <div class="portfolio-img">
+            <img src="assets/images/carousel-4.jpg" alt="railway establishment survey – Midrand" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-tag">Engineering</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Railway Establishment</h3>
+            <p class="portfolio-location"><i class="fa fa-map-marker-alt"></i> Saldanha, Western Cape</p>
+            <span class="portfolio-outcome">32ha surveyed · 3km rail surveyed</span>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal reveal-delay-2">
+          <div class="portfolio-img">
+            <img src="assets/images/carousel-5.jpg" alt="Open-cast mine volumetrics – Limpopo" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-tag">Engineering</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Setting Out</h3>
+            <p class="portfolio-location"><i class="fa fa-map-marker-alt"></i> Saldanha, Western Cape</p>
+            <span class="portfolio-outcome">Beach Front Building surveyed</span>
+          </div>
+        </article>
+
+        <article class="portfolio-card reveal reveal-delay-3">
+          <div class="portfolio-img">
+            <img src="assets/images/carousel-6.jpg" alt="GPR utility detection – Tshwane CBD" loading="lazy">
+            <div class="portfolio-overlay"></div>
+            <span class="portfolio-tag">Geodesy</span>
+          </div>
+          <div class="portfolio-info">
+            <h3>Control Network</h3>
+            <p class="portfolio-location"><i class="fa fa-map-marker-alt"></i> Secunda, Mpumalanga</p>
+            <span class="portfolio-outcome">100 ground control points</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center mt-48 reveal">
+        <a href="portfolio.html" class="btn btn-outline"><i class="fa fa-images"></i> View All Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ───────────────────────────────────────────── -->
+  <section class="testimonials-section" aria-labelledby="testimonials-heading">
+    <div class="container">
+      <div class="text-center reveal">
+        <span class="section-tag">Client Voices</span>
+        <h2 class="section-title" id="testimonials-heading">What Our Clients <span>Say</span></h2>
+        <p class="section-subtitle">Results that go beyond the survey report.</p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <span class="quote-mark">"</span>
+          <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+          <blockquote>Mathibe Geomatics completed our topographical survey three days ahead of schedule and the data was directly importable into our Civil 3D model. No re-work, no surprises. Their fixed-price quote was honoured to the cent.</blockquote>
+          <div class="testimonial-footer">
+            <img class="testimonial-avatar" src="assets/images/carousel-7.jpg" alt="Sipho Dlamini" loading="lazy">
+            <div class="testimonial-meta">
+              <strong>Sipho Dlamini</strong>
+              <span>Project Manager, Infrastructure Development Firm – Tshwane</span>
+              <p class="testimonial-result"><i class="fa fa-check-circle"></i> Project delivered 3 days early</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-2">
+          <span class="quote-mark">"</span>
+          <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+          <blockquote>We hired Mathibe for GPR detection before a major excavation in Pretoria. They identified 17 buried services the municipality had no record of. That survey alone saved us from what could have been R2.3 million in damage claims.</blockquote>
+          <div class="testimonial-footer">
+            <img class="testimonial-avatar" src="assets/images/carousel-9.jpg" alt="Nomvula Khumalo" loading="lazy">
+            <div class="testimonial-meta">
+              <strong>Nomvula Khumalo</strong>
+              <span>Site Engineer, Civil Contractors – Pretoria East</span>
+              <p class="testimonial-result"><i class="fa fa-check-circle"></i> Saved est. R2.3M in damage claims</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-3">
+          <span class="quote-mark">"</span>
+          <div class="stars"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
+          <blockquote>As a mining company, we need stockpile volumes that our auditors trust. Mathibe's drone LiDAR surveys give us ±0.3% accuracy – far better than our previous manual methods – and the reports arrive the next morning after fieldwork.</blockquote>
+          <div class="testimonial-footer">
+            <img class="testimonial-avatar" src="assets/images/carousel-10.jpg" alt="David Motsepe" loading="lazy">
+            <div class="testimonial-meta">
+              <strong>David Motsepe</strong>
+              <span>Mines Manager, Open-Cast Mining Operation – Limpopo</span>
+              <p class="testimonial-result"><i class="fa fa-check-circle"></i> ±0.3% volumetric accuracy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-48 reveal">
+        <a href="testimonials.html" class="btn btn-outline"><i class="fa fa-comment-dots"></i> Read More Testimonials</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRUST BADGES REPEAT ────────────────────────────────────── -->
+  <div class="trust-full" role="complementary" aria-label="Certifications and accreditations">
+    <div class="container">
+      <div class="trust-full-inner">
+        <div class="badge-pill"><i class="fa fa-certificate"></i> SAGC Registered</div>
+        <div class="badge-pill"><i class="fa fa-handshake"></i> B-BBEE Level 1</div>
+        <div class="badge-pill"><i class="fa fa-hard-hat"></i> Advanced Technology</div>
+        <div class="badge-pill"><i class="fa fa-shield-alt"></i> OHS Compliant</div>
+        <div class="badge-pill"><i class="fa fa-database"></i> CSD Registered</div>
+        <!-- <div class="badge-pill"><i class="fa fa-lock"></i> POPIA Compliant</div> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CONTACT & QUOTE CTA ────────────────────────────────────── -->
+  <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div class="contact-info reveal">
+          <span class="section-tag">Get in Touch</span>
+          <h2 class="section-title" id="contact-heading">Ready to Start?<br><span>Let's Talk.</span></h2>
+          <p>Send us your project details and we'll respond with a scope and fixed-price quote within one business day. No obligation, no pressure.</p>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fa fa-phone"></i></div>
+            <div class="contact-detail-text">
+              <strong>Call Us</strong>
+              <a href="tel:+27817734236">+27 81 773 4326</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fa fa-envelope"></i></div>
+            <div class="contact-detail-text">
+              <strong>Email Us</strong>
+              <a href="mailto:kagiso@mathibegeomatics.co.za">kagiso@mathibegeomatics.co.za</a>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fa fa-map-marker-alt"></i></div>
+            <div class="contact-detail-text">
+              <strong>Office Address</strong>
+              <p>4 Thepe Street, Ga-Rankuwa View, Pretoria, 0208</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fa fa-clock"></i></div>
+            <div class="contact-detail-text">
+              <strong>Business Hours</strong>
+              <p>Monday – Friday: 07:30 – 17:00</p>
+            </div>
+          </div>
+
+          <div class="contact-detail">
+            <div class="contact-detail-icon"><i class="fab fa-whatsapp"></i></div>
+            <div class="contact-detail-text">
+              <strong>WhatsApp</strong>
+              <a href="https://wa.me/27817734236?text=Hello%20Mathibe%20Geomatics%2C%20I%20need%20a%20quote%20for%20a%20survey." target="_blank" rel="noopener">Message us on WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Quote Form -->
+        <div class="reveal reveal-delay-2">
+          <div class="contact-form">
+            <h3>Quick Enquiry</h3>
+            <p class="form-note">For a detailed quote, visit our <a href="quote.html">full quote page</a>.</p>
+
+            <form action="https://formspree.io/f/your-endpoint" method="POST" data-form>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="contact-name">Full Name *</label>
+                  <input type="text" id="contact-name" name="name" class="form-control" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contact-email">Email Address *</label>
+                  <input type="email" id="contact-email" name="email" class="form-control" placeholder="you@example.com" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-service">Service Required *</label>
+                <select id="contact-service" name="service" class="form-control" required>
+                  <option value="" disabled selected>Select a service…</option>
+                  <option>3D Laser Scanning</option>
+                  <option>GPR Underground Detection</option>
+                  <option>Drone & LiDAR Surveys</option>
+                  <option>Topographical Surveys</option>
+                  <option>Mining Surveys</option>
+                  <option>Engineering Surveys</option>
+                  <option>Draughting</option>
+                  <option>Other / Not Sure</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="contact-message">Project Description</label>
+                <textarea id="contact-message" name="message" class="form-control" placeholder="Brief description of your project, location, and any deadlines…" rows="4"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-gold" style="width:100%"><i class="fa fa-paper-plane"></i> Send Enquiry</button>
+
+              <div class="form-success">
+                <i class="fa fa-check-circle"></i>
+                <strong>Message sent!</strong><br>We'll respond within one business day.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MAP ───────────────────────────────────────────────────── -->
+  <div class="map-section">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3592.5!2d27.993!3d-25.614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e955e0000000001%3A0x1!2sGa-Rankuwa%2C+Gauteng!5e0!3m2!1sen!2sza!4v1700000000000"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Mathibe Geomatics Office Location"
+      aria-label="Map showing office at Ga-Rankuwa, Gauteng">
+    </iframe>
+    <div class="map-overlay-badge">
+      <i class="fa fa-map-marker-alt text-gold"></i>&nbsp; 1069 Ga-Rankuwa View · Serving Nationwide
+    </div>
+  </div>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div class="footer-brand">
+          <img src="assets/images/mathibe-logo.jpeg" alt="Mathibe Geomatics and Consulting">
+          <p>SAGC-registered geomatics and land surveying firm. Delivering precision data across Gauteng, Mpumalanga, Limpopo, and beyond since 2012.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/27817734236" class="social-link" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <!-- Services -->
+        <div class="footer-col">
+          <h4>Services</h4>
+          <div class="footer-links">
+            <a href="services/3d-laser-scanning.html">3D Laser Scanning</a>
+            <a href="services/gpr-underground-detection.html">GPR Underground Detection</a>
+            <a href="services/drone-lidar-surveys.html">Drone & LiDAR</a>
+            <a href="services/topographical-surveys.html">Topographical Surveys</a>
+            <a href="services/mining-surveys.html">Mining Surveys</a>
+            <a href="services/engineering-surveys.html">Engineering Surveys</a>
+            <a href="services/draughting.html">Draughting</a>
+          </div>
+        </div>
+
+        <!-- Company -->
+        <div class="footer-col">
+          <h4>Company</h4>
+          <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="testimonials.html">Testimonials</a>
+            <a href="quote.html">Get a Quote</a>
+            <a href="contact.html">Contact</a>
+            <a href="blog/why-lidar-matters.html">Blog</a>
+          </div>
+        </div>
+
+        <!-- Service Areas -->
+        <div class="footer-col">
+          <h4>Service Areas</h4>
+          <div class="footer-areas">
+            <span class="area-badge">Gauteng</span>
+            <span class="area-badge">Mpumalanga</span>
+            <span class="area-badge">Limpopo</span>
+            <span class="area-badge">North West</span>
+            <span class="area-badge">Free State</span>
+            <span class="area-badge">Tshwane</span>
+            <span class="area-badge">Johannesburg</span>
+            <span class="area-badge">Midrand</span>
+            <span class="area-badge">Centurion</span>
+            <span class="area-badge">Pretoria</span>
+            <span class="area-badge">Polokwane</span>
+            <span class="area-badge">Rustenburg</span>
+            <span class="area-badge">Witbank</span>
+          </div>
+          <div class="footer-trust" style="margin-top:20px">
+            <span class="top-badge">SAGC</span>
+            <span class="top-badge">B-BBEE L1</span>
+            <span class="top-badge">Advanced Technology</span>
+            <span class="top-badge">CSD</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Mathibe Geomatics and Consulting. All rights reserved. | POPIA: We process personal data lawfully and transparently.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">POPIA Notice</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── FLOATING BUTTONS ───────────────────────────────────────── -->
+  <a href="https://wa.me/27817734236?text=Hello%20Mathibe%20Geomatics%2C%20I%20need%20a%20quote%20for%20a%20survey%20in%20Gauteng." class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <button class="back-to-top" aria-label="Back to top"><i class="fa fa-chevron-up"></i></button>
+
+  <!-- ── POPIA BANNER ───────────────────────────────────────────── -->
+  <!-- <div class="popia-banner" id="popia-banner" role="dialog" aria-label="Cookie and POPIA consent">
+    <p>We use cookies to improve your experience. By continuing to use this site, you agree to our <a href="#">Privacy Policy</a> and our obligations under POPIA (Protection of Personal Information Act, No. 4 of 2013).</p>
+    <div class="popia-actions">
+      <button class="btn btn-ghost" id="popia-decline" style="padding:8px 16px;font-size:0.78rem">Decline</button>
+      <button class="btn btn-gold" id="popia-accept" style="padding:8px 16px;font-size:0.78rem">Accept</button>
+    </div>
+  </div> -->
+
+  <script src="js/main.js"></script>
+  <script>
+    // Index-page specific: transparent navbar → solid on scroll past 50px
+    (function() {
+      var nav = document.getElementById('main-nav');
+      if (!nav) return;
+      function updateNav() {
+        var y = window.scrollY || window.pageYOffset;
+        if (y > 50) {
+          nav.classList.add('scrolled');
+          if (y > 120) nav.classList.add('scrolled-gold');
+          else nav.classList.remove('scrolled-gold');
+        } else {
+          nav.classList.remove('scrolled');
+          nav.classList.remove('scrolled-gold');
         }
-    });
-
-    // ── Testimonials Carousel ─────────────────────────────────
-    $('.testimonials-carousel').owlCarousel({
-        loop: true,
-        margin: 24,
-        nav: false,
-        dots: true,
-        autoplay: true,
-        autoplayTimeout: 5000,
-        autoplayHoverPause: true,
-        responsive: {
-            0:   { items: 1 },
-            576: { items: 1 },
-            768: { items: 2 },
-            1024:{ items: 3 }
-        }
-    });
-
-    // ── Contact Form ──────────────────────────────────────────
-    $('#contactForm').on('submit', function(e) {
-        e.preventDefault();
-        var name    = $('#cName').val().trim();
-        var email   = $('#cEmail').val().trim();
-        var phone   = $('#cPhone').val().trim();
-        var service = $('#cService').val();
-
-        // simple validation
-        if (!name || !email || !phone || !service) {
-            // highlight empty fields
-            [['#cName', name], ['#cEmail', email], ['#cPhone', phone], ['#cService', service]].forEach(function(pair) {
-                if (!pair[1]) {
-                    $(pair[0]).css('border-color', '#1B5FCC');
-                } else {
-                    $(pair[0]).css('border-color', '');
-                }
-            });
-            return;
-        }
-
-        // reset borders
-        $('#cName, #cEmail, #cPhone, #cService').css('border-color', '');
-
-        // show success
-        $(this).fadeOut(300, function() {
-            $('#formSuccess').fadeIn(400);
-        });
-    });
-
-    // clear error border on input
-    $('#cName, #cEmail, #cPhone, #cService, #cMessage').on('input change', function() {
-        $(this).css('border-color', '');
-    });
-
-    // ── Newsletter subscribe ──────────────────────────────────
-    $('.newsletter-form button').on('click', function() {
-        var input = $(this).siblings('input');
-        var val = input.val().trim();
-        if (val && val.includes('@')) {
-            input.val('');
-            $(this).text('✓ Subscribed!').prop('disabled', true);
-        }
-    });
-
-    // ── Active nav highlight on scroll ───────────────────────
-    var sections = $('section[id], div[id="top"]');
-    $(window).on('scroll', function() {
-        var scrollPos = $(this).scrollTop() + 100;
-        sections.each(function() {
-            var id = $(this).attr('id');
-            var top = $(this).offset().top;
-            var bottom = top + $(this).outerHeight();
-            if (scrollPos >= top && scrollPos < bottom) {
-                $('.navbar-nav .nav-link').removeClass('active');
-                $('.navbar-nav .nav-link[href="#' + id + '"]').addClass('active');
-            }
-        });
-    });
-
-});
-</script>
-
+      }
+      window.addEventListener('scroll', updateNav, { passive: true });
+      updateNav();
+    })();
+  </script>
 </body>
 </html>
