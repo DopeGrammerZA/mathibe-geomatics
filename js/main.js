@@ -208,7 +208,7 @@
       } catch {
         btn.disabled = false;
         btn.innerHTML = originalText;
-        alert('Something went wrong. Please call us at +27 81 773 4326 or email info@mathibegeomatics.co.za');
+        alert('Something went wrong. Please call us at +27 81 773 4236 or email info@mathibegeomatics.co.za');
       }
     });
   });

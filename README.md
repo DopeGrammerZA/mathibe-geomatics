@@ -162,6 +162,6 @@ Simply upload all files maintaining the directory structure. Ensure the web serv
 ## 📞 Support
 
 For questions about this website, contact:
-- **Phone:** +27 81 773 4326
+- **Phone:** +27 81 773 4236
 - **Email:** kagiso@mathibegeomatics.co.za
 - **WhatsApp:** https://wa.me/27817734326
